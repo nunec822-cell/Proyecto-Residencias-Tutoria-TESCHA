@@ -1,0 +1,1445 @@
+/*=========================================================
+        DEPARTAMENTO DE PSICOLOGÍA
+        TESCHA
+=========================================================*/
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    font-family:'Poppins',sans-serif;
+    background:#f7f9fc;
+    color:#243247;
+    overflow-x:hidden;
+}
+
+img{
+    max-width:100%;
+    display:block;
+}
+
+a{
+    text-decoration:none;
+}
+
+
+
+/*=========================================================
+                    HERO
+=========================================================*/
+
+.hero{
+
+    width:min(1200px,92%);
+
+    margin:50px auto 80px;
+
+    min-height:520px;
+
+    display:grid;
+
+    grid-template-columns:1fr 1fr;
+
+    align-items:center;
+
+    gap:60px;
+
+}
+
+.hero-texto{
+
+    animation:entradaIzquierda .8s ease both;
+
+}
+
+.badge{
+
+    display:inline-flex;
+
+    align-items:center;
+
+    padding:9px 18px;
+
+    border-radius:30px;
+
+    background:#e8f7f4;
+
+    color:#168b7b;
+
+    font-size:14px;
+
+    font-weight:600;
+
+    margin-bottom:22px;
+
+}
+
+.hero h1{
+
+    font-size:clamp(38px,5vw,64px);
+
+    line-height:1.12;
+
+    font-weight:700;
+
+    color:#26364d;
+
+    margin-bottom:25px;
+
+}
+
+.hero p{
+
+    font-size:18px;
+
+    line-height:1.8;
+
+    color:#697586;
+
+    max-width:620px;
+
+    margin-bottom:28px;
+
+}
+
+.hero-boton{
+
+    display:inline-flex;
+
+    align-items:center;
+
+    gap:10px;
+
+    padding:13px 22px;
+
+    border-radius:14px;
+
+    background:#168b7b;
+
+    color:#fff;
+
+    font-weight:600;
+
+    transition:.3s;
+
+}
+
+.hero-boton:hover{
+
+    transform:translateY(-3px);
+
+    box-shadow:0 10px 25px rgba(22,139,123,.25);
+
+}
+
+
+
+/*=========================================================
+                    HERO IMAGEN
+=========================================================*/
+
+.hero-imagen{
+
+    position:relative;
+
+    min-height:440px;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    animation:entradaDerecha .9s ease both;
+
+}
+
+.hero-imagen img{
+
+    position:relative;
+
+    z-index:3;
+
+    width:90%;
+
+    max-width:500px;
+
+    border-radius:35px;
+
+    filter:drop-shadow(0 20px 35px rgba(0,0,0,.12));
+
+}
+
+.circulo{
+
+    position:absolute;
+
+    border-radius:50%;
+
+}
+
+.circulo1{
+
+    width:330px;
+    height:330px;
+
+    background:#dff4ef;
+
+    z-index:0;
+
+}
+
+.circulo2{
+
+    width:210px;
+    height:210px;
+
+    background:#fce5ef;
+
+    right:5%;
+    top:5%;
+
+    z-index:1;
+
+}
+
+.circulo3{
+
+    width:120px;
+    height:120px;
+
+    background:#fff0d9;
+
+    left:5%;
+    bottom:5%;
+
+    z-index:1;
+
+}
+
+
+
+/*=========================================================
+                ESPACIO SEGURO
+=========================================================*/
+
+.espacio-seguro{
+
+    width:min(1200px,92%);
+
+    margin:0 auto 90px;
+
+}
+
+.espacio-grid{
+
+    display:grid;
+
+    grid-template-columns:1fr 1fr;
+
+    gap:70px;
+
+    align-items:center;
+
+}
+
+.panel-imagen{
+
+    position:relative;
+
+    min-height:430px;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+}
+
+.panel-imagen img{
+
+    width:90%;
+
+    max-width:500px;
+
+    height:390px;
+
+    object-fit:cover;
+
+    border-radius:30px;
+
+    position:relative;
+
+    z-index:2;
+
+    box-shadow:0 20px 45px rgba(0,0,0,.10);
+
+}
+
+.panel-imagen .c1{
+
+    width:120px;
+    height:120px;
+
+    background:#dff4ef;
+
+    left:0;
+    top:20px;
+
+    z-index:0;
+
+}
+
+.panel-imagen .c2{
+
+    width:80px;
+    height:80px;
+
+    background:#fce5ef;
+
+    right:10px;
+    bottom:30px;
+
+    z-index:3;
+
+}
+
+.panel-imagen .c3{
+
+    width:45px;
+    height:45px;
+
+    background:#ffe8bc;
+
+    left:30px;
+    bottom:40px;
+
+    z-index:3;
+
+}
+
+.panel-texto{
+
+    animation:entradaDerecha .8s ease both;
+
+}
+
+.etiqueta{
+
+    color:#168b7b;
+
+    font-size:14px;
+
+    font-weight:700;
+
+    text-transform:uppercase;
+
+    letter-spacing:1px;
+
+}
+
+.panel-texto h2{
+
+    font-size:42px;
+
+    line-height:1.2;
+
+    color:#26364d;
+
+    margin:14px 0 25px;
+
+}
+
+.panel-texto p{
+
+    color:#687587;
+
+    line-height:1.8;
+
+    margin-bottom:17px;
+
+}
+
+.beneficios{
+
+    display:flex;
+
+    gap:15px;
+
+    margin-top:25px;
+
+    flex-wrap:wrap;
+
+}
+
+.beneficios div{
+
+    background:#fff;
+
+    padding:13px 17px;
+
+    border-radius:15px;
+
+    box-shadow:0 8px 25px rgba(0,0,0,.06);
+
+    display:flex;
+
+    gap:8px;
+
+    align-items:center;
+
+}
+
+.beneficios span{
+
+    font-weight:600;
+
+    color:#425269;
+
+}
+
+
+
+/*=========================================================
+                    AVISOS
+=========================================================*/
+
+.seccion-avisos{
+
+    width:min(1200px,92%);
+
+    margin:0 auto 90px;
+
+}
+
+
+
+/*=========================================================
+                ENCABEZADO AVISOS
+=========================================================*/
+
+.avisos-encabezado{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    gap:30px;
+
+    margin-bottom:35px;
+
+}
+
+.avisos-etiqueta{
+
+    display:inline-flex;
+
+    align-items:center;
+
+    gap:8px;
+
+    color:#168b7b;
+
+    font-size:14px;
+
+    font-weight:700;
+
+}
+
+.avisos-titulo h2{
+
+    font-size:40px;
+
+    color:#26364d;
+
+    margin:10px 0;
+
+}
+
+.avisos-titulo p{
+
+    color:#687587;
+
+    max-width:700px;
+
+    line-height:1.7;
+
+}
+
+.avisos-decoracion{
+
+    width:75px;
+
+    height:75px;
+
+    border-radius:22px;
+
+    background:#e5f5f1;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    color:#168b7b;
+
+    font-size:30px;
+
+    flex-shrink:0;
+
+}
+
+
+
+/*=========================================================
+            GRID DE AVISOS
+=========================================================*/
+
+.avisos-publicos{
+
+    display:grid;
+
+    grid-template-columns:repeat(3,minmax(0,1fr));
+
+    gap:25px;
+
+    align-items:stretch;
+
+}
+
+
+
+/*=========================================================
+                TARJETA AVISO
+=========================================================*/
+
+.aviso-publico-card{
+
+    background:#fff;
+
+    border-radius:24px;
+
+    overflow:hidden;
+
+    box-shadow:0 10px 35px rgba(0,0,0,.07);
+
+    display:flex;
+
+    flex-direction:column;
+
+    min-width:0;
+
+    transition:
+
+        transform .3s ease,
+
+        box-shadow .3s ease;
+
+    animation:aparecerAviso .7s ease both;
+
+}
+
+.aviso-publico-card:hover{
+
+    transform:translateY(-8px);
+
+    box-shadow:0 18px 45px rgba(0,0,0,.12);
+
+}
+
+
+
+/*=========================================================
+                IMAGEN AVISO
+=========================================================*/
+
+.aviso-publico-imagen{
+
+    position:relative;
+
+    height:210px;
+
+    background:#eaf5f3;
+
+    overflow:hidden;
+
+}
+
+.aviso-publico-imagen img{
+
+    width:100%;
+
+    height:100%;
+
+    object-fit:cover;
+
+    transition:transform .5s ease;
+
+}
+
+.aviso-publico-card:hover
+.aviso-publico-imagen img{
+
+    transform:scale(1.05);
+
+}
+
+
+
+/*=========================================================
+                SIN IMAGEN
+=========================================================*/
+
+.aviso-sin-imagen{
+
+    width:100%;
+
+    height:100%;
+
+    display:flex;
+
+    flex-direction:column;
+
+    align-items:center;
+
+    justify-content:center;
+
+    gap:10px;
+
+    color:#168b7b;
+
+    background:linear-gradient(
+        135deg,
+        #e7f7f3,
+        #f8fbfa
+    );
+
+}
+
+.aviso-sin-imagen i{
+
+    font-size:48px;
+
+}
+
+.aviso-sin-imagen span{
+
+    font-size:14px;
+
+    font-weight:600;
+
+}
+
+
+
+/*=========================================================
+                CATEGORÍA
+=========================================================*/
+
+.aviso-categoria{
+
+    position:absolute;
+
+    left:15px;
+
+    top:15px;
+
+    background:#fff;
+
+    color:#168b7b;
+
+    padding:7px 13px;
+
+    border-radius:20px;
+
+    font-size:12px;
+
+    font-weight:700;
+
+    box-shadow:0 5px 15px rgba(0,0,0,.10);
+
+}
+
+
+
+/*=========================================================
+                CONTENIDO
+=========================================================*/
+
+.aviso-publico-contenido{
+
+    padding:22px;
+
+    display:flex;
+
+    flex-direction:column;
+
+    flex:1;
+
+}
+
+.aviso-fecha{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:7px;
+
+    color:#8994a4;
+
+    font-size:12px;
+
+    margin-bottom:10px;
+
+}
+
+.aviso-publico-contenido h3{
+
+    color:#26364d;
+
+    font-size:21px;
+
+    line-height:1.35;
+
+    margin-bottom:12px;
+
+}
+
+.aviso-publico-contenido p{
+
+    color:#687587;
+
+    font-size:14px;
+
+    line-height:1.7;
+
+    margin-bottom:20px;
+
+    display:-webkit-box;
+
+    -webkit-line-clamp:5;
+
+    -webkit-box-orient:vertical;
+
+    overflow:hidden;
+
+}
+
+
+
+/*=========================================================
+                BOTONES AVISO
+=========================================================*/
+
+.aviso-acciones{
+
+    margin-top:auto;
+
+    display:flex;
+
+    gap:10px;
+
+    flex-wrap:wrap;
+
+}
+
+.btn-aviso{
+
+    display:inline-flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    gap:7px;
+
+    padding:9px 13px;
+
+    border-radius:11px;
+
+    font-size:12px;
+
+    font-weight:600;
+
+    transition:.3s;
+
+}
+
+.btn-pdf-publico{
+
+    background:#fff0f0;
+
+    color:#d74b4b;
+
+}
+
+.btn-pdf-publico:hover{
+
+    background:#d74b4b;
+
+    color:#fff;
+
+}
+
+.btn-enlace-publico{
+
+    background:#e8f7f4;
+
+    color:#168b7b;
+
+}
+
+.btn-enlace-publico:hover{
+
+    background:#168b7b;
+
+    color:#fff;
+
+}
+
+
+
+/*=========================================================
+                SIN AVISOS
+=========================================================*/
+
+.sin-avisos-publicos{
+
+    grid-column:1/-1;
+
+    background:#fff;
+
+    border-radius:25px;
+
+    padding:60px 30px;
+
+    text-align:center;
+
+    box-shadow:0 10px 30px rgba(0,0,0,.06);
+
+}
+
+.sin-avisos-icono{
+
+    width:75px;
+
+    height:75px;
+
+    border-radius:50%;
+
+    background:#eaf6f3;
+
+    color:#168b7b;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    margin:0 auto 18px;
+
+    font-size:28px;
+
+}
+
+.sin-avisos-publicos h3{
+
+    color:#26364d;
+
+    margin-bottom:10px;
+
+}
+
+.sin-avisos-publicos p{
+
+    color:#7b8796;
+
+}
+
+
+
+/*=========================================================
+                AGENDAR CITA
+=========================================================*/
+
+.seccion-agendar{
+
+    width:min(1200px,92%);
+
+    margin:0 auto 90px;
+
+}
+
+.agendar-contenedor{
+
+    position:relative;
+
+    overflow:hidden;
+
+    border-radius:32px;
+
+    padding:55px;
+
+    background:linear-gradient(
+        135deg,
+        #e5f6f2,
+        #f5fbfa
+    );
+
+    display:flex;
+
+    align-items:center;
+
+    gap:40px;
+
+    box-shadow:0 15px 45px rgba(0,0,0,.07);
+
+}
+
+.agendar-icono-grande{
+
+    width:110px;
+
+    height:110px;
+
+    border-radius:30px;
+
+    background:#168b7b;
+
+    color:#fff;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    font-size:45px;
+
+    flex-shrink:0;
+
+    box-shadow:0 15px 30px rgba(22,139,123,.22);
+
+    position:relative;
+
+    z-index:2;
+
+}
+
+.agendar-contenido{
+
+    position:relative;
+
+    z-index:2;
+
+    max-width:800px;
+
+}
+
+.agendar-etiqueta{
+
+    color:#168b7b;
+
+    font-size:13px;
+
+    font-weight:700;
+
+}
+
+.agendar-contenido h2{
+
+    color:#26364d;
+
+    font-size:35px;
+
+    margin:10px 0 2px;
+
+}
+
+.agendar-contenido h3{
+
+    color:#168b7b;
+
+    font-size:25px;
+
+    margin-bottom:15px;
+
+}
+
+.agendar-contenido p{
+
+    color:#687587;
+
+    line-height:1.7;
+
+    margin-bottom:22px;
+
+}
+
+.agendar-beneficios{
+
+    display:flex;
+
+    gap:15px;
+
+    flex-wrap:wrap;
+
+    margin-bottom:25px;
+
+}
+
+.agendar-beneficios div{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:8px;
+
+    background:#fff;
+
+    padding:10px 14px;
+
+    border-radius:12px;
+
+    font-size:12px;
+
+    color:#536174;
+
+}
+
+.agendar-beneficios i{
+
+    color:#168b7b;
+
+}
+
+.btn-agendar{
+
+    display:inline-flex;
+
+    align-items:center;
+
+    justify-content:space-between;
+
+    gap:30px;
+
+    background:#168b7b;
+
+    color:#fff;
+
+    padding:14px 20px;
+
+    border-radius:14px;
+
+    font-weight:700;
+
+    transition:.3s;
+
+}
+
+.btn-agendar:hover{
+
+    transform:translateY(-3px);
+
+    box-shadow:0 12px 25px rgba(22,139,123,.25);
+
+}
+
+.btn-agendar span{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:9px;
+
+}
+
+.flecha{
+
+    transition:.3s;
+
+}
+
+.btn-agendar:hover .flecha{
+
+    transform:translateX(5px);
+
+}
+
+.agendar-nota{
+
+    display:block;
+
+    margin-top:13px;
+
+    color:#7a8796;
+
+}
+
+.agendar-decoracion{
+
+    position:absolute;
+
+    border-radius:50%;
+
+    opacity:.5;
+
+}
+
+.decoracion-1{
+
+    width:200px;
+
+    height:200px;
+
+    right:-80px;
+
+    top:-80px;
+
+    background:#c9ebe3;
+
+}
+
+.decoracion-2{
+
+    width:120px;
+
+    height:120px;
+
+    right:100px;
+
+    bottom:-70px;
+
+    background:#f7dce7;
+
+}
+
+
+
+/*=========================================================
+                    FRASE
+=========================================================*/
+
+.frase{
+
+    width:min(900px,90%);
+
+    margin:0 auto 80px;
+
+    text-align:center;
+
+    color:#536174;
+
+    font-size:20px;
+
+    line-height:1.7;
+
+    font-style:italic;
+
+}
+
+.frase i{
+
+    color:#168b7b;
+
+    margin:0 8px;
+
+}
+
+
+
+/*=========================================================
+                    ANIMACIONES
+=========================================================*/
+
+@keyframes entradaIzquierda{
+
+    from{
+
+        opacity:0;
+
+        transform:translateX(-35px);
+
+    }
+
+    to{
+
+        opacity:1;
+
+        transform:translateX(0);
+
+    }
+
+}
+
+@keyframes entradaDerecha{
+
+    from{
+
+        opacity:0;
+
+        transform:translateX(35px);
+
+    }
+
+    to{
+
+        opacity:1;
+
+        transform:translateX(0);
+
+    }
+
+}
+
+@keyframes aparecerAviso{
+
+    from{
+
+        opacity:0;
+
+        transform:translateY(25px);
+
+    }
+
+    to{
+
+        opacity:1;
+
+        transform:translateY(0);
+
+    }
+
+}
+
+
+
+/*=========================================================
+                    TABLET
+=========================================================*/
+
+@media(max-width:1050px){
+
+    .avisos-publicos{
+
+        grid-template-columns:repeat(2,minmax(0,1fr));
+
+    }
+
+    .hero{
+
+        gap:30px;
+
+    }
+
+}
+
+
+
+/*=========================================================
+                    TABLET
+=========================================================*/
+
+@media(max-width:800px){
+
+    .hero{
+
+        grid-template-columns:1fr;
+
+        text-align:center;
+
+        margin-top:35px;
+
+    }
+
+    .hero p{
+
+        margin-left:auto;
+
+        margin-right:auto;
+
+    }
+
+    .hero-imagen{
+
+        min-height:350px;
+
+    }
+
+    .espacio-grid{
+
+        grid-template-columns:1fr;
+
+    }
+
+    .panel-texto{
+
+        text-align:center;
+
+    }
+
+    .beneficios{
+
+        justify-content:center;
+
+    }
+
+    .avisos-encabezado{
+
+        text-align:center;
+
+        justify-content:center;
+
+    }
+
+    .avisos-decoracion{
+
+        display:none;
+
+    }
+
+    .agendar-contenedor{
+
+        flex-direction:column;
+
+        text-align:center;
+
+        padding:40px 25px;
+
+    }
+
+    .agendar-beneficios{
+
+        justify-content:center;
+
+    }
+
+    .agendar-nota{
+
+        margin-bottom:0;
+
+    }
+
+}
+
+
+
+/*=========================================================
+                    MÓVIL
+=========================================================*/
+
+@media(max-width:600px){
+
+    .hero{
+
+        width:90%;
+
+    }
+
+    .hero h1{
+
+        font-size:36px;
+
+    }
+
+    .hero p{
+
+        font-size:15px;
+
+    }
+
+    .hero-imagen{
+
+        min-height:280px;
+
+    }
+
+    .hero-imagen img{
+
+        width:95%;
+
+    }
+
+    .circulo1{
+
+        width:240px;
+        height:240px;
+
+    }
+
+    .panel-imagen{
+
+        min-height:300px;
+
+    }
+
+    .panel-imagen img{
+
+        height:280px;
+
+    }
+
+    .panel-texto h2{
+
+        font-size:32px;
+
+    }
+
+    .avisos-titulo h2{
+
+        font-size:32px;
+
+    }
+
+    .avisos-publicos{
+
+        grid-template-columns:1fr;
+
+    }
+
+    .aviso-publico-imagen{
+
+        height:220px;
+
+    }
+
+    .agendar-contenido h2{
+
+        font-size:28px;
+
+    }
+
+    .agendar-contenido h3{
+
+        font-size:21px;
+
+    }
+
+    .btn-agendar{
+
+        width:100%;
+
+    }
+
+    .frase{
+
+        font-size:17px;
+
+    }
+
+}

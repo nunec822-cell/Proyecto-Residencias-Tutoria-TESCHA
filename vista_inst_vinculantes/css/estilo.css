@@ -1,0 +1,174 @@
+body {
+    margin: 0;
+    font-family: 'Segoe UI', Arial, sans-serif;
+    background-color: #f4f4f4;
+}
+
+.separador {
+    height: 25px;
+    background: linear-gradient(to bottom, rgba(0,0,0,0.15), transparent);
+}
+/* 🔥 CONTENEDOR GENERAL */
+.vista-inst {
+    padding: 40px 70px;
+    background: #f4f4f4;
+}
+
+/* 🔥 TÍTULO */
+.titulo-inst {
+    text-align: center;
+    margin-bottom: 50px;
+
+    opacity: 0;
+    transform: translateY(-40px);
+    animation: aparecerTitulo 1s ease forwards;
+}
+
+.titulo-inst h1 {
+    color: #8B1C1C;
+    font-size: 40px;
+    margin-bottom: 10px;
+}
+
+.titulo-inst p {
+    color: #555;
+    font-size: 18px;
+}
+
+/* 🔥 CONTENEDOR TARJETAS */
+.contenedor-inst {
+    display: flex;
+    flex-direction: column;
+    gap: 35px;
+}
+
+/* 🔥 TARJETAS */
+.card-inst {
+    display: flex;
+    align-items: center;
+    gap: 40px;
+
+    background: linear-gradient(135deg, #ffff, #ddab4f);
+
+    padding: 30px;
+    border-radius: 25px;
+
+    box-shadow: 0 15px 35px rgba(0,0,0,0.12);
+
+    opacity: 0;
+    transform: translateY(60px);
+
+    transition: all 0.8s ease;
+}
+
+/* 🔥 ANIMACIÓN ACTIVA */
+.card-inst.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* 🔥 LOGO */
+.logo-inst {
+    min-width: 220px;
+    display: flex;
+    justify-content: center;
+}
+
+.logo-inst img {
+    width: 200px;
+    height: 200px;
+    object-fit: contain;
+
+    background: white;
+    padding: 15px;
+    border-radius: 20px;
+
+    box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+
+    transition: transform 0.4s ease;
+}
+
+.logo-inst img:hover {
+    transform: scale(1.08) rotate(2deg);
+}
+
+/* 🔥 TEXTO */
+.info-inst {
+    flex: 1;
+}
+
+.info-inst h2 {
+    color: #8B1C1C;
+    font-size: 30px;
+    margin-bottom: 15px;
+}
+
+.info-inst p {
+    color: #444;
+    line-height: 1.8;
+    font-size: 16px;
+    text-align: justify;
+}
+
+/* 🔥 BOTÓN */
+.btn-inst{
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+
+    margin-top: 18px;
+    padding: 12px 22px;
+
+    background: linear-gradient(135deg, #8B1C1C, #b83232);
+    color: white;
+
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 15px;
+
+    border-radius: 12px;
+
+    transition: all 0.35s ease;
+
+    box-shadow: 0 8px 18px rgba(0,0,0,0.2);
+}
+
+/* 🔥 HOVER */
+.btn-inst:hover{
+    transform: translateY(-4px) scale(1.03);
+
+    background: linear-gradient(135deg, #c94c4c, #8B1C1C);
+
+    box-shadow: 0 12px 24px rgba(0,0,0,0.3);
+}
+
+.btn-inst:hover {
+    transform: scale(1.08);
+    background: linear-gradient(135deg, #e06666, #c94c4c);
+}
+
+/* 🔥 ANIMACIONES */
+@keyframes aparecerTitulo {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* 📱 RESPONSIVE */
+@media (max-width: 900px) {
+
+    .vista-inst {
+        padding: 20px;
+    }
+
+    .card-inst {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .info-inst p {
+        text-align: center;
+    }
+
+}

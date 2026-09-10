@@ -1,0 +1,1039 @@
+/*=====================================================
+        ESTILOS GENERALES
+======================================================*/
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+
+    background:#f4f7fb;
+
+    font-family:'Segoe UI',Tahoma,Geneva,Verdana,sans-serif;
+
+    color:#333;
+
+}
+
+.admin-container{
+
+    width:95%;
+
+    margin:25px auto 45px auto;
+
+}
+
+/*=====================================================
+                    HERO
+======================================================*/
+
+.hero{
+
+    position:relative;
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    overflow:hidden;
+
+    border-radius:28px;
+
+    padding:35px 45px;
+
+    background:linear-gradient(135deg,#8B1C1C,#A52828,#C34747);
+
+    box-shadow:
+
+    0 18px 45px rgba(0,0,0,.12);
+
+    margin-bottom:35px;
+
+}
+
+/* círculos decorativos */
+
+.hero::before{
+
+    content:"";
+
+    position:absolute;
+
+    width:320px;
+
+    height:320px;
+
+    background:rgba(255,255,255,.05);
+
+    border-radius:50%;
+
+    right:-100px;
+
+    top:-100px;
+
+}
+
+.hero::after{
+
+    content:"";
+
+    position:absolute;
+
+    width:220px;
+
+    height:220px;
+
+    background:rgba(255,255,255,.05);
+
+    border-radius:50%;
+
+    left:-60px;
+
+    bottom:-60px;
+
+}
+
+/*--------------------------------*/
+
+.hero-text{
+
+    width:65%;
+
+    position:relative;
+
+    z-index:5;
+
+}
+
+.hero-top{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:18px;
+
+}
+
+/* icono */
+
+.hero-icon{
+
+    width:75px;
+
+    height:75px;
+
+    border-radius:50%;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    background:rgba(255,255,255,.18);
+
+    font-size:34px;
+
+    box-shadow:0 10px 20px rgba(0,0,0,.18);
+
+}
+
+/* saludo */
+
+#saludo{
+
+    color:white;
+
+    font-size:40px;
+
+    font-weight:700;
+
+    margin-bottom:8px;
+
+}
+
+/* badge */
+
+.badge-admin{
+
+    display:inline-block;
+
+    background:rgba(255,255,255,.18);
+
+    color:white;
+
+    padding:8px 18px;
+
+    border-radius:25px;
+
+    font-size:14px;
+
+    letter-spacing:.5px;
+
+}
+
+/* titulo */
+
+.titulo-sistema{
+
+    color:white;
+
+    margin-top:25px;
+
+    font-size:44px;
+
+    font-weight:800;
+
+    line-height:1.2;
+
+}
+
+/* subtitulo */
+
+.subtitulo{
+
+    margin-top:18px;
+
+    color:white;
+
+    opacity:.95;
+
+    font-size:19px;
+
+    line-height:1.8;
+
+}
+
+/* fecha */
+
+.fecha-hora{
+
+    display:flex;
+
+    gap:15px;
+
+    flex-wrap:wrap;
+
+    margin-top:28px;
+
+}
+
+.fecha-hora span{
+
+    background:rgba(255,255,255,.15);
+
+    padding:12px 20px;
+
+    border-radius:15px;
+
+    color:white;
+
+    font-weight:600;
+
+    backdrop-filter:blur(8px);
+
+}
+
+/* logo */
+
+.hero-image{
+
+    width:270px;
+
+    height:200px;
+
+    background:white;
+
+    border-radius:25px;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    box-shadow:
+
+    0 12px 30px rgba(0,0,0,.15);
+
+    z-index:5;
+
+}
+
+.hero-image img{
+
+    width:75%;
+
+    transition:.4s;
+
+}
+
+.hero-image img:hover{
+
+    transform:scale(1.06);
+
+}
+
+/*=====================================================
+        ESPACIO DEL TUTORADO
+======================================================*/
+
+.tips-estudiante{
+
+    background:white;
+
+    padding:35px;
+
+    border-radius:22px;
+
+    box-shadow:
+
+    0 10px 25px rgba(0,0,0,.08);
+
+    margin-bottom:30px;
+
+}
+
+.tips-estudiante h2{
+
+    color:#8B1C1C;
+
+    font-size:28px;
+
+    margin-bottom:15px;
+
+}
+
+.tips-estudiante p{
+
+    color:#666;
+
+    line-height:1.8;
+
+    margin-bottom:30px;
+
+}
+
+.tips-grid{
+
+    display:grid;
+
+    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+
+    gap:22px;
+
+}
+
+.tip-box{
+
+    background:#fafafa;
+
+    padding:28px;
+
+    border-radius:18px;
+
+    text-align:center;
+
+    transition:.35s;
+
+    border:1px solid #ececec;
+
+}
+
+.tip-box:hover{
+
+    transform:translateY(-8px);
+
+    box-shadow:
+
+    0 15px 30px rgba(0,0,0,.10);
+
+}
+
+.tip-box i{
+
+    font-size:40px;
+
+    color:#8B1C1C;
+
+    margin-bottom:18px;
+
+}
+
+.tip-box h4{
+
+    margin-bottom:12px;
+
+    color:#333;
+
+}
+
+.tip-box span{
+
+    color:#666;
+
+    line-height:1.6;
+
+}
+
+/*=====================================================
+            BIENVENIDA
+======================================================*/
+
+.bienvenida-card{
+
+    background:white;
+
+    border-radius:22px;
+
+    padding:35px;
+
+    box-shadow:
+
+    0 10px 25px rgba(0,0,0,.08);
+
+    margin-bottom:35px;
+
+}
+
+.bienvenida-card h2{
+
+    color:#8B1C1C;
+
+    margin-bottom:15px;
+
+}
+
+.bienvenida-card p{
+
+    color:#666;
+
+    line-height:1.8;
+
+    margin-bottom:25px;
+
+}
+
+.bienvenida-grid{
+
+    display:grid;
+
+    grid-template-columns:repeat(auto-fit,minmax(230px,1fr));
+
+    gap:20px;
+
+}
+
+.bienvenida-grid div{
+
+    background:#fafafa;
+
+    padding:22px;
+
+    border-radius:15px;
+
+    text-align:center;
+
+    transition:.35s;
+
+    border:1px solid #ececec;
+
+    font-weight:600;
+
+}
+
+.bienvenida-grid div:hover{
+
+    background:white;
+
+    transform:translateY(-6px);
+
+    box-shadow:
+
+    0 12px 22px rgba(0,0,0,.08);
+
+}
+
+.bienvenida-grid i{
+
+    display:block;
+
+    font-size:34px;
+
+    color:#8B1C1C;
+
+    margin-bottom:15px;
+
+}
+/*=====================================================
+                SECCIÓN AVISOS
+======================================================*/
+
+.avisos-section{
+
+    margin-top:35px;
+
+}
+
+.avisos-header{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    flex-wrap:wrap;
+
+    margin-bottom:25px;
+
+}
+
+.avisos-header h2{
+
+    color:#8B1C1C;
+
+    font-size:30px;
+
+    font-weight:700;
+
+    margin-bottom:8px;
+
+}
+
+.avisos-header p{
+
+    color:#666;
+
+    font-size:16px;
+
+}
+
+/*=====================================================
+                GRID AVISOS
+======================================================*/
+
+.grid-avisos{
+
+    display:grid;
+
+    grid-template-columns:repeat(auto-fill,minmax(360px,1fr));
+
+    gap:28px;
+
+}
+
+/*=====================================================
+                TARJETA
+======================================================*/
+
+.aviso-card{
+
+    background:white;
+
+    border-radius:22px;
+
+    overflow:hidden;
+
+    box-shadow:0 12px 35px rgba(0,0,0,.08);
+
+    transition:.35s;
+
+    border:1px solid #ececec;
+
+}
+
+.aviso-card:hover{
+
+    transform:translateY(-10px);
+
+    box-shadow:0 20px 45px rgba(0,0,0,.14);
+
+}
+
+/*=====================================================
+            CABECERA DEL AVISO
+======================================================*/
+
+.aviso-top{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    background:#fafafa;
+
+    padding:15px 20px;
+
+    border-bottom:1px solid #ececec;
+
+    font-weight:600;
+
+    color:#8B1C1C;
+
+}
+
+.fecha-aviso{
+
+    font-size:13px;
+
+    color:#777;
+
+}
+
+/*=====================================================
+                IMAGEN
+======================================================*/
+
+.aviso-imagen{
+
+    width:100%;
+
+    height:220px;
+
+    object-fit:cover;
+
+    display:block;
+
+    transition:.4s;
+
+}
+
+.aviso-card:hover .aviso-imagen{
+
+    transform:scale(1.03);
+
+}
+
+/*=====================================================
+                CONTENIDO
+======================================================*/
+
+.aviso-contenido{
+
+    padding:22px;
+
+}
+
+.aviso-contenido h3{
+
+    color:#8B1C1C;
+
+    font-size:24px;
+
+    margin-bottom:15px;
+
+    line-height:1.3;
+
+}
+
+.aviso-contenido p{
+
+    color:#555;
+
+    line-height:1.8;
+
+    font-size:15px;
+
+    min-height:90px;
+
+}
+
+/*=====================================================
+            BOTONES
+======================================================*/
+
+.aviso-recursos{
+
+    display:flex;
+
+    flex-wrap:wrap;
+
+    gap:12px;
+
+    margin-top:20px;
+
+}
+
+.btn-pdf,
+.btn-link{
+
+    flex:1;
+
+    min-width:140px;
+
+    text-align:center;
+
+    text-decoration:none;
+
+    padding:12px;
+
+    border-radius:12px;
+
+    font-weight:600;
+
+    transition:.30s;
+
+}
+
+.btn-pdf{
+
+    background:#8B1C1C;
+
+    color:white;
+
+}
+
+.btn-pdf:hover{
+
+    background:#6d1616;
+
+}
+
+.btn-link{
+
+    background:#f1f1f1;
+
+    color:#444;
+
+}
+
+.btn-link:hover{
+
+    background:#dedede;
+
+}
+
+/*=====================================================
+                SIN AVISOS
+======================================================*/
+
+.sin-avisos{
+
+    background:white;
+
+    border-radius:22px;
+
+    padding:60px;
+
+    text-align:center;
+
+    border:2px dashed #d7d7d7;
+
+    box-shadow:0 10px 25px rgba(0,0,0,.05);
+
+}
+
+.sin-avisos i{
+
+    font-size:65px;
+
+    color:#8B1C1C;
+
+    margin-bottom:20px;
+
+}
+
+.sin-avisos h3{
+
+    color:#444;
+
+    margin-bottom:12px;
+
+    font-size:28px;
+
+}
+
+.sin-avisos p{
+
+    color:#777;
+
+    font-size:17px;
+
+    line-height:1.8;
+
+}
+
+/*=====================================================
+            FRASE MOTIVACIONAL
+======================================================*/
+
+.frase{
+
+    margin-top:45px;
+
+    margin-bottom:30px;
+
+    background:linear-gradient(135deg,#8B1C1C,#B22D2D);
+
+    color:white;
+
+    text-align:center;
+
+    padding:30px;
+
+    border-radius:22px;
+
+    box-shadow:0 12px 30px rgba(0,0,0,.10);
+
+}
+
+.frase p{
+
+    font-size:22px;
+
+    font-style:italic;
+
+    letter-spacing:.5px;
+
+}
+
+/*=====================================================
+                RESPONSIVE
+======================================================*/
+
+@media(max-width:992px){
+
+.hero{
+
+    flex-direction:column;
+
+    text-align:center;
+
+}
+
+.hero-text{
+
+    width:100%;
+
+}
+
+.hero-image{
+
+    margin-top:30px;
+
+}
+
+.hero-image{
+
+    width:220px;
+
+    height:170px;
+
+}
+
+.titulo-sistema{
+
+    font-size:34px;
+
+}
+
+#saludo{
+
+    font-size:30px;
+
+}
+
+.grid-avisos{
+
+    grid-template-columns:1fr;
+
+}
+
+}
+
+@media(max-width:600px){
+
+.admin-container{
+
+    width:96%;
+
+}
+
+.hero{
+
+    padding:25px;
+
+}
+
+.titulo-sistema{
+
+    font-size:28px;
+
+}
+
+.subtitulo{
+
+    font-size:16px;
+
+}
+
+.fecha-hora{
+
+    justify-content:center;
+
+}
+
+.hero-top{
+
+    flex-direction:column;
+
+}
+
+.tip-box,
+.bienvenida-grid div{
+
+    padding:18px;
+
+}
+
+.aviso-contenido h3{
+
+    font-size:20px;
+
+}
+
+.frase p{
+
+    font-size:18px;
+
+}
+
+}
+/*==========================================
+        BIENVENIDA PRINCIPAL
+==========================================*/
+
+.bienvenida-principal{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:35px;
+
+    background:white;
+
+    padding:40px;
+
+    border-radius:22px;
+
+    box-shadow:0 10px 30px rgba(0,0,0,.08);
+
+    margin-bottom:35px;
+
+}
+
+.bienvenida-icono{
+
+    min-width:120px;
+
+    width:120px;
+
+    height:120px;
+
+    border-radius:50%;
+
+    background:linear-gradient(135deg,#8B1C1C,#b52d2d);
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    color:white;
+
+    font-size:55px;
+
+}
+
+.bienvenida-texto{
+
+    flex:1;
+
+}
+
+.bienvenida-texto h2{
+
+    color:#8B1C1C;
+
+    margin-bottom:18px;
+
+    font-size:30px;
+
+}
+
+.bienvenida-texto p{
+
+    color:#666;
+
+    line-height:1.9;
+
+    margin-bottom:18px;
+
+    text-align:justify;
+
+}
+
+.mensaje-espera{
+
+    margin-top:20px;
+
+    background:#fff7ec;
+
+    border-left:6px solid #f5a623;
+
+    padding:18px;
+
+    border-radius:12px;
+
+    display:flex;
+
+    gap:15px;
+
+    align-items:flex-start;
+
+}
+
+.mensaje-espera i{
+
+    color:#f5a623;
+
+    font-size:28px;
+
+}
+
+.mensaje-espera span{
+
+    color:#555;
+
+    line-height:1.7;
+
+}
+
+@media(max-width:900px){
+
+.bienvenida-principal{
+
+    flex-direction:column;
+
+    text-align:center;
+
+}
+
+.bienvenida-texto p{
+
+    text-align:left;
+
+}
+
+}

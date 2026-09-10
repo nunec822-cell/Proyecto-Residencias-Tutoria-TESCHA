@@ -1,0 +1,1193 @@
+/*=========================================================
+    CONTENEDOR PRINCIPAL
+=========================================================*/
+
+.solicitud-cita {
+    width: 100%;
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 35px 30px 60px;
+    box-sizing: border-box;
+}
+
+
+/*=========================================================
+    HERO
+=========================================================*/
+
+.hero-cita {
+    position: relative;
+    overflow: hidden;
+    border-radius: 28px;
+    padding: 55px 50px;
+    margin-bottom: 30px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #eef8f7,
+            #f8fbff
+        );
+
+    border: 1px solid #e4eeee;
+}
+
+
+.hero-cita::after {
+    content: "";
+    position: absolute;
+
+    width: 220px;
+    height: 220px;
+
+    border-radius: 50%;
+
+    background: rgba(42, 157, 143, 0.08);
+
+    right: -70px;
+    top: -90px;
+}
+
+
+.hero-cita-contenido {
+    position: relative;
+    z-index: 2;
+    max-width: 800px;
+}
+
+
+.hero-etiqueta {
+    display: inline-block;
+
+    padding: 7px 14px;
+
+    border-radius: 50px;
+
+    background: #dff4f1;
+
+    color: #238276;
+
+    font-size: 13px;
+    font-weight: 700;
+
+    margin-bottom: 15px;
+}
+
+
+.hero-cita h1 {
+    margin: 0 0 14px;
+
+    font-size: clamp(30px, 4vw, 46px);
+
+    line-height: 1.12;
+
+    color: #183b3a;
+}
+
+
+.hero-cita p {
+    margin: 0;
+
+    max-width: 700px;
+
+    color: #607575;
+
+    font-size: 17px;
+
+    line-height: 1.7;
+}
+
+
+/*=========================================================
+    AVISO IMPORTANTE
+=========================================================*/
+
+.aviso-importante {
+
+    display: flex;
+    gap: 22px;
+
+    padding: 28px;
+
+    margin-bottom: 50px;
+
+    background: #fff;
+
+    border: 1px solid #e8eeee;
+
+    border-left: 5px solid #2a9d8f;
+
+    border-radius: 20px;
+
+    box-shadow:
+        0 10px 30px rgba(0,0,0,0.05);
+}
+
+
+.aviso-icono {
+
+    flex-shrink: 0;
+
+    width: 46px;
+    height: 46px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 50%;
+
+    background: #e5f6f3;
+
+    color: #238276;
+
+    font-size: 25px;
+    font-weight: 800;
+}
+
+
+.aviso-contenido {
+    flex: 1;
+}
+
+
+.aviso-contenido h2 {
+
+    margin: 0 0 12px;
+
+    color: #244544;
+
+    font-size: 21px;
+}
+
+
+.aviso-contenido p {
+
+    margin: 0 0 11px;
+
+    color: #657777;
+
+    line-height: 1.7;
+
+    font-size: 15px;
+}
+
+
+.aviso-contenido strong {
+    color: #244544;
+}
+
+
+.aviso-cancelacion {
+
+    display: flex;
+    flex-direction: column;
+
+    gap: 4px;
+
+    margin-top: 18px;
+
+    padding: 15px 17px;
+
+    border-radius: 12px;
+
+    background: #f8f5ec;
+}
+
+
+.aviso-cancelacion strong {
+    color: #806b34;
+}
+
+
+.aviso-cancelacion span {
+
+    color: #766f5b;
+
+    font-size: 14px;
+}
+
+
+/*=========================================================
+    TITULOS
+=========================================================*/
+
+.seccion-titulo {
+
+    display: flex;
+    justify-content: space-between;
+
+    margin-bottom: 25px;
+}
+
+
+.titulo-etiqueta {
+
+    font-size: 13px;
+
+    text-transform: uppercase;
+
+    letter-spacing: 1.2px;
+
+    color: #2a9d8f;
+
+    font-weight: 800;
+}
+
+
+.seccion-titulo h2 {
+
+    margin: 5px 0 5px;
+
+    color: #203f3e;
+
+    font-size: 31px;
+}
+
+
+.seccion-titulo p {
+
+    margin: 0;
+
+    color: #748383;
+
+    font-size: 15px;
+}
+
+
+/*=========================================================
+    GRID DE ESPACIOS
+=========================================================*/
+
+.espacios-grid {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(
+            auto-fit,
+            minmax(310px, 1fr)
+        );
+
+    gap: 24px;
+}
+
+
+/*=========================================================
+    TARJETA
+=========================================================*/
+
+.espacio-card {
+
+    position: relative;
+
+    overflow: hidden;
+
+    display: flex;
+    flex-direction: column;
+
+    background: #fff;
+
+    border: 1px solid #e8eeee;
+
+    border-radius: 23px;
+
+    padding: 25px;
+
+    box-shadow:
+        0 12px 30px rgba(0,0,0,0.055);
+
+    transition:
+        transform .25s ease,
+        box-shadow .25s ease;
+}
+
+
+.espacio-card:hover {
+
+    transform: translateY(-5px);
+
+    box-shadow:
+        0 18px 38px rgba(0,0,0,0.09);
+}
+
+
+/*=========================================================
+    ESTADO
+=========================================================*/
+
+.card-disponibilidad {
+
+    align-self: flex-start;
+
+    display: flex;
+    align-items: center;
+
+    gap: 8px;
+
+    padding: 7px 12px;
+
+    border-radius: 50px;
+
+    background: #e9f8f4;
+
+    color: #258174;
+
+    font-size: 13px;
+
+    font-weight: 700;
+}
+
+
+.estado-dot {
+
+    width: 8px;
+    height: 8px;
+
+    border-radius: 50%;
+
+    background: #2a9d8f;
+
+    box-shadow:
+        0 0 0 4px rgba(42,157,143,.12);
+}
+
+
+/*=========================================================
+    ICONO
+=========================================================*/
+
+.card-icono {
+
+    width: 56px;
+    height: 56px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    margin: 23px 0 17px;
+
+    border-radius: 16px;
+
+    background: #f1f8f7;
+
+    font-size: 26px;
+}
+
+
+/*=========================================================
+    CONTENIDO
+=========================================================*/
+
+.card-label {
+
+    display: block;
+
+    margin-bottom: 5px;
+
+    color: #879595;
+
+    font-size: 12px;
+
+    text-transform: uppercase;
+
+    letter-spacing: .8px;
+
+    font-weight: 700;
+}
+
+
+.card-contenido h3 {
+
+    margin: 0 0 20px;
+
+    color: #294847;
+
+    font-size: 18px;
+
+    line-height: 1.4;
+}
+
+
+.horario {
+
+    display: flex;
+    align-items: center;
+
+    gap: 10px;
+
+    margin-bottom: 20px;
+
+    color: #244544;
+
+    font-size: 24px;
+
+    font-weight: 800;
+}
+
+
+.horario-separador {
+
+    color: #9aabab;
+
+    font-weight: 400;
+}
+
+
+/*=========================================================
+    AVISO DE TARJETA
+=========================================================*/
+
+.card-aviso {
+
+    display: flex;
+    align-items: flex-start;
+
+    gap: 9px;
+
+    padding: 12px;
+
+    margin-bottom: 22px;
+
+    border-radius: 12px;
+
+    background: #f8fbfb;
+}
+
+
+.card-aviso span {
+
+    color: #2a9d8f;
+
+    font-weight: 900;
+}
+
+
+.card-aviso p {
+
+    margin: 0;
+
+    color: #718080;
+
+    font-size: 13px;
+
+    line-height: 1.5;
+}
+
+
+/*=========================================================
+    BOTON SOLICITAR
+=========================================================*/
+
+.btn-solicitar {
+
+    width: 100%;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    padding: 14px 17px;
+
+    border: none;
+
+    border-radius: 13px;
+
+    background: #2a9d8f;
+
+    color: #fff;
+
+    font-size: 14px;
+
+    font-weight: 800;
+
+    cursor: pointer;
+
+    transition:
+        background .2s ease,
+        transform .2s ease;
+}
+
+
+.btn-solicitar:hover {
+
+    background: #238276;
+
+    transform: translateY(-2px);
+}
+
+
+.btn-solicitar span {
+
+    font-size: 20px;
+}
+
+
+/*=========================================================
+    SIN DISPONIBILIDAD
+=========================================================*/
+
+.sin-disponibilidad {
+
+    text-align: center;
+
+    padding: 70px 30px;
+
+    border: 2px dashed #dce8e7;
+
+    border-radius: 22px;
+
+    background: #fbfdfd;
+}
+
+
+.sin-disponibilidad-icono {
+
+    font-size: 45px;
+
+    margin-bottom: 15px;
+}
+
+
+.sin-disponibilidad h3 {
+
+    margin: 0 0 10px;
+
+    color: #314b4a;
+
+    font-size: 21px;
+}
+
+
+.sin-disponibilidad p {
+
+    max-width: 600px;
+
+    margin: 0 auto 8px;
+
+    color: #788686;
+
+    line-height: 1.6;
+}
+
+
+.sin-disponibilidad span {
+
+    color: #9aa7a7;
+
+    font-size: 13px;
+}
+
+
+/*=========================================================
+    MODAL
+=========================================================*/
+
+.modal-overlay {
+
+    position: fixed;
+
+    inset: 0;
+
+    z-index: 9999;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    padding: 20px;
+
+    background:
+        rgba(18, 38, 38, .62);
+
+    backdrop-filter: blur(5px);
+
+    opacity: 0;
+    visibility: hidden;
+
+    transition:
+        opacity .25s ease,
+        visibility .25s ease;
+}
+
+
+.modal-overlay.activo {
+
+    opacity: 1;
+
+    visibility: visible;
+}
+
+
+.modal-cita {
+
+    position: relative;
+
+    width: 100%;
+
+    max-width: 540px;
+
+    padding: 35px;
+
+    background: #fff;
+
+    border-radius: 25px;
+
+    box-shadow:
+        0 25px 70px rgba(0,0,0,.2);
+
+    transform: translateY(20px) scale(.97);
+
+    transition:
+        transform .25s ease;
+}
+
+
+.modal-overlay.activo .modal-cita {
+
+    transform: translateY(0) scale(1);
+}
+
+
+.modal-cerrar {
+
+    position: absolute;
+
+    top: 15px;
+    right: 18px;
+
+    width: 36px;
+    height: 36px;
+
+    border: none;
+
+    border-radius: 50%;
+
+    background: #f2f6f6;
+
+    color: #657575;
+
+    font-size: 24px;
+
+    cursor: pointer;
+}
+
+
+.modal-icono {
+
+    width: 64px;
+    height: 64px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    margin: 0 auto 18px;
+
+    border-radius: 50%;
+
+    background: #e7f6f3;
+
+    color: #238276;
+
+    font-size: 30px;
+
+    font-weight: 900;
+}
+
+
+.modal-cita h2 {
+
+    margin: 0 0 15px;
+
+    text-align: center;
+
+    color: #254543;
+
+    font-size: 25px;
+}
+
+
+.modal-cita p {
+
+    margin: 0 0 14px;
+
+    color: #687979;
+
+    line-height: 1.65;
+
+    text-align: center;
+
+    font-size: 15px;
+}
+
+
+.modal-principal {
+
+    font-size: 17px !important;
+
+    color: #425c5b !important;
+}
+
+
+.modal-nota {
+
+    margin-top: 18px;
+
+    padding: 15px;
+
+    border-radius: 13px;
+
+    background: #f5f9f8;
+
+    color: #617574;
+
+    font-size: 13px;
+
+    line-height: 1.6;
+
+    text-align: center;
+}
+
+
+.modal-acciones {
+
+    display: flex;
+
+    gap: 12px;
+
+    margin-top: 25px;
+}
+
+
+.modal-acciones button {
+
+    flex: 1;
+
+    padding: 13px;
+
+    border-radius: 12px;
+
+    font-size: 14px;
+
+    font-weight: 800;
+
+    cursor: pointer;
+}
+
+
+.btn-modal-secundario {
+
+    border: 1px solid #dce6e5;
+
+    background: #fff;
+
+    color: #607171;
+}
+
+
+.btn-modal-principal {
+
+    border: none;
+
+    background: #2a9d8f;
+
+    color: #fff;
+}
+
+
+.btn-modal-principal:hover {
+
+    background: #238276;
+}
+
+
+/*=========================================================
+    RESPONSIVE
+=========================================================*/
+
+@media (max-width: 700px) {
+
+    .solicitud-cita {
+        padding: 20px 15px 40px;
+    }
+
+
+    .hero-cita {
+        padding: 35px 25px;
+        border-radius: 20px;
+    }
+
+
+    .aviso-importante {
+
+        flex-direction: column;
+
+        padding: 22px;
+    }
+
+
+    .seccion-titulo h2 {
+        font-size: 26px;
+    }
+
+
+    .espacios-grid {
+        grid-template-columns: 1fr;
+    }
+
+
+    .modal-cita {
+        padding: 30px 22px;
+    }
+
+
+    .modal-acciones {
+        flex-direction: column;
+    }
+
+}
+body {
+    margin: 0;
+    font-family: 'Segoe UI', Arial, sans-serif;
+    background-color: #f4f4f4;
+}
+
+/* 🔥 SEPARADOR */
+.separador {
+    height: 25px;
+    background: linear-gradient(to bottom, rgba(0,0,0,0.15), transparent);
+}
+/*=========================================================
+    MODAL AUTENTICACIÓN
+=========================================================*/
+
+.modal-autenticacion {
+    max-width: 560px;
+}
+
+
+/*=========================================================
+    ICONO SEGURIDAD
+=========================================================*/
+
+.modal-icono-seguridad {
+
+    background: #edf4ff;
+
+    color: #3d6fa8;
+
+}
+
+
+/*=========================================================
+    CAMPOS
+=========================================================*/
+
+.campo-formulario {
+
+    margin-bottom: 18px;
+
+}
+
+
+.campo-formulario label {
+
+    display: block;
+
+    margin-bottom: 7px;
+
+    color: #385250;
+
+    font-size: 14px;
+
+    font-weight: 700;
+
+}
+
+
+.campo-formulario input,
+.campo-formulario textarea {
+
+    width: 100%;
+
+    box-sizing: border-box;
+
+    border: 1px solid #dce7e5;
+
+    border-radius: 12px;
+
+    background: #fbfdfd;
+
+    padding: 13px 14px;
+
+    color: #304847;
+
+    font-family: inherit;
+
+    font-size: 14px;
+
+    outline: none;
+
+    transition:
+        border-color .2s ease,
+        box-shadow .2s ease,
+        background .2s ease;
+
+}
+
+
+.campo-formulario input:focus,
+.campo-formulario textarea:focus {
+
+    border-color: #2a9d8f;
+
+    background: #fff;
+
+    box-shadow:
+        0 0 0 3px rgba(42,157,143,.10);
+
+}
+
+
+.campo-formulario textarea {
+
+    resize: vertical;
+
+    min-height: 105px;
+
+}
+
+
+/*=========================================================
+    PASSWORD
+=========================================================*/
+
+.password-contenedor {
+
+    position: relative;
+
+}
+
+
+.password-contenedor input {
+
+    padding-right: 50px;
+
+}
+
+
+.btn-mostrar-password {
+
+    position: absolute;
+
+    right: 8px;
+
+    top: 50%;
+
+    transform: translateY(-50%);
+
+    width: 36px;
+
+    height: 36px;
+
+    border: none;
+
+    border-radius: 9px;
+
+    background: transparent;
+
+    cursor: pointer;
+
+    font-size: 17px;
+
+}
+
+
+/*=========================================================
+    CONTADOR
+=========================================================*/
+
+.contador-caracteres {
+
+    margin-top: 5px;
+
+    text-align: right;
+
+    color: #91a0a0;
+
+    font-size: 11px;
+
+}
+
+
+/*=========================================================
+    MENSAJE
+=========================================================*/
+
+.mensaje-solicitud {
+
+    display: none;
+
+    padding: 12px 14px;
+
+    margin-bottom: 15px;
+
+    border-radius: 11px;
+
+    font-size: 13px;
+
+    line-height: 1.5;
+
+}
+
+
+.mensaje-solicitud.visible {
+
+    display: block;
+
+}
+
+
+.mensaje-solicitud.error {
+
+    background: #fff0f0;
+
+    border: 1px solid #f3cccc;
+
+    color: #a64242;
+
+}
+
+
+/*=========================================================
+    BOTÓN DESHABILITADO
+=========================================================*/
+
+.btn-modal-principal:disabled {
+
+    opacity: .65;
+
+    cursor: wait;
+
+}
+
+
+/*=========================================================
+    MODAL ÉXITO
+=========================================================*/
+
+.modal-exito {
+
+    max-width: 500px;
+
+    text-align: center;
+
+}
+
+
+.modal-exito-icono {
+
+    width: 78px;
+    height: 78px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    margin: 0 auto 20px;
+
+    border-radius: 50%;
+
+    background: #e5f7ef;
+
+    color: #24966d;
+
+    font-size: 40px;
+
+    font-weight: 900;
+
+    box-shadow:
+        0 0 0 9px rgba(36,150,109,.08);
+
+}
+
+
+.modal-exito h2 {
+
+    color: #244744;
+
+}
+
+
+.modal-recordatorio {
+
+    margin-top: 18px !important;
+
+    color: #738282 !important;
+
+    font-size: 13px !important;
+
+}
+
+
+.btn-entendido {
+
+    width: 100%;
+
+    margin-top: 15px;
+
+    padding: 14px 20px;
+
+    border: none;
+
+    border-radius: 13px;
+
+    background: #2a9d8f;
+
+    color: #fff;
+
+    font-size: 14px;
+
+    font-weight: 800;
+
+    cursor: pointer;
+
+    transition:
+        background .2s ease,
+        transform .2s ease;
+
+}
+
+
+.btn-entendido:hover {
+
+    background: #238276;
+
+    transform: translateY(-2px);
+
+}
+
+
+/*=========================================================
+    RESPONSIVE
+=========================================================*/
+
+@media (max-width: 600px) {
+
+    .modal-autenticacion {
+
+        max-width: 100%;
+
+    }
+
+    .modal-exito {
+
+        max-width: 100%;
+
+    }
+
+}

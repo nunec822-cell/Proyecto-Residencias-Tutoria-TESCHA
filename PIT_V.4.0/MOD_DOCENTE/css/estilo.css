@@ -1,0 +1,1376 @@
+/*==================================================
+=            ESTILOS GENERALES
+==================================================*/
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    background:#f3f6fb;
+    font-family:'Segoe UI',Tahoma,Geneva,Verdana,sans-serif;
+    color:#333;
+}
+
+.admin-container{
+    width:96%;
+    margin:25px auto;
+}
+
+/*==================================================
+=            HERO DOCENTE
+==================================================*/
+
+.hero{
+
+    position:relative;
+
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+
+    padding:30px 40px;
+
+    border-radius:24px;
+
+    background:
+    linear-gradient(
+    135deg,
+    #8B1C1C 0%,
+    #9f2222 35%,
+    #b73535 70%,
+    #c94a4a 100%);
+
+    overflow:hidden;
+
+    box-shadow:
+    0 15px 35px rgba(0,0,0,.15);
+
+    margin-bottom:30px;
+}
+.separador {
+    height: 25px;
+    background: linear-gradient(to bottom, rgba(0,0,0,0.15), transparent);
+}
+.hero::before{
+
+    content:"";
+
+    position:absolute;
+
+    width:300px;
+    height:300px;
+
+    border-radius:50%;
+
+    background:rgba(255,255,255,.06);
+
+    right:-100px;
+    top:-100px;
+}
+
+.hero::after{
+
+    content:"";
+
+    position:absolute;
+
+    width:180px;
+    height:180px;
+
+    border-radius:50%;
+
+    background:rgba(255,255,255,.05);
+
+    left:-60px;
+    bottom:-60px;
+}
+
+.hero-text{
+
+    width:65%;
+    z-index:10;
+}
+
+.hero-top{
+
+    display:flex;
+    align-items:center;
+    gap:15px;
+
+    margin-bottom:10px;
+}
+
+.hero-icon{
+
+    width:65px;
+    height:65px;
+
+    border-radius:50%;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    background:rgba(255,255,255,.15);
+
+    font-size:30px;
+
+    color:white;
+}
+
+#saludo{
+
+    color:white;
+
+    font-size:32px;
+
+    font-weight:700;
+}
+
+.badge-admin{
+
+    display:inline-block;
+
+    margin-top:5px;
+
+    padding:8px 18px;
+
+    border-radius:30px;
+
+    background:rgba(255,255,255,.15);
+
+    color:white;
+
+    font-size:14px;
+}
+
+.titulo-sistema{
+
+    color:white;
+
+    font-size:42px;
+
+    font-weight:800;
+
+    margin-top:15px;
+    margin-bottom:15px;
+}
+
+.subtitulo{
+
+    color:white;
+
+    line-height:1.8;
+
+    font-size:18px;
+}
+
+.fecha-hora{
+
+    display:flex;
+
+    gap:15px;
+
+    margin-top:25px;
+
+    flex-wrap:wrap;
+}
+
+.fecha-hora span{
+
+    background:rgba(255,255,255,.12);
+
+    color:white;
+
+    padding:10px 18px;
+
+    border-radius:14px;
+
+    font-size:15px;
+}
+
+.hero-image{
+
+    width:250px;
+    height:180px;
+
+    background:white;
+
+    border-radius:20px;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    box-shadow:
+    0 10px 25px rgba(0,0,0,.15);
+
+    z-index:10;
+}
+
+.hero-image img{
+
+    width:75%;
+}
+
+/*==================================================
+=            BIENVENIDA
+==================================================*/
+
+.bienvenida-principal{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:35px;
+
+    background:white;
+
+    padding:35px;
+
+    border-radius:22px;
+
+    margin-bottom:35px;
+
+    box-shadow:
+    0 10px 25px rgba(0,0,0,.08);
+}
+
+.bienvenida-icono{
+
+    min-width:110px;
+
+    width:110px;
+    height:110px;
+
+    border-radius:50%;
+
+    background:
+    linear-gradient(135deg,#8B1C1C,#b52d2d);
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    color:white;
+
+    font-size:50px;
+}
+
+.bienvenida-texto{
+
+    flex:1;
+}
+
+.bienvenida-texto h2{
+
+    color:#8B1C1C;
+
+    margin-bottom:15px;
+
+    font-size:28px;
+}
+
+.bienvenida-texto p{
+
+    line-height:1.9;
+
+    color:#555;
+
+    margin-bottom:15px;
+
+    text-align:justify;
+}
+
+.mensaje-espera{
+
+    margin-top:20px;
+
+    background:#fff8ec;
+
+    border-left:5px solid #f1a300;
+
+    padding:18px;
+
+    border-radius:12px;
+
+    display:flex;
+
+    gap:15px;
+}
+
+.mensaje-espera i{
+
+    color:#f1a300;
+
+    font-size:28px;
+}
+
+/*==================================================
+=            AVISOS
+==================================================*/
+
+.avisos-section{
+
+    margin-top:40px;
+}
+
+.avisos-header{
+
+    margin-bottom:25px;
+}
+
+.avisos-header h2{
+
+    color:#8B1C1C;
+
+    margin-bottom:8px;
+
+    font-size:30px;
+}
+
+.avisos-header p{
+
+    color:#666;
+}
+
+.grid-avisos{
+
+    display:grid;
+
+    grid-template-columns:
+    repeat(auto-fit,minmax(340px,1fr));
+
+    gap:25px;
+}
+
+.aviso-card{
+
+    background:white;
+
+    border-radius:20px;
+
+    overflow:hidden;
+
+    box-shadow:
+    0 10px 25px rgba(0,0,0,.08);
+
+    transition:.3s;
+}
+
+.aviso-card:hover{
+
+    transform:translateY(-5px);
+
+    box-shadow:
+    0 15px 35px rgba(0,0,0,.12);
+}
+
+.aviso-top{
+
+    background:#8B1C1C;
+
+    color:white;
+
+    display:flex;
+
+    justify-content:space-between;
+
+    padding:15px 20px;
+
+    font-size:14px;
+}
+
+.aviso-imagen{
+
+    width:100%;
+
+    height:220px;
+
+    object-fit:cover;
+}
+
+.aviso-contenido{
+
+    padding:20px;
+}
+
+.aviso-contenido h3{
+
+    color:#8B1C1C;
+
+    margin-bottom:15px;
+}
+
+.aviso-contenido p{
+
+    color:#555;
+
+    line-height:1.8;
+
+    margin-bottom:20px;
+}
+
+.aviso-recursos{
+
+    display:flex;
+
+    gap:10px;
+
+    flex-wrap:wrap;
+}
+
+.btn-pdf,
+.btn-link{
+
+    text-decoration:none;
+
+    padding:10px 15px;
+
+    border-radius:10px;
+
+    color:white;
+
+    font-size:14px;
+
+    font-weight:600;
+}
+
+.btn-pdf{
+
+    background:#d63031;
+}
+
+.btn-link{
+
+    background:#0984e3;
+}
+
+/*==================================================
+=            SIN AVISOS
+==================================================*/
+
+.sin-avisos{
+
+    background:white;
+
+    padding:60px;
+
+    border-radius:20px;
+
+    text-align:center;
+
+    box-shadow:
+    0 10px 25px rgba(0,0,0,.08);
+}
+
+.sin-avisos i{
+
+    font-size:70px;
+
+    color:#8B1C1C;
+
+    margin-bottom:20px;
+}
+
+.sin-avisos h3{
+
+    margin-bottom:15px;
+
+    color:#8B1C1C;
+}
+
+.sin-avisos p{
+
+    color:#666;
+}
+
+/*==================================================
+=            FRASE
+==================================================*/
+
+.frase{
+
+    margin-top:35px;
+
+    background:white;
+
+    border-radius:20px;
+
+    padding:30px;
+
+    text-align:center;
+
+    box-shadow:
+    0 10px 25px rgba(0,0,0,.08);
+}
+
+.frase p{
+
+    color:#8B1C1C;
+
+    font-size:22px;
+
+    font-style:italic;
+
+    font-weight:600;
+}
+
+/*==================================================
+=            RESPONSIVE
+==================================================*/
+
+@media(max-width:1000px){
+
+.hero{
+
+    flex-direction:column;
+
+    text-align:center;
+}
+
+.hero-text{
+
+    width:100%;
+}
+
+.hero-image{
+
+    margin-top:25px;
+}
+
+.bienvenida-principal{
+
+    flex-direction:column;
+
+    text-align:center;
+}
+
+.bienvenida-texto p{
+
+    text-align:left;
+}
+
+}
+/*==================================================
+=            ANIMACIONES
+==================================================*/
+
+.oculto{
+
+    opacity:0;
+
+    transform:translateY(40px);
+
+    transition:
+    opacity .8s ease,
+    transform .8s ease;
+
+}
+
+.visible{
+
+    opacity:1;
+
+    transform:translateY(0);
+
+}
+
+.frase p{
+
+    transition:opacity .4s ease;
+
+}
+/*==================================
+        TARJETAS AVISOS DOCENTE
+==================================*/
+
+.grid-avisos{
+
+    display:grid;
+
+    grid-template-columns:
+    repeat(auto-fill,minmax(360px,1fr));
+
+    gap:25px;
+
+}
+
+.aviso-card{
+
+    background:white;
+
+    border-radius:20px;
+
+    overflow:hidden;
+
+    box-shadow:
+    0 8px 25px rgba(0,0,0,.08);
+
+    transition:.3s;
+
+    display:flex;
+
+    flex-direction:column;
+}
+
+.aviso-card:hover{
+
+    transform:translateY(-8px);
+
+    box-shadow:
+    0 15px 35px rgba(0,0,0,.15);
+
+}
+
+.aviso-imagen{
+
+    width:100%;
+
+    height:220px;
+
+    object-fit:cover;
+}
+
+.aviso-body{
+
+    padding:22px;
+}
+
+.aviso-fecha{
+
+    display:block;
+
+    color:#777;
+
+    font-size:13px;
+
+    margin-bottom:12px;
+}
+
+.aviso-body h3{
+
+    color:#8B1C1C;
+
+    font-size:22px;
+
+    margin-bottom:15px;
+}
+
+.aviso-body p{
+
+    color:#555;
+
+    line-height:1.7;
+
+    margin-bottom:20px;
+}
+
+.aviso-botones{
+
+    display:flex;
+
+    gap:10px;
+
+    flex-wrap:wrap;
+}
+
+.btn-pdf{
+
+    background:#d63031;
+
+    color:white;
+
+    text-decoration:none;
+
+    padding:10px 16px;
+
+    border-radius:10px;
+
+    font-size:14px;
+
+    font-weight:600;
+}
+
+.btn-link{
+
+    background:#0984e3;
+
+    color:white;
+
+    text-decoration:none;
+
+    padding:10px 16px;
+
+    border-radius:10px;
+
+    font-size:14px;
+
+    font-weight:600;
+}
+
+.btn-pdf:hover,
+.btn-link:hover{
+
+    opacity:.9;
+}
+/*==================================
+    INSIGNIAS DE ROLES
+==================================*/
+
+.roles-docente{
+
+    display:flex;
+    flex-wrap:wrap;
+    gap:15px;
+
+    margin-top:15px;
+}
+
+.badge-extra{
+
+    background:white;
+
+    color:#8B1C1C;
+
+    padding:18px 25px;
+
+    border-radius:18px;
+
+    font-size:18px;
+
+    font-weight:700;
+
+    box-shadow:
+    0 10px 25px rgba(0,0,0,.15);
+
+    display:flex;
+    align-items:center;
+    gap:10px;
+
+    transition:.3s;
+}
+
+.badge-extra:hover{
+
+    transform:translateY(-5px) scale(1.03);
+
+}
+.destinatarios{
+
+    display:flex;
+    gap:10px;
+    margin-bottom:15px;
+    flex-wrap:wrap;
+}
+
+.rol-aviso{
+
+    padding:6px 15px;
+    border-radius:20px;
+    color:white;
+    font-size:12px;
+    font-weight:700;
+}
+
+.docente{
+
+    background:#1d4ed8;
+}
+
+.tutor{
+
+    background:#16a34a;
+}
+
+.coordinador{
+
+    background:#f59e0b;
+}
+/*=========================================================
+    FOTOGRAFÍA DEL TUTOR
+=========================================================*/
+
+.fotografia-tutor-section{
+
+    margin-top: 30px;
+    margin-bottom: 35px;
+
+    background: #ffffff;
+
+    border-radius: 18px;
+
+    padding: 30px;
+
+    box-shadow:
+        0 8px 25px rgba(0,0,0,0.08);
+
+}
+
+
+/*=========================================================
+    HEADER
+=========================================================*/
+
+.fotografia-tutor-header{
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 18px;
+
+    margin-bottom: 25px;
+
+}
+
+
+.fotografia-tutor-icono{
+
+    width: 55px;
+    height: 55px;
+
+    border-radius: 14px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    background: #0b1d3a;
+
+    color: white;
+
+    font-size: 22px;
+
+}
+
+
+.fotografia-tutor-header h2{
+
+    margin: 0 0 6px;
+
+    color: #0b1d3a;
+
+}
+
+
+.fotografia-tutor-header p{
+
+    margin: 0;
+
+    color: #666;
+
+}
+
+
+/*=========================================================
+    CONTENIDO
+=========================================================*/
+
+.fotografia-tutor-contenido{
+
+    display: flex;
+
+    gap: 35px;
+
+    align-items: flex-start;
+
+}
+
+
+/*=========================================================
+    PREVIEW
+=========================================================*/
+
+.fotografia-preview{
+
+    width: 190px;
+
+    min-width: 190px;
+
+    height: 230px;
+
+    border-radius: 15px;
+
+    overflow: hidden;
+
+    background: #f1f3f5;
+
+    border: 2px solid #e0e0e0;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+}
+
+
+.fotografia-preview img{
+
+    width: 100%;
+
+    height: 100%;
+
+    object-fit: cover;
+
+}
+
+
+.fotografia-sin-foto{
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    gap: 10px;
+
+    color: #999;
+
+    font-size: 16px;
+
+}
+
+
+.fotografia-sin-foto i{
+
+    font-size: 55px;
+
+}
+
+
+/*=========================================================
+    INFORMACIÓN
+=========================================================*/
+
+.fotografia-info{
+
+    flex: 1;
+
+}
+
+
+.fotografia-info h3{
+
+    margin-top: 0;
+
+    color: #222;
+
+}
+
+
+/*=========================================================
+    ALERTA
+=========================================================*/
+
+.fotografia-alerta{
+
+    display: flex;
+
+    gap: 12px;
+
+    align-items: flex-start;
+
+    padding: 15px;
+
+    background: #fff7e6;
+
+    border-left: 4px solid #f0ad00;
+
+    border-radius: 8px;
+
+    margin-bottom: 18px;
+
+}
+
+
+.fotografia-alerta i{
+
+    color: #d99400;
+
+    font-size: 20px;
+
+}
+
+
+.fotografia-alerta strong{
+
+    color: #7a5200;
+
+}
+
+
+.fotografia-alerta p{
+
+    margin: 5px 0 0;
+
+    color: #6d5b35;
+
+}
+
+
+/*=========================================================
+    FOTOGRAFÍA CORRECTA
+=========================================================*/
+
+.fotografia-correcta{
+
+    display: inline-flex;
+
+    align-items: center;
+
+    gap: 8px;
+
+    padding: 10px 14px;
+
+    background: #eaf7ee;
+
+    color: #23733a;
+
+    border-radius: 8px;
+
+    margin-bottom: 18px;
+
+}
+
+
+/*=========================================================
+    RECOMENDACIONES
+=========================================================*/
+
+.fotografia-recomendaciones{
+
+    margin-bottom: 20px;
+
+}
+
+
+.fotografia-recomendaciones h4{
+
+    margin-bottom: 8px;
+
+    color: #0b1d3a;
+
+}
+
+
+.fotografia-recomendaciones ul{
+
+    margin: 0;
+
+    padding-left: 20px;
+
+    color: #555;
+
+}
+
+
+.fotografia-recomendaciones li{
+
+    margin-bottom: 5px;
+
+}
+
+
+/*=========================================================
+    FORMULARIO
+=========================================================*/
+
+.form-fotografia{
+
+    display: flex;
+
+    align-items: center;
+
+    flex-wrap: wrap;
+
+    gap: 12px;
+
+}
+
+
+.form-fotografia label{
+
+    background: #0b1d3a;
+
+    color: white;
+
+    padding: 11px 17px;
+
+    border-radius: 8px;
+
+    cursor: pointer;
+
+    transition: 0.2s;
+
+}
+
+
+.form-fotografia label:hover{
+
+    opacity: 0.9;
+
+}
+
+
+.form-fotografia input[type="file"]{
+
+    display: none;
+
+}
+
+
+#nombre-fotografia{
+
+    color: #777;
+
+    font-size: 14px;
+
+}
+
+
+.form-fotografia button{
+
+    border: none;
+
+    padding: 11px 18px;
+
+    border-radius: 8px;
+
+    background: #8b1c1c;
+
+    color: white;
+
+    cursor: pointer;
+
+    font-size: 14px;
+
+}
+
+
+.form-fotografia button:hover{
+
+    opacity: 0.9;
+
+}
+
+
+.fotografia-formatos{
+
+    display: block;
+
+    margin-top: 10px;
+
+    color: #888;
+
+}
+
+
+/*=========================================================
+    MODAL
+=========================================================*/
+
+.modal-fotografia-tutor{
+
+    position: fixed;
+
+    inset: 0;
+
+    background: rgba(0,0,0,0.65);
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    padding: 20px;
+
+    z-index: 9999;
+
+    opacity: 0;
+
+    visibility: hidden;
+
+    transition: 0.3s;
+
+}
+
+
+.modal-fotografia-tutor.mostrar{
+
+    opacity: 1;
+
+    visibility: visible;
+
+}
+
+
+.modal-fotografia-contenido{
+
+    width: 100%;
+
+    max-width: 520px;
+
+    background: white;
+
+    border-radius: 20px;
+
+    padding: 35px;
+
+    text-align: center;
+
+    box-shadow:
+        0 20px 60px rgba(0,0,0,0.25);
+
+    transform: translateY(-20px);
+
+    transition: 0.3s;
+
+}
+
+
+.modal-fotografia-tutor.mostrar
+.modal-fotografia-contenido{
+
+    transform: translateY(0);
+
+}
+
+
+.modal-fotografia-icono{
+
+    width: 75px;
+
+    height: 75px;
+
+    margin: 0 auto 18px;
+
+    border-radius: 50%;
+
+    background: #0b1d3a;
+
+    color: white;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    font-size: 30px;
+
+}
+
+
+.modal-fotografia-contenido h2{
+
+    margin-bottom: 15px;
+
+    color: #0b1d3a;
+
+}
+
+
+.modal-fotografia-contenido p{
+
+    color: #555;
+
+    line-height: 1.6;
+
+}
+
+
+.modal-fotografia-aviso{
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 12px;
+
+    text-align: left;
+
+    background: #f5f7fa;
+
+    padding: 15px;
+
+    border-radius: 10px;
+
+    margin: 20px 0;
+
+    color: #444;
+
+}
+
+
+.modal-fotografia-aviso i{
+
+    font-size: 25px;
+
+    color: #0b1d3a;
+
+}
+
+
+.btn-modal-fotografia{
+
+    border: none;
+
+    background: #8b1c1c;
+
+    color: white;
+
+    padding: 13px 25px;
+
+    border-radius: 9px;
+
+    font-size: 15px;
+
+    cursor: pointer;
+
+}
+
+
+.btn-modal-fotografia:hover{
+
+    opacity: 0.9;
+
+}
+
+
+/*=========================================================
+    RESPONSIVE
+=========================================================*/
+
+@media(max-width:700px){
+
+    .fotografia-tutor-contenido{
+
+        flex-direction: column;
+
+        align-items: center;
+
+    }
+
+    .fotografia-info{
+
+        width: 100%;
+
+    }
+
+    .fotografia-tutor-header{
+
+        align-items: flex-start;
+
+    }
+
+}
