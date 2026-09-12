@@ -1,0 +1,1405 @@
+/*=========================================================
+    PORTAL INSTITUCIONAL DE TUTORÍAS (PIT)
+    Sistema Integral PIT
+    Versión 4.0
+
+    Archivo:
+    estilo.css
+
+    Parte 1
+==========================================================*/
+
+
+/*=========================================================
+                    VARIABLES
+=========================================================*/
+
+:root{
+
+    --azul-principal:#0A4D8C;
+    --azul-secundario:#1565C0;
+    --azul-claro:#EAF4FF;
+
+    --blanco:#FFFFFF;
+
+    --gris-claro:#F4F6F9;
+    --gris:#D9D9D9;
+    --gris-texto:#555555;
+
+    --verde:#2E7D32;
+    --naranja:#F57C00;
+    --rojo:#C62828;
+
+    --sombra:0 10px 30px rgba(0,0,0,.15);
+
+    --radio:16px;
+
+    --transicion:.35s;
+
+}
+
+.separador {
+    height: 25px;
+    background: linear-gradient(to bottom, rgba(0,0,0,0.15), transparent);
+}
+/*=========================================================
+                    RESET GENERAL
+=========================================================*/
+
+*{
+
+    margin:0;
+
+    padding:0;
+
+    box-sizing:border-box;
+
+}
+
+
+html{
+
+    scroll-behavior:smooth;
+
+}
+
+
+body{
+
+    font-family:Segoe UI,Arial,Helvetica,sans-serif;
+
+    background:#f2f5fa;
+
+    color:#333;
+
+}
+
+
+/*=========================================================
+                    FONDO
+=========================================================*/
+
+.fondo-login{
+
+    min-height:100vh;
+
+    width:100%;
+
+    padding:40px;
+
+    background:
+
+        linear-gradient(
+            135deg,
+            rgba(10,77,140,.95),
+            rgba(21,101,192,.90)
+        );
+
+}
+
+
+/*=========================================================
+            CONTENEDOR PRINCIPAL
+=========================================================*/
+
+.contenedor-login{
+
+    max-width:1400px;
+
+    margin:auto;
+
+}
+
+
+/*=========================================================
+                    ENCABEZADO
+=========================================================*/
+
+.encabezado-pit{
+
+    background:#ffffff;
+
+    border-radius:18px;
+
+    box-shadow:var(--sombra);
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    padding:25px 40px;
+
+    margin-bottom:35px;
+
+}
+
+
+.logo{
+
+    width:130px;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+}
+
+
+.logo img{
+
+    width:100%;
+
+    height:auto;
+
+}
+
+
+.titulo-principal{
+
+    text-align:center;
+
+    flex:1;
+
+}
+
+
+.titulo-principal h1{
+
+    color:var(--azul-principal);
+
+    font-size:34px;
+
+    letter-spacing:1px;
+
+    margin-bottom:10px;
+
+    font-weight:700;
+
+}
+
+
+.titulo-principal h2{
+
+    color:#444;
+
+    font-size:22px;
+
+    font-weight:500;
+
+    margin-bottom:8px;
+
+}
+
+
+.titulo-principal p{
+
+    color:#777;
+
+    font-size:16px;
+
+}
+
+
+/*=========================================================
+                PANEL PRINCIPAL
+=========================================================*/
+
+.panel-principal{
+
+    display:grid;
+
+    grid-template-columns:420px 1fr;
+
+    gap:35px;
+
+    align-items:flex-start;
+
+}
+
+
+/*=========================================================
+                TARJETAS GENERALES
+=========================================================*/
+
+.card-login,
+.card-instrucciones{
+
+    background:#FFF;
+
+    border-radius:18px;
+
+    box-shadow:var(--sombra);
+
+    padding:35px;
+
+    transition:var(--transicion);
+
+}
+
+
+.card-login:hover,
+.card-instrucciones:hover{
+
+    transform:translateY(-4px);
+
+}
+
+
+/*=========================================================
+                TITULOS TARJETAS
+=========================================================*/
+
+.card-login h2,
+.card-instrucciones h2{
+
+    color:var(--azul-principal);
+
+    font-size:28px;
+
+    margin-bottom:20px;
+
+    border-bottom:3px solid var(--azul-secundario);
+
+    padding-bottom:12px;
+
+}
+
+
+/*=========================================================
+                BIENVENIDA
+=========================================================*/
+
+.bienvenida{
+
+    color:#555;
+
+    line-height:1.7;
+
+    margin-bottom:30px;
+
+    text-align:justify;
+
+}
+/*=========================================================
+                FORMULARIO LOGIN
+=========================================================*/
+
+.grupo{
+
+    margin-bottom:25px;
+
+}
+
+.grupo label{
+
+    display:block;
+
+    font-size:15px;
+
+    font-weight:600;
+
+    color:#444;
+
+    margin-bottom:8px;
+
+}
+
+
+/*=========================================================
+                INPUTS
+=========================================================*/
+
+.input-icono{
+
+    position:relative;
+
+    display:flex;
+
+    align-items:center;
+
+}
+
+.input-icono span{
+
+    position:absolute;
+
+    left:18px;
+
+    font-size:20px;
+
+    color:var(--azul-principal);
+
+    pointer-events:none;
+
+}
+
+.input-icono input{
+
+    width:100%;
+
+    height:55px;
+
+    padding-left:55px;
+
+    padding-right:55px;
+
+    border:2px solid #D6DCE5;
+
+    border-radius:12px;
+
+    outline:none;
+
+    font-size:15px;
+
+    transition:all .30s ease;
+
+    background:#FAFBFD;
+
+}
+
+.input-icono input::placeholder{
+
+    color:#9A9A9A;
+
+}
+
+.input-icono input:focus{
+
+    border-color:var(--azul-secundario);
+
+    background:#FFF;
+
+    box-shadow:0 0 10px rgba(21,101,192,.20);
+
+}
+
+
+/*=========================================================
+            BOTÓN MOSTRAR CONTRASEÑA
+=========================================================*/
+
+.ver-password{
+
+    position:absolute;
+
+    right:12px;
+
+    width:36px;
+
+    height:36px;
+
+    border:none;
+
+    background:transparent;
+
+    cursor:pointer;
+
+    font-size:18px;
+
+    transition:.30s;
+
+    border-radius:50%;
+
+}
+
+.ver-password:hover{
+
+    background:#EEF5FF;
+
+    transform:scale(1.08);
+
+}
+
+
+/*=========================================================
+                BOTÓN LOGIN
+=========================================================*/
+
+.btn-login{
+
+    width:100%;
+
+    height:58px;
+
+    margin-top:12px;
+
+    border:none;
+
+    border-radius:12px;
+
+    background:linear-gradient(
+            135deg,
+            var(--azul-principal),
+            var(--azul-secundario)
+    );
+
+    color:#FFF;
+
+    font-size:17px;
+
+    font-weight:bold;
+
+    letter-spacing:.5px;
+
+    cursor:pointer;
+
+    transition:all .35s ease;
+
+    box-shadow:0 10px 20px rgba(10,77,140,.25);
+
+}
+
+.btn-login:hover{
+
+    transform:translateY(-3px);
+
+    box-shadow:0 16px 28px rgba(10,77,140,.35);
+
+}
+
+.btn-login:active{
+
+    transform:scale(.98);
+
+}
+
+
+/*=========================================================
+            MENSAJES DEL SISTEMA
+=========================================================*/
+
+.mensaje-login{
+
+    display:none;
+
+    margin-top:18px;
+
+    margin-bottom:15px;
+
+    padding:14px;
+
+    border-radius:10px;
+
+    font-size:14px;
+
+    font-weight:600;
+
+    line-height:1.5;
+
+}
+
+.mensaje-login.error{
+
+    display:block;
+
+    background:#FDECEC;
+
+    color:var(--rojo);
+
+    border-left:5px solid var(--rojo);
+
+}
+
+.mensaje-login.correcto{
+
+    display:block;
+
+    background:#ECF8EF;
+
+    color:var(--verde);
+
+    border-left:5px solid var(--verde);
+
+}
+
+.mensaje-login.advertencia{
+
+    display:block;
+
+    background:#FFF7E8;
+
+    color:var(--naranja);
+
+    border-left:5px solid var(--naranja);
+
+}
+
+
+/*=========================================================
+                    LOADER
+=========================================================*/
+
+.loader-login{
+
+    display:none;
+
+    margin-top:30px;
+
+    text-align:center;
+
+    padding:25px;
+
+    border-radius:14px;
+
+    background:#F7FAFE;
+
+    border:1px solid #D9E7F8;
+
+}
+
+.loader-login h3{
+
+    margin-top:15px;
+
+    color:var(--azul-principal);
+
+    font-size:20px;
+
+}
+
+.loader-login p{
+
+    margin-top:8px;
+
+    color:#666;
+
+    font-size:14px;
+
+}
+
+
+/*=========================================================
+                    SPINNER
+=========================================================*/
+
+.spinner{
+
+    width:65px;
+
+    height:65px;
+
+    margin:auto;
+
+    border:6px solid #D8E6F8;
+
+    border-top:6px solid var(--azul-principal);
+
+    border-radius:50%;
+
+    animation:girar 1s linear infinite;
+
+}
+
+@keyframes girar{
+
+    from{
+
+        transform:rotate(0deg);
+
+    }
+
+    to{
+
+        transform:rotate(360deg);
+
+    }
+
+}
+
+
+/*=========================================================
+            EFECTOS DE APARICIÓN
+=========================================================*/
+
+.card-login{
+
+    animation:aparecerIzquierda .8s ease;
+
+}
+
+.card-instrucciones{
+
+    animation:aparecerDerecha .8s ease;
+
+}
+
+@keyframes aparecerIzquierda{
+
+    from{
+
+        opacity:0;
+
+        transform:translateX(-40px);
+
+    }
+
+    to{
+
+        opacity:1;
+
+        transform:translateX(0);
+
+    }
+
+}
+
+@keyframes aparecerDerecha{
+
+    from{
+
+        opacity:0;
+
+        transform:translateX(40px);
+
+    }
+
+    to{
+
+        opacity:1;
+
+        transform:translateX(0);
+
+    }
+
+}
+/*=========================================================
+            PANEL DE INSTRUCCIONES
+=========================================================*/
+
+.card-instrucciones{
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:22px;
+
+}
+
+
+/*=========================================================
+            BLOQUES DE INFORMACIÓN
+=========================================================*/
+
+.bloque-instruccion{
+
+    background:#FFFFFF;
+
+    border-radius:14px;
+
+    padding:20px;
+
+    border-left:6px solid var(--azul-principal);
+
+    box-shadow:0 6px 16px rgba(0,0,0,.08);
+
+    transition:all .35s ease;
+
+}
+
+.bloque-instruccion:hover{
+
+    transform:translateY(-3px);
+
+    box-shadow:0 12px 24px rgba(0,0,0,.12);
+
+}
+
+
+/*=========================================================
+                TÍTULOS
+=========================================================*/
+
+.bloque-instruccion h3{
+
+    color:var(--azul-principal);
+
+    font-size:19px;
+
+    margin-bottom:15px;
+
+}
+
+
+/*=========================================================
+                PÁRRAFOS
+=========================================================*/
+
+.bloque-instruccion p{
+
+    color:#555;
+
+    text-align:justify;
+
+    line-height:1.8;
+
+    font-size:15px;
+
+}
+
+
+/*=========================================================
+                LISTAS
+=========================================================*/
+
+.bloque-instruccion ul{
+
+    margin-top:12px;
+
+    margin-left:18px;
+
+}
+
+.bloque-instruccion li{
+
+    margin-bottom:10px;
+
+    color:#555;
+
+    line-height:1.7;
+
+}
+
+
+/*=========================================================
+                FORMATO DEL USUARIO
+=========================================================*/
+
+.ejemplo-usuario{
+
+    margin-top:18px;
+
+    margin-bottom:18px;
+
+    background:#EAF4FF;
+
+    border-left:5px solid var(--azul-secundario);
+
+    padding:15px;
+
+    border-radius:10px;
+
+    text-align:center;
+
+    font-size:16px;
+
+    color:var(--azul-principal);
+
+    letter-spacing:.5px;
+
+    font-weight:bold;
+
+}
+
+
+/*=========================================================
+                EJEMPLO
+=========================================================*/
+
+.ejemplo{
+
+    margin-top:18px;
+
+    background:#E9F8EE;
+
+    border-left:5px solid var(--verde);
+
+    padding:16px;
+
+    border-radius:10px;
+
+    text-align:center;
+
+    font-size:17px;
+
+    font-weight:bold;
+
+    color:var(--verde);
+
+    letter-spacing:1px;
+
+}
+
+
+/*=========================================================
+            BLOQUE SOPORTE
+=========================================================*/
+
+.soporte{
+
+    background:#FFF9EF;
+
+    border-left:6px solid var(--naranja);
+
+}
+
+.soporte h3{
+
+    color:var(--naranja);
+
+}
+
+.soporte strong{
+
+    color:#D35400;
+
+}
+
+
+/*=========================================================
+            PIE DEL LOGIN
+=========================================================*/
+
+.pie-login{
+
+    margin-top:35px;
+
+    background:#FFFFFF;
+
+    border-radius:16px;
+
+    padding:22px;
+
+    text-align:center;
+
+    box-shadow:var(--sombra);
+
+}
+
+.pie-login p{
+
+    color:var(--azul-principal);
+
+    font-size:20px;
+
+    font-weight:bold;
+
+    margin-bottom:8px;
+
+}
+
+.pie-login span{
+
+    display:block;
+
+    color:#666;
+
+    font-size:15px;
+
+    margin-bottom:10px;
+
+}
+
+.pie-login small{
+
+    color:#999;
+
+    font-size:13px;
+
+}
+
+
+/*=========================================================
+                EFECTOS
+=========================================================*/
+
+.bloque-instruccion strong{
+
+    color:var(--azul-principal);
+
+}
+
+.bloque-instruccion:hover strong{
+
+    color:var(--azul-secundario);
+
+}
+
+.ejemplo-usuario:hover{
+
+    background:#DCEEFF;
+
+}
+
+.ejemplo:hover{
+
+    background:#DDF7E6;
+
+}
+
+
+/*=========================================================
+        SCROLL SUAVE SI CRECE EL CONTENIDO
+=========================================================*/
+
+.card-instrucciones{
+
+    max-height:850px;
+
+    overflow-y:auto;
+
+    scrollbar-width:thin;
+
+    scrollbar-color:var(--azul-secundario) #EEEEEE;
+
+}
+
+.card-instrucciones::-webkit-scrollbar{
+
+    width:8px;
+
+}
+
+.card-instrucciones::-webkit-scrollbar-track{
+
+    background:#EEEEEE;
+
+    border-radius:20px;
+
+}
+
+.card-instrucciones::-webkit-scrollbar-thumb{
+
+    background:var(--azul-secundario);
+
+    border-radius:20px;
+
+}
+
+.card-instrucciones::-webkit-scrollbar-thumb:hover{
+
+    background:var(--azul-principal);
+
+}
+/*=========================================================
+        RESPONSIVE - LAPTOP
+=========================================================*/
+
+@media(max-width:1300px){
+
+    .panel-principal{
+
+        grid-template-columns:380px 1fr;
+
+    }
+
+    .titulo-principal h1{
+
+        font-size:30px;
+
+    }
+
+}
+
+
+/*=========================================================
+        RESPONSIVE - TABLET
+=========================================================*/
+
+@media(max-width:992px){
+
+    .fondo-login{
+
+        padding:25px;
+
+    }
+
+    .encabezado-pit{
+
+        flex-direction:column;
+
+        text-align:center;
+
+        gap:20px;
+
+    }
+
+    .logo{
+
+        width:100px;
+
+    }
+
+    .panel-principal{
+
+        grid-template-columns:1fr;
+
+    }
+
+    .card-login{
+
+        order:1;
+
+    }
+
+    .card-instrucciones{
+
+        order:2;
+
+        max-height:none;
+
+        overflow:visible;
+
+    }
+
+}
+
+
+/*=========================================================
+        RESPONSIVE - CELULAR
+=========================================================*/
+
+@media(max-width:768px){
+
+    .fondo-login{
+
+        padding:15px;
+
+    }
+
+    .encabezado-pit{
+
+        padding:25px;
+
+    }
+
+    .titulo-principal h1{
+
+        font-size:24px;
+
+        line-height:1.3;
+
+    }
+
+    .titulo-principal h2{
+
+        font-size:18px;
+
+    }
+
+    .titulo-principal p{
+
+        font-size:14px;
+
+    }
+
+    .card-login,
+    .card-instrucciones{
+
+        padding:25px;
+
+    }
+
+    .card-login h2,
+    .card-instrucciones h2{
+
+        font-size:24px;
+
+    }
+
+    .btn-login{
+
+        font-size:16px;
+
+    }
+
+}
+
+
+/*=========================================================
+        RESPONSIVE - CELULAR PEQUEÑO
+=========================================================*/
+
+@media(max-width:480px){
+
+    .input-icono input{
+
+        font-size:14px;
+
+        padding-left:50px;
+
+        padding-right:50px;
+
+    }
+
+    .titulo-principal h1{
+
+        font-size:21px;
+
+    }
+
+    .titulo-principal h2{
+
+        font-size:16px;
+
+    }
+
+    .pie-login p{
+
+        font-size:17px;
+
+    }
+
+    .pie-login span{
+
+        font-size:13px;
+
+    }
+
+}
+
+
+/*=========================================================
+        ANIMACIÓN BOTÓN LOGIN
+=========================================================*/
+
+.btn-login{
+
+    overflow:hidden;
+
+    position:relative;
+
+}
+
+.btn-login::before{
+
+    content:"";
+
+    position:absolute;
+
+    top:0;
+
+    left:-120%;
+
+    width:120%;
+
+    height:100%;
+
+    background:rgba(255,255,255,.25);
+
+    transform:skewX(-25deg);
+
+    transition:.7s;
+
+}
+
+.btn-login:hover::before{
+
+    left:130%;
+
+}
+
+
+/*=========================================================
+        ANIMACIÓN INPUT
+=========================================================*/
+
+.input-icono input{
+
+    transition:
+        border .30s,
+        box-shadow .30s,
+        transform .20s;
+
+}
+
+.input-icono input:focus{
+
+    transform:scale(1.01);
+
+}
+
+
+/*=========================================================
+        EFECTO TARJETAS
+=========================================================*/
+
+.card-login,
+.card-instrucciones,
+.encabezado-pit,
+.pie-login{
+
+    transition:all .35s ease;
+
+}
+
+.card-login:hover,
+.card-instrucciones:hover{
+
+    box-shadow:
+
+        0 18px 35px rgba(0,0,0,.18);
+
+}
+
+
+/*=========================================================
+        SELECCIÓN DE TEXTO
+=========================================================*/
+
+::selection{
+
+    background:var(--azul-principal);
+
+    color:#FFF;
+
+}
+
+
+/*=========================================================
+        ENFOQUE ACCESIBLE
+=========================================================*/
+
+button:focus,
+input:focus{
+
+    outline:none;
+
+}
+
+
+/*=========================================================
+        ANIMACIÓN GENERAL
+=========================================================*/
+
+body{
+
+    animation:fadeGeneral .7s ease;
+
+}
+
+@keyframes fadeGeneral{
+
+    from{
+
+        opacity:0;
+
+    }
+
+    to{
+
+        opacity:1;
+
+    }
+
+}
+
+
+/*=========================================================
+        FONDO DECORATIVO
+=========================================================*/
+
+.fondo-login{
+
+    position:relative;
+
+    overflow:hidden;
+
+}
+
+.fondo-login::before{
+
+    content:"";
+
+    position:absolute;
+
+    width:700px;
+
+    height:700px;
+
+    background:rgba(255,255,255,.05);
+
+    border-radius:50%;
+
+    top:-250px;
+
+    left:-250px;
+
+}
+
+.fondo-login::after{
+
+    content:"";
+
+    position:absolute;
+
+    width:500px;
+
+    height:500px;
+
+    background:rgba(255,255,255,.04);
+
+    border-radius:50%;
+
+    right:-150px;
+
+    bottom:-150px;
+
+}
+
+
+/*=========================================================
+        CONTENIDO SOBRE EL FONDO
+=========================================================*/
+
+.contenedor-login{
+
+    position:relative;
+
+    z-index:10;
+
+}
+
+
+/*=========================================================
+        UTILIDADES
+=========================================================*/
+
+.oculto{
+
+    display:none !important;
+
+}
+
+.visible{
+
+    display:block !important;
+
+}
+
+.centrar{
+
+    text-align:center;
+
+}
+
+.negrita{
+
+    font-weight:bold;
+
+}
+/*=========================================================
+        EFECTO INPUT ACTIVO
+=========================================================*/
+
+.input-icono.activo{
+
+    transform:translateY(-2px);
+
+    transition:.25s ease;
+
+}
+
+.input-icono.activo span{
+
+    color:var(--azul2);
+
+}
+
+/*=========================================================
+                FIN DEL ARCHIVO
+=========================================================*/

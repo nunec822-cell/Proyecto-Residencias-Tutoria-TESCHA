@@ -1,0 +1,1032 @@
+/*=========================================================
+    CONTENEDOR PRINCIPAL
+=========================================================*/
+
+.contenedor-cita {
+
+    max-width: 1100px;
+
+    margin: 0 auto;
+
+    padding: 45px 30px 70px;
+
+}
+
+
+/*=========================================================
+    ENCABEZADO
+=========================================================*/
+
+.encabezado-cita {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 22px;
+
+    margin-bottom: 35px;
+
+}
+
+
+.encabezado-icono {
+
+    width: 70px;
+
+    height: 70px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    flex-shrink: 0;
+
+    border-radius: 20px;
+
+    background: #e8f6f3;
+
+    color: #268c80;
+
+    font-size: 28px;
+
+}
+
+
+.encabezado-cita span {
+
+    color: #2a9d8f;
+
+    font-size: 13px;
+
+    font-weight: 800;
+
+    text-transform: uppercase;
+
+    letter-spacing: .8px;
+
+}
+
+
+.encabezado-cita h1 {
+
+    margin: 5px 0;
+
+    color: #294947;
+
+    font-size: 32px;
+
+}
+
+
+.encabezado-cita p {
+
+    margin: 0;
+
+    color: #71817f;
+
+    line-height: 1.5;
+
+}
+
+
+/*=========================================================
+    TARJETA DE CITA
+=========================================================*/
+
+.cita-card {
+
+    background: #fff;
+
+    border-radius: 24px;
+
+    padding: 30px;
+
+    box-shadow:
+        0 15px 40px rgba(39,78,74,.08);
+
+    border: 1px solid #edf2f1;
+
+}
+
+
+/*=========================================================
+    HEADER DE CITA
+=========================================================*/
+
+.cita-card-header {
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    gap: 20px;
+
+}
+
+
+.mini-titulo {
+
+    color: #2a9d8f;
+
+    font-size: 11px;
+
+    font-weight: 800;
+
+    letter-spacing: 1px;
+
+}
+
+
+.cita-card-header h2 {
+
+    margin: 5px 0 0;
+
+    color: #304947;
+
+    font-size: 23px;
+
+}
+
+
+/*=========================================================
+    ESTADO
+=========================================================*/
+
+.cita-estado {
+
+    display: inline-flex;
+
+    align-items: center;
+
+    gap: 8px;
+
+    padding: 9px 15px;
+
+    border-radius: 30px;
+
+    font-size: 13px;
+
+    font-weight: 800;
+
+    white-space: nowrap;
+
+}
+
+
+.estado-indicador {
+
+    width: 9px;
+
+    height: 9px;
+
+    border-radius: 50%;
+
+    background: currentColor;
+
+}
+
+
+/*=========================================================
+    COLORES DE ESTADOS
+=========================================================*/
+
+.estado-pendiente {
+
+    background: #fff7df;
+
+    color: #a37a1d;
+
+}
+
+
+.estado-confirmada {
+
+    background: #e9f5ff;
+
+    color: #327ba8;
+
+}
+
+
+.estado-atendiendo {
+
+    background: #f1eaff;
+
+    color: #7654a8;
+
+}
+
+
+.estado-atendida {
+
+    background: #e9f8ef;
+
+    color: #2e9564;
+
+}
+
+
+.estado-cancelada {
+
+    background: #fff0f0;
+
+    color: #c15858;
+
+}
+
+
+.estado-no_asistio {
+
+    background: #fff5e5;
+
+    color: #b57925;
+
+}
+
+
+/*=========================================================
+    MENSAJE DE ESTADO
+=========================================================*/
+
+.estado-mensaje {
+
+    margin-top: 23px;
+
+    padding: 20px;
+
+    border-radius: 17px;
+
+}
+
+
+.estado-mensaje strong {
+
+    display: block;
+
+    margin-bottom: 6px;
+
+    color: #304947;
+
+}
+
+
+.estado-mensaje p {
+
+    margin: 0;
+
+    color: #71817f;
+
+    font-size: 14px;
+
+    line-height: 1.6;
+
+}
+
+
+.estado-mensaje.estado-pendiente {
+
+    background: #fffaf0;
+
+}
+
+
+.estado-mensaje.estado-confirmada {
+
+    background: #f0f8fd;
+
+}
+
+
+.estado-mensaje.estado-atendiendo {
+
+    background: #f7f3ff;
+
+}
+
+
+/*=========================================================
+    INFORMACIÓN DE LA CITA
+=========================================================*/
+
+.informacion-cita {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, 1fr);
+
+    gap: 18px;
+
+    margin-top: 28px;
+
+}
+
+
+.dato-cita {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 14px;
+
+    padding: 20px;
+
+    border-radius: 17px;
+
+    background: #f8fbfa;
+
+}
+
+
+.dato-icono {
+
+    width: 45px;
+
+    height: 45px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    flex-shrink: 0;
+
+    border-radius: 13px;
+
+    background: #e7f5f2;
+
+    color: #2a9d8f;
+
+}
+
+
+.dato-cita span {
+
+    display: block;
+
+    margin-bottom: 5px;
+
+    color: #8a9896;
+
+    font-size: 12px;
+
+}
+
+
+.dato-cita strong {
+
+    display: block;
+
+    color: #304947;
+
+    font-size: 14px;
+
+    line-height: 1.4;
+
+}
+
+
+.dato-cita small {
+
+    color: #9ba8a6;
+
+}
+
+
+/*=========================================================
+    MOTIVO
+=========================================================*/
+
+.motivo-cita {
+
+    margin-top: 22px;
+
+    padding: 22px;
+
+    border-radius: 17px;
+
+    border: 1px solid #edf2f1;
+
+}
+
+
+.motivo-cita span {
+
+    color: #84918f;
+
+    font-size: 12px;
+
+    font-weight: 800;
+
+}
+
+
+.motivo-cita p {
+
+    margin: 10px 0 0;
+
+    color: #405654;
+
+    line-height: 1.6;
+
+}
+
+
+/*=========================================================
+    RECORDATORIO
+=========================================================*/
+
+.recordatorio-cita {
+
+    display: flex;
+
+    gap: 15px;
+
+    margin-top: 25px;
+
+    padding: 20px;
+
+    border-radius: 17px;
+
+    background: #fff9ed;
+
+    border: 1px solid #f4e6c7;
+
+}
+
+
+.recordatorio-icono {
+
+    color: #c28c27;
+
+    font-size: 22px;
+
+}
+
+
+.recordatorio-cita strong {
+
+    color: #775a21;
+
+}
+
+
+.recordatorio-cita p {
+
+    margin: 6px 0 0;
+
+    color: #806f4e;
+
+    font-size: 13px;
+
+    line-height: 1.6;
+
+}
+
+
+/*=========================================================
+    SIN CITA
+=========================================================*/
+
+.sin-cita {
+
+    padding: 65px 30px;
+
+    text-align: center;
+
+    background: #fff;
+
+    border-radius: 24px;
+
+    border: 1px solid #edf2f1;
+
+    box-shadow:
+        0 15px 40px rgba(39,78,74,.06);
+
+}
+
+
+.sin-cita-icono {
+
+    width: 80px;
+
+    height: 80px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    margin: 0 auto 20px;
+
+    border-radius: 50%;
+
+    background: #edf7f5;
+
+    color: #2a9d8f;
+
+    font-size: 30px;
+
+}
+
+
+.sin-cita h2 {
+
+    margin: 0 0 10px;
+
+    color: #304947;
+
+}
+
+
+.sin-cita p {
+
+    max-width: 550px;
+
+    margin: 0 auto 25px;
+
+    color: #7b8987;
+
+    line-height: 1.6;
+
+}
+
+
+.btn-nueva-cita {
+
+    display: inline-flex;
+
+    align-items: center;
+
+    gap: 9px;
+
+    padding: 13px 20px;
+
+    border-radius: 12px;
+
+    background: #2a9d8f;
+
+    color: #fff;
+
+    text-decoration: none;
+
+    font-size: 14px;
+
+    font-weight: 800;
+
+    transition: .2s;
+
+}
+
+
+.btn-nueva-cita:hover {
+
+    transform: translateY(-2px);
+
+}
+
+
+/*=========================================================
+    HISTORIAL
+=========================================================*/
+
+.historial-seccion {
+
+    margin-top: 45px;
+
+}
+
+
+/*=========================================================
+    TITULO HISTORIAL
+=========================================================*/
+
+.historial-titulo {
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    gap: 20px;
+
+    margin-bottom: 20px;
+
+}
+
+
+.historial-titulo span {
+
+    color: #2a9d8f;
+
+    font-size: 11px;
+
+    font-weight: 800;
+
+    letter-spacing: 1px;
+
+}
+
+
+.historial-titulo h2 {
+
+    margin: 4px 0 3px;
+
+    color: #304947;
+
+    font-size: 24px;
+
+}
+
+
+.historial-titulo p {
+
+    margin: 0;
+
+    color: #899693;
+
+    font-size: 13px;
+
+}
+
+
+.historial-icono {
+
+    width: 48px;
+
+    height: 48px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    flex-shrink: 0;
+
+    border-radius: 14px;
+
+    background: #eef7f5;
+
+    color: #2a9d8f;
+
+    font-size: 18px;
+
+}
+
+
+/*=========================================================
+    LISTA HISTORIAL
+=========================================================*/
+
+.historial-lista {
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 14px;
+
+}
+
+
+/*=========================================================
+    TARJETA HISTORIAL
+=========================================================*/
+
+.historial-card {
+
+    display: flex;
+
+    align-items: flex-start;
+
+    gap: 17px;
+
+    padding: 19px;
+
+    background: #fff;
+
+    border: 1px solid #edf2f1;
+
+    border-radius: 17px;
+
+    transition: .2s;
+
+}
+
+
+.historial-card:hover {
+
+    transform: translateY(-2px);
+
+    box-shadow:
+        0 8px 25px rgba(39,78,74,.07);
+
+}
+
+
+/*=========================================================
+    ICONO HISTORIAL
+=========================================================*/
+
+.historial-card-icono {
+
+    width: 46px;
+
+    height: 46px;
+
+    flex-shrink: 0;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    border-radius: 13px;
+
+    background: #f1f5f4;
+
+    color: #60706d;
+
+}
+
+
+/*=========================================================
+    COLORES ICONOS HISTORIAL
+=========================================================*/
+
+.estado-historial-atendida
+.historial-card-icono {
+
+    color: #2e9b69;
+
+    background: #eaf8f0;
+
+}
+
+
+.estado-historial-cancelada
+.historial-card-icono {
+
+    color: #c55b5b;
+
+    background: #fff0f0;
+
+}
+
+
+.estado-historial-no_asistio
+.historial-card-icono {
+
+    color: #c48a32;
+
+    background: #fff7e8;
+
+}
+
+
+/*=========================================================
+    CONTENIDO
+=========================================================*/
+
+.historial-card-contenido {
+
+    flex: 1;
+
+    min-width: 0;
+
+}
+
+
+/*=========================================================
+    ENCABEZADO CARD
+=========================================================*/
+
+.historial-card-superior {
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    gap: 15px;
+
+}
+
+
+.historial-card-superior strong {
+
+    color: #405654;
+
+    font-size: 14px;
+
+}
+
+
+.historial-card-superior span {
+
+    color: #899693;
+
+    font-size: 12px;
+
+}
+
+
+/*=========================================================
+    DATOS
+=========================================================*/
+
+.historial-card-datos {
+
+    display: flex;
+
+    flex-wrap: wrap;
+
+    gap: 18px;
+
+    margin-top: 9px;
+
+}
+
+
+.historial-card-datos span {
+
+    color: #71817f;
+
+    font-size: 12px;
+
+}
+
+
+.historial-card-datos i {
+
+    margin-right: 5px;
+
+    color: #2a9d8f;
+
+}
+
+
+/*=========================================================
+    NOTA HISTORIAL
+=========================================================*/
+
+.historial-nota {
+
+    margin: 10px 0 0;
+
+    color: #84918f;
+
+    font-size: 12px;
+
+    line-height: 1.5;
+
+}
+
+
+/*=========================================================
+    RESPONSIVE
+=========================================================*/
+
+@media(max-width: 850px) {
+
+    .informacion-cita {
+
+        grid-template-columns: 1fr;
+
+    }
+
+}
+
+
+@media(max-width: 700px) {
+
+    .cita-card-header {
+
+        align-items: flex-start;
+
+        flex-direction: column;
+
+    }
+
+
+    .cita-estado {
+
+        align-self: flex-start;
+
+    }
+
+}
+
+
+@media(max-width: 600px) {
+
+    .contenedor-cita {
+
+        padding: 25px 16px 50px;
+
+    }
+
+
+    .encabezado-cita {
+
+        align-items: flex-start;
+
+        gap: 15px;
+
+    }
+
+
+    .encabezado-icono {
+
+        width: 55px;
+
+        height: 55px;
+
+        font-size: 22px;
+
+    }
+
+
+    .encabezado-cita h1 {
+
+        font-size: 25px;
+
+    }
+
+
+    .encabezado-cita p {
+
+        font-size: 13px;
+
+    }
+
+
+    .cita-card {
+
+        padding: 20px;
+
+        border-radius: 18px;
+
+    }
+
+
+    .cita-card-header h2 {
+
+        font-size: 20px;
+
+    }
+
+
+    .recordatorio-cita {
+
+        flex-direction: column;
+
+    }
+
+
+    .historial-card {
+
+        padding: 15px;
+
+    }
+
+
+    .historial-card-superior {
+
+        align-items: flex-start;
+
+        flex-direction: column;
+
+        gap: 5px;
+
+    }
+
+
+    .historial-card-datos {
+
+        flex-direction: column;
+
+        gap: 7px;
+
+    }
+
+
+    .historial-titulo h2 {
+
+        font-size: 21px;
+
+    }
+
+}

@@ -1,0 +1,2063 @@
+/*=========================================================
+    INICIO DIRECTIVOS
+    SIST V.4.0 - PIT V.4.0
+=========================================================*/
+
+/*=========================================================
+    VARIABLES
+=========================================================*/
+
+:root {
+
+    --directivo-azul: #2474b9;
+    --directivo-azul-oscuro: #1d5f99;
+    --directivo-azul-claro: #eaf5ff;
+
+    --directivo-texto: #334e68;
+    --directivo-texto-suave: #8295a6;
+
+    --directivo-blanco: #ffffff;
+    --directivo-fondo: #f5f8fc;
+    --directivo-borde: #e5edf4;
+
+    --directivo-sombra:
+        0 10px 30px rgba(31, 78, 121, 0.08);
+}
+
+
+/*=========================================================
+    RESET
+=========================================================*/
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+
+    margin: 0;
+    padding: 0;
+
+    background:
+        var(--directivo-fondo);
+
+    color:
+        var(--directivo-texto);
+
+    font-family:
+        Arial,
+        Helvetica,
+        sans-serif;
+}
+
+
+/*=========================================================
+    CONTENIDO PRINCIPAL
+
+    IMPORTANTE:
+    NO se deja espacio para el sidebar.
+
+    El sidebar es flotante y aparece únicamente
+    cuando el usuario pulsa el botón.
+=========================================================*/
+
+.directivos-contenido {
+
+    width: 100%;
+
+    min-height: 100vh;
+
+    padding:
+        105px
+        40px
+        50px;
+
+    transition:
+        padding 0.3s ease;
+}
+
+
+/*=========================================================
+    BIENVENIDA
+=========================================================*/
+
+.bienvenida-directivo {
+
+    position: relative;
+
+    width: 100%;
+
+    min-height: 370px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    gap: 50px;
+
+    padding:
+        50px
+        60px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #ffffff 0%,
+            #f7fbff 100%
+        );
+
+    border:
+        1px solid var(--directivo-borde);
+
+    border-radius:
+        28px;
+
+    overflow: hidden;
+
+    box-shadow:
+        var(--directivo-sombra);
+}
+
+
+/*=========================================================
+    DECORACIONES
+=========================================================*/
+
+.decoracion {
+
+    position: absolute;
+
+    border-radius: 50%;
+
+    pointer-events: none;
+}
+
+
+.decoracion-1 {
+
+    width: 260px;
+
+    height: 260px;
+
+    right: -100px;
+
+    top: -100px;
+
+    background:
+        rgba(36, 116, 185, 0.06);
+}
+
+
+.decoracion-2 {
+
+    width: 180px;
+
+    height: 180px;
+
+    left: -80px;
+
+    bottom: -90px;
+
+    background:
+        rgba(88, 166, 217, 0.07);
+}
+
+
+.decoracion-3 {
+
+    width: 80px;
+
+    height: 80px;
+
+    right: 35%;
+
+    bottom: -35px;
+
+    background:
+        rgba(36, 116, 185, 0.05);
+}
+
+
+/*=========================================================
+    TEXTO BIENVENIDA
+=========================================================*/
+
+.texto-bienvenida-directivo {
+
+    position: relative;
+
+    z-index: 2;
+
+    flex: 1;
+
+    max-width: 700px;
+}
+
+
+/*=========================================================
+    ETIQUETA
+=========================================================*/
+
+.etiqueta-bienvenida-directivo {
+
+    display: inline-flex;
+
+    align-items: center;
+
+    gap: 8px;
+
+    padding:
+        8px
+        13px;
+
+    border-radius:
+        20px;
+
+    background:
+        #edf7ff;
+
+    color:
+        var(--directivo-azul);
+
+    font-size:
+        11px;
+
+    font-weight:
+        700;
+
+    letter-spacing:
+        0.3px;
+}
+
+
+.punto {
+
+    width: 7px;
+
+    height: 7px;
+
+    border-radius: 50%;
+
+    background:
+        var(--directivo-azul);
+}
+
+
+/*=========================================================
+    TÍTULO
+=========================================================*/
+
+.texto-bienvenida-directivo h1 {
+
+    margin:
+        20px 0 8px;
+
+    color:
+        #294c63;
+
+    font-size:
+        clamp(28px, 4vw, 43px);
+
+    line-height:
+        1.15;
+
+    font-weight:
+        800;
+}
+
+
+.texto-bienvenida-directivo h1 span {
+
+    color:
+        var(--directivo-azul);
+}
+
+
+/*=========================================================
+    SUBTÍTULO
+=========================================================*/
+
+.texto-bienvenida-directivo h2 {
+
+    margin:
+        0 0 18px;
+
+    color:
+        #527188;
+
+    font-size:
+        21px;
+
+    font-weight:
+        600;
+}
+
+
+/*=========================================================
+    PÁRRAFO
+=========================================================*/
+
+.texto-bienvenida-directivo > p {
+
+    max-width:
+        650px;
+
+    margin:
+        0;
+
+    color:
+        #708596;
+
+    font-size:
+        15px;
+
+    line-height:
+        1.8;
+}
+
+
+/*=========================================================
+    MENSAJE INSTITUCIONAL
+=========================================================*/
+
+.mensaje-institucional-directivo {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 14px;
+
+    max-width:
+        610px;
+
+    margin-top:
+        25px;
+
+    padding:
+        15px 18px;
+
+    background:
+        #f1f8fd;
+
+    border:
+        1px solid #e1eff8;
+
+    border-radius:
+        16px;
+}
+
+
+.mensaje-icono-directivo {
+
+    width: 43px;
+
+    height: 43px;
+
+    min-width: 43px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    border-radius:
+        13px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #2474b9,
+            #58a6d9
+        );
+
+    color:
+        white;
+
+    font-size:
+        18px;
+
+    box-shadow:
+        0 6px 15px
+        rgba(36,116,185,0.20);
+}
+
+
+.mensaje-institucional-directivo strong {
+
+    display: block;
+
+    margin-bottom:
+        4px;
+
+    color:
+        #3c5f75;
+
+    font-size:
+        13px;
+}
+
+
+.mensaje-institucional-directivo span {
+
+    display: block;
+
+    color:
+        #8195a5;
+
+    font-size:
+        11px;
+
+    line-height:
+        1.5;
+}
+
+
+/*=========================================================
+    ILUSTRACIÓN DIRECTIVO
+=========================================================*/
+
+.ilustracion-directivo {
+
+    position: relative;
+
+    width: 330px;
+
+    height: 260px;
+
+    min-width: 330px;
+
+    z-index: 2;
+}
+
+
+/*=========================================================
+    EDIFICIO INSTITUCIONAL
+=========================================================*/
+
+.icono-edificio-directivo {
+
+    position: absolute;
+
+    left: 50%;
+
+    bottom: 38px;
+
+    transform:
+        translateX(-50%);
+
+    width: 185px;
+
+    height: 155px;
+
+    border-radius:
+        12px 12px 5px 5px;
+
+    background:
+        linear-gradient(
+            180deg,
+            #dcecf8,
+            #c4ddec
+        );
+
+    border:
+        3px solid #a9c9dd;
+
+    box-shadow:
+        0 15px 30px
+        rgba(36,116,185,0.10);
+}
+
+
+/*=========================================================
+    VENTANAS
+=========================================================*/
+
+.ventana-directivo {
+
+    position: absolute;
+
+    width: 28px;
+
+    height: 28px;
+
+    border-radius:
+        6px;
+
+    background:
+        #ffffff;
+
+    border:
+        2px solid #91bad3;
+}
+
+
+.ventana-directivo-1 {
+
+    left: 25px;
+
+    top: 25px;
+}
+
+
+.ventana-directivo-2 {
+
+    right: 25px;
+
+    top: 25px;
+}
+
+
+.ventana-directivo-3 {
+
+    left: 25px;
+
+    top: 70px;
+}
+
+
+.ventana-directivo-4 {
+
+    right: 25px;
+
+    top: 70px;
+}
+
+
+/*=========================================================
+    PUERTA
+=========================================================*/
+
+.puerta-directivo {
+
+    position: absolute;
+
+    bottom: 0;
+
+    left: 50%;
+
+    transform:
+        translateX(-50%);
+
+    width: 42px;
+
+    height: 62px;
+
+    border-radius:
+        8px 8px 0 0;
+
+    background:
+        #5d8fb0;
+}
+
+
+/*=========================================================
+    BASE EDIFICIO
+=========================================================*/
+
+.base-edificio-directivo {
+
+    position: absolute;
+
+    left: 50%;
+
+    bottom: 25px;
+
+    transform:
+        translateX(-50%);
+
+    width: 230px;
+
+    height: 15px;
+
+    border-radius:
+        10px;
+
+    background:
+        #9dbfd3;
+}
+
+
+/*=========================================================
+    PERSONAS
+=========================================================*/
+
+.persona-directivo {
+
+    position: absolute;
+
+    bottom: 38px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+}
+
+
+.persona-directivo-1 {
+
+    left: 35px;
+}
+
+
+.persona-directivo-2 {
+
+    right: 35px;
+}
+
+
+.cabeza-directivo {
+
+    width: 27px;
+
+    height: 27px;
+
+    border-radius: 50%;
+
+    background:
+        #f1c7a5;
+}
+
+
+.cuerpo-directivo {
+
+    width: 38px;
+
+    height: 62px;
+
+    margin-top: 4px;
+
+    border-radius:
+        15px 15px 7px 7px;
+
+    background:
+        #5a9ac5;
+}
+
+
+/*=========================================================
+    SECCIÓN AVISOS
+=========================================================*/
+
+.seccion-avisos-directivo {
+
+    width: 100%;
+
+    margin-top:
+        35px;
+}
+
+
+/*=========================================================
+    ENCABEZADO AVISOS
+=========================================================*/
+
+.encabezado-avisos-directivo {
+
+    display: flex;
+
+    align-items: flex-end;
+
+    justify-content: space-between;
+
+    gap: 30px;
+
+    margin-bottom:
+        22px;
+}
+
+
+.titulo-avisos-directivo {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 14px;
+}
+
+
+.icono-titulo-avisos-directivo {
+
+    width: 48px;
+
+    height: 48px;
+
+    min-width: 48px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    border-radius:
+        15px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #2474b9,
+            #58a6d9
+        );
+
+    color:
+        white;
+
+    font-size:
+        18px;
+
+    box-shadow:
+        0 7px 18px
+        rgba(36,116,185,0.18);
+}
+
+
+.titulo-avisos-directivo span {
+
+    display: block;
+
+    margin-bottom:
+        3px;
+
+    color:
+        #8da0ae;
+
+    font-size:
+        10px;
+
+    font-weight:
+        800;
+
+    letter-spacing:
+        1.2px;
+}
+
+
+.titulo-avisos-directivo h2 {
+
+    margin:
+        0;
+
+    color:
+        #34566d;
+
+    font-size:
+        25px;
+}
+
+
+.encabezado-avisos-directivo > p {
+
+    max-width:
+        480px;
+
+    margin:
+        0;
+
+    color:
+        #8194a3;
+
+    font-size:
+        12px;
+
+    line-height:
+        1.6;
+
+    text-align:
+        right;
+}
+
+
+/*=========================================================
+    CONTENEDOR DE AVISOS
+
+    3 TARJETAS POR FILA
+=========================================================*/
+
+.contenedor-avisos-directivo {
+
+    width: 100%;
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, minmax(0, 1fr));
+
+    gap:
+        25px;
+
+    align-items:
+        stretch;
+}
+
+
+/*=========================================================
+    TARJETA
+=========================================================*/
+
+.aviso-card-directivo {
+
+    position: relative;
+
+    display: flex;
+
+    flex-direction: column;
+
+    min-width: 0;
+
+    overflow: hidden;
+
+    background:
+        #ffffff;
+
+    border:
+        1px solid var(--directivo-borde);
+
+    border-radius:
+        20px;
+
+    box-shadow:
+        0 8px 25px
+        rgba(31,78,121,0.07);
+
+    transition:
+        transform 0.25s ease,
+        box-shadow 0.25s ease;
+}
+
+
+.aviso-card-directivo:hover {
+
+    transform:
+        translateY(-5px);
+
+    box-shadow:
+        0 15px 35px
+        rgba(31,78,121,0.12);
+}
+
+
+/*=========================================================
+    BARRA PRIORIDAD
+=========================================================*/
+
+.aviso-card-directivo::before {
+
+    content: "";
+
+    position: absolute;
+
+    top: 0;
+
+    left: 0;
+
+    right: 0;
+
+    height: 4px;
+
+    background:
+        var(--directivo-azul);
+}
+
+
+.aviso-card-directivo.prioridad-alta::before {
+
+    background:
+        #d9534f;
+}
+
+
+.aviso-card-directivo.prioridad-media::before {
+
+    background:
+        #e0a126;
+}
+
+
+.aviso-card-directivo.prioridad-baja::before {
+
+    background:
+        #4aa87c;
+}
+
+
+/*=========================================================
+    IMAGEN
+=========================================================*/
+
+.aviso-imagen-directivo {
+
+    width: 100%;
+
+    height: 175px;
+
+    overflow: hidden;
+
+    background:
+        #edf4f8;
+}
+
+
+.aviso-imagen-directivo img {
+
+    width: 100%;
+
+    height: 100%;
+
+    display: block;
+
+    object-fit: cover;
+
+    transition:
+        transform 0.4s ease;
+}
+
+
+.aviso-card-directivo:hover
+.aviso-imagen-directivo img {
+
+    transform:
+        scale(1.04);
+}
+
+
+/*=========================================================
+    CONTENIDO
+=========================================================*/
+
+.aviso-contenido-directivo {
+
+    display: flex;
+
+    flex-direction: column;
+
+    flex: 1;
+
+    padding:
+        20px;
+}
+
+
+/*=========================================================
+    META
+=========================================================*/
+
+.aviso-meta-directivo {
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    gap: 10px;
+
+    margin-bottom:
+        13px;
+}
+
+
+/*=========================================================
+    PRIORIDAD
+=========================================================*/
+
+.aviso-prioridad-directivo {
+
+    display: inline-flex;
+
+    align-items: center;
+
+    gap: 5px;
+
+    padding:
+        5px 9px;
+
+    border-radius:
+        20px;
+
+    background:
+        #edf7ff;
+
+    color:
+        var(--directivo-azul);
+
+    font-size:
+        9px;
+
+    font-weight:
+        800;
+}
+
+
+.prioridad-alta
+.aviso-prioridad-directivo {
+
+    background:
+        #fff0ef;
+
+    color:
+        #d9534f;
+}
+
+
+.prioridad-media
+.aviso-prioridad-directivo {
+
+    background:
+        #fff7e8;
+
+    color:
+        #bd8215;
+}
+
+
+.prioridad-baja
+.aviso-prioridad-directivo {
+
+    background:
+        #edf9f3;
+
+    color:
+        #3d916c;
+}
+
+
+/*=========================================================
+    FECHA
+=========================================================*/
+
+.aviso-fecha-directivo {
+
+    color:
+        #9aaab6;
+
+    font-size:
+        10px;
+
+    white-space:
+        nowrap;
+}
+
+
+.aviso-fecha-directivo i {
+
+    margin-right:
+        4px;
+}
+
+
+/*=========================================================
+    TÍTULO
+=========================================================*/
+
+.aviso-contenido-directivo h3 {
+
+    margin:
+        0 0 10px;
+
+    color:
+        #34566d;
+
+    font-size:
+        18px;
+
+    line-height:
+        1.35;
+
+    font-weight:
+        750;
+}
+
+
+/*=========================================================
+    DESCRIPCIÓN
+=========================================================*/
+
+.aviso-contenido-directivo > p {
+
+    margin:
+        0;
+
+    color:
+        #778d9d;
+
+    font-size:
+        12px;
+
+    line-height:
+        1.7;
+
+    display:
+        -webkit-box;
+
+    -webkit-line-clamp:
+        4;
+
+    -webkit-box-orient:
+        vertical;
+
+    overflow:
+        hidden;
+}
+
+
+/*=========================================================
+    ACCIONES
+=========================================================*/
+
+.aviso-acciones-directivo {
+
+    display: flex;
+
+    flex-wrap: wrap;
+
+    align-items: center;
+
+    gap: 8px;
+
+    margin-top:
+        auto;
+
+    padding-top:
+        20px;
+}
+
+
+/*=========================================================
+    VER AVISO
+=========================================================*/
+
+.btn-ver-aviso-directivo {
+
+    display: inline-flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 7px;
+
+    padding:
+        9px 12px;
+
+    border:
+        none;
+
+    border-radius:
+        10px;
+
+    background:
+        #edf7ff;
+
+    color:
+        var(--directivo-azul);
+
+    font-size:
+        10px;
+
+    font-weight:
+        700;
+
+    cursor:
+        pointer;
+
+    transition:
+        background 0.25s ease,
+        transform 0.25s ease;
+}
+
+
+.btn-ver-aviso-directivo:hover {
+
+    background:
+        #dcefff;
+
+    transform:
+        translateY(-1px);
+}
+
+
+/*=========================================================
+    LINK
+=========================================================*/
+
+.btn-link-aviso-directivo {
+
+    display: inline-flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 6px;
+
+    padding:
+        9px 12px;
+
+    border-radius:
+        10px;
+
+    text-decoration:
+        none;
+
+    background:
+        #f5f8fa;
+
+    color:
+        #668092;
+
+    font-size:
+        10px;
+
+    font-weight:
+        700;
+
+    transition:
+        background 0.25s ease,
+        color 0.25s ease;
+}
+
+
+.btn-link-aviso-directivo:hover {
+
+    background:
+        #eaf2f7;
+
+    color:
+        var(--directivo-azul);
+}
+
+
+/*=========================================================
+    PDF
+=========================================================*/
+
+.btn-pdf-aviso-directivo {
+
+    display: inline-flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 6px;
+
+    padding:
+        9px 12px;
+
+    border-radius:
+        10px;
+
+    text-decoration:
+        none;
+
+    background:
+        #fff1f1;
+
+    color:
+        #c54b4b;
+
+    font-size:
+        10px;
+
+    font-weight:
+        700;
+
+    transition:
+        background 0.25s ease,
+        color 0.25s ease;
+}
+
+
+.btn-pdf-aviso-directivo:hover {
+
+    background:
+        #ffe3e3;
+
+    color:
+        #a93737;
+}
+
+
+/*=========================================================
+    SIN AVISOS
+=========================================================*/
+
+.sin-avisos-directivo {
+
+    grid-column:
+        1 / -1;
+
+    display:
+        flex;
+
+    flex-direction:
+        column;
+
+    align-items:
+        center;
+
+    justify-content:
+        center;
+
+    min-height:
+        230px;
+
+    padding:
+        35px;
+
+    background:
+        #ffffff;
+
+    border:
+        1px solid var(--directivo-borde);
+
+    border-radius:
+        20px;
+
+    text-align:
+        center;
+
+    box-shadow:
+        0 8px 25px
+        rgba(31,78,121,0.06);
+}
+
+
+.sin-avisos-icono-directivo {
+
+    width:
+        60px;
+
+    height:
+        60px;
+
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    justify-content:
+        center;
+
+    margin-bottom:
+        15px;
+
+    border-radius:
+        18px;
+
+    background:
+        #edf6fc;
+
+    color:
+        #6d9bbb;
+
+    font-size:
+        23px;
+}
+
+
+.sin-avisos-directivo h3 {
+
+    margin:
+        0 0 7px;
+
+    color:
+        #4e6c80;
+
+    font-size:
+        16px;
+}
+
+
+.sin-avisos-directivo p {
+
+    max-width:
+        450px;
+
+    margin:
+        0;
+
+    color:
+        #91a1ad;
+
+    font-size:
+        12px;
+
+    line-height:
+        1.6;
+}
+
+
+/*=========================================================
+    FRASE INSTITUCIONAL
+=========================================================*/
+
+.frase-institucional-directivo {
+
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    gap:
+        20px;
+
+    margin:
+        45px 0 10px;
+}
+
+
+.frase-institucional-directivo .linea {
+
+    flex:
+        1;
+
+    height:
+        1px;
+
+    background:
+        var(--directivo-borde);
+}
+
+
+.frase-institucional-directivo p {
+
+    max-width:
+        600px;
+
+    margin:
+        0;
+
+    color:
+        #91a1ad;
+
+    font-size:
+        11px;
+
+    line-height:
+        1.6;
+
+    text-align:
+        center;
+
+    font-style:
+        italic;
+}
+
+
+/*=========================================================
+    MODAL
+=========================================================*/
+
+.modal-aviso-directivo {
+
+    position:
+        fixed;
+
+    inset:
+        0;
+
+    z-index:
+        10000;
+
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    justify-content:
+        center;
+
+    padding:
+        20px;
+
+    background:
+        rgba(20,43,60,0.48);
+
+    backdrop-filter:
+        blur(4px);
+
+    opacity:
+        0;
+
+    visibility:
+        hidden;
+
+    pointer-events:
+        none;
+
+    transition:
+        opacity 0.25s ease,
+        visibility 0.25s ease;
+}
+
+
+.modal-aviso-directivo.visible {
+
+    opacity:
+        1;
+
+    visibility:
+        visible;
+
+    pointer-events:
+        auto;
+}
+
+
+/*=========================================================
+    CONTENIDO MODAL
+=========================================================*/
+
+.modal-contenido-directivo {
+
+    position:
+        relative;
+
+    width:
+        100%;
+
+    max-width:
+        600px;
+
+    max-height:
+        85vh;
+
+    overflow-y:
+        auto;
+
+    padding:
+        35px;
+
+    background:
+        #ffffff;
+
+    border-radius:
+        24px;
+
+    box-shadow:
+        0 25px 70px
+        rgba(20,50,70,0.25);
+
+    transform:
+        translateY(20px)
+        scale(0.97);
+
+    transition:
+        transform 0.25s ease;
+}
+
+
+.modal-aviso-directivo.visible
+.modal-contenido-directivo {
+
+    transform:
+        translateY(0)
+        scale(1);
+}
+
+
+/*=========================================================
+    CERRAR
+=========================================================*/
+
+.modal-cerrar-directivo {
+
+    position:
+        absolute;
+
+    top:
+        15px;
+
+    right:
+        15px;
+
+    width:
+        38px;
+
+    height:
+        38px;
+
+    border:
+        none;
+
+    border-radius:
+        10px;
+
+    background:
+        #f3f7fa;
+
+    color:
+        #7b8f9d;
+
+    cursor:
+        pointer;
+
+    font-size:
+        16px;
+
+    transition:
+        background 0.25s ease,
+        color 0.25s ease;
+}
+
+
+.modal-cerrar-directivo:hover {
+
+    background:
+        #eaf2f7;
+
+    color:
+        var(--directivo-azul);
+}
+
+
+/*=========================================================
+    ICONO MODAL
+=========================================================*/
+
+.modal-icono-directivo {
+
+    width:
+        55px;
+
+    height:
+        55px;
+
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    justify-content:
+        center;
+
+    margin:
+        0 auto 15px;
+
+    border-radius:
+        16px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #2474b9,
+            #58a6d9
+        );
+
+    color:
+        white;
+
+    font-size:
+        21px;
+
+    box-shadow:
+        0 8px 20px
+        rgba(36,116,185,0.20);
+}
+
+
+/*=========================================================
+    PRIORIDAD MODAL
+=========================================================*/
+
+.modal-prioridad-directivo {
+
+    display:
+        table;
+
+    margin:
+        0 auto 10px;
+
+    padding:
+        6px 11px;
+
+    border-radius:
+        20px;
+
+    background:
+        #edf7ff;
+
+    color:
+        var(--directivo-azul);
+
+    font-size:
+        9px;
+
+    font-weight:
+        800;
+}
+
+
+/*=========================================================
+    TÍTULO MODAL
+=========================================================*/
+
+.modal-contenido-directivo h2 {
+
+    margin:
+        0 0 8px;
+
+    color:
+        #34566d;
+
+    font-size:
+        24px;
+
+    line-height:
+        1.3;
+
+    text-align:
+        center;
+}
+
+
+/*=========================================================
+    FECHA MODAL
+=========================================================*/
+
+.modal-fecha-directivo {
+
+    margin-bottom:
+        22px;
+
+    color:
+        #97a7b2;
+
+    font-size:
+        11px;
+
+    text-align:
+        center;
+}
+
+
+/*=========================================================
+    DESCRIPCIÓN MODAL
+=========================================================*/
+
+.modal-descripcion-directivo {
+
+    padding:
+        18px;
+
+    border-radius:
+        14px;
+
+    background:
+        #f7fafc;
+
+    color:
+        #637b8b;
+
+    font-size:
+        13px;
+
+    line-height:
+        1.8;
+
+    white-space:
+        normal;
+}
+
+
+/*=========================================================
+    TABLETS
+=========================================================*/
+
+@media (max-width: 1100px) {
+
+    .directivos-contenido {
+
+        padding:
+            100px
+            25px
+            40px;
+    }
+
+
+    .bienvenida-directivo {
+
+        padding:
+            40px;
+
+        gap:
+            25px;
+    }
+
+
+    .ilustracion-directivo {
+
+        width:
+            270px;
+
+        min-width:
+            270px;
+
+        transform:
+            scale(0.9);
+    }
+
+
+    .contenedor-avisos-directivo {
+
+        grid-template-columns:
+            repeat(2, minmax(0, 1fr));
+    }
+}
+
+
+/*=========================================================
+    TABLET PEQUEÑA
+=========================================================*/
+
+@media (max-width: 850px) {
+
+    .bienvenida-directivo {
+
+        flex-direction:
+            column;
+
+        align-items:
+            flex-start;
+    }
+
+
+    .ilustracion-directivo {
+
+        align-self:
+            center;
+
+        order:
+            -1;
+    }
+
+
+    .encabezado-avisos-directivo {
+
+        flex-direction:
+            column;
+
+        align-items:
+            flex-start;
+    }
+
+
+    .encabezado-avisos-directivo > p {
+
+        max-width:
+            100%;
+
+        text-align:
+            left;
+    }
+}
+
+
+/*=========================================================
+    MÓVIL
+=========================================================*/
+
+@media (max-width: 650px) {
+
+    .directivos-contenido {
+
+        padding:
+            85px
+            15px
+            30px;
+    }
+
+
+    .bienvenida-directivo {
+
+        padding:
+            30px 22px;
+
+        border-radius:
+            22px;
+    }
+
+
+    .texto-bienvenida-directivo h1 {
+
+        font-size:
+            30px;
+    }
+
+
+    .texto-bienvenida-directivo h2 {
+
+        font-size:
+            19px;
+    }
+
+
+    .texto-bienvenida-directivo > p {
+
+        font-size:
+            13px;
+    }
+
+
+    .ilustracion-directivo {
+
+        transform:
+            scale(0.78);
+
+        margin:
+            -20px auto;
+    }
+
+
+    .contenedor-avisos-directivo {
+
+        grid-template-columns:
+            1fr;
+
+        gap:
+            18px;
+    }
+
+
+    .aviso-card-directivo {
+
+        width:
+            100%;
+    }
+
+
+    .encabezado-avisos-directivo {
+
+        margin-bottom:
+            18px;
+    }
+
+
+    .titulo-avisos-directivo h2 {
+
+        font-size:
+            21px;
+    }
+
+
+    .mensaje-institucional-directivo {
+
+        align-items:
+            flex-start;
+    }
+
+
+    .frase-institucional-directivo {
+
+        gap:
+            10px;
+    }
+
+
+    .frase-institucional-directivo p {
+
+        font-size:
+            10px;
+    }
+
+
+    .modal-contenido-directivo {
+
+        padding:
+            28px 20px;
+    }
+
+
+    .modal-contenido-directivo h2 {
+
+        font-size:
+            20px;
+    }
+}
+
+
+/*=========================================================
+    CELULARES PEQUEÑOS
+=========================================================*/
+
+@media (max-width: 400px) {
+
+    .directivos-contenido {
+
+        padding:
+            80px
+            10px
+            25px;
+    }
+
+
+    .bienvenida-directivo {
+
+        padding:
+            25px 17px;
+    }
+
+
+    .ilustracion-directivo {
+
+        transform:
+            scale(0.65);
+
+        margin:
+            -35px auto;
+    }
+
+
+    .aviso-contenido-directivo {
+
+        padding:
+            17px;
+    }
+
+
+    .aviso-meta-directivo {
+
+        align-items:
+            flex-start;
+
+        flex-direction:
+            column;
+    }
+
+
+    .aviso-acciones-directivo {
+
+        flex-direction:
+            column;
+
+        align-items:
+            stretch;
+    }
+
+
+    .btn-ver-aviso-directivo,
+    .btn-link-aviso-directivo,
+    .btn-pdf-aviso-directivo {
+
+        width:
+            100%;
+    }
+}
+
+

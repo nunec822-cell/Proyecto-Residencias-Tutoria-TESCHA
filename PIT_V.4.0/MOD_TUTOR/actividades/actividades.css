@@ -1,0 +1,885 @@
+/*=========================================================
+MOD_TUTOR/actividades/actividades.css
+=========================================================*/
+
+body{
+    margin:0;
+    font-family:'Segoe UI',Arial,sans-serif;
+    background:#f3f5f9;
+}
+
+/*=====================================
+SEPARADOR
+=====================================*/
+
+.separador{
+    height:20px;
+    background:linear-gradient(to bottom,rgba(0,0,0,.15),transparent);
+}
+
+/*=====================================
+CONTENEDOR
+=====================================*/
+
+.contenedor-actividades{
+
+    width:95%;
+    max-width:1300px;
+    margin:30px auto;
+
+}
+
+/*=====================================
+ENCABEZADO
+=====================================*/
+
+.encabezado{
+
+    background:linear-gradient(135deg,#9b1c1c,#c63b3b);
+
+    color:#fff;
+
+    padding:35px;
+
+    border-radius:18px;
+
+    box-shadow:0 10px 25px rgba(0,0,0,.15);
+
+    margin-bottom:30px;
+
+}
+
+.encabezado h1{
+
+    margin:0;
+    font-size:32px;
+
+}
+
+.encabezado p{
+
+    margin-top:12px;
+    font-size:16px;
+    opacity:.95;
+    line-height:1.8;
+
+}
+
+/*=====================================
+FORMULARIO
+=====================================*/
+
+.formulario{
+
+    background:#fff;
+
+    border-radius:18px;
+
+    padding:30px;
+
+    box-shadow:0 10px 30px rgba(0,0,0,.08);
+
+    margin-bottom:35px;
+
+}
+
+.formulario h2{
+
+    margin-top:0;
+
+    color:#9b1c1c;
+
+    margin-bottom:25px;
+
+}
+
+/*=====================================
+GRID
+=====================================*/
+
+.grid-formulario{
+
+    display:grid;
+
+    grid-template-columns:1fr 1fr;
+
+    gap:20px;
+
+}
+
+.campo{
+
+    display:flex;
+
+    flex-direction:column;
+
+}
+
+.campo-completo{
+
+    grid-column:1/-1;
+
+}
+
+.formulario label{
+
+    font-weight:600;
+
+    margin-bottom:8px;
+
+    color:#444;
+
+}
+
+.formulario input[type=text],
+.formulario textarea,
+.formulario select{
+
+    padding:14px;
+
+    border:1px solid #d9d9d9;
+
+    border-radius:10px;
+
+    background:#fafafa;
+
+    font-size:15px;
+
+    transition:.25s;
+
+}
+
+.formulario input:focus,
+.formulario textarea:focus,
+.formulario select:focus{
+
+    outline:none;
+
+    border-color:#9b1c1c;
+
+    background:#fff;
+
+    box-shadow:0 0 0 4px rgba(155,28,28,.10);
+
+}
+
+.formulario textarea{
+
+    min-height:180px;
+
+    resize:vertical;
+
+}
+
+.formulario input[type=file]{
+
+    padding:12px;
+
+    border:2px dashed #d7d7d7;
+
+    border-radius:10px;
+
+    background:#fafafa;
+
+}
+
+.formulario small{
+
+    margin-top:6px;
+
+    color:#777;
+
+}
+
+/*=====================================
+BOTON
+=====================================*/
+
+.btn-publicar{
+
+    margin-top:30px;
+
+    width:100%;
+
+    padding:16px;
+
+    border:none;
+
+    border-radius:12px;
+
+    background:linear-gradient(135deg,#9b1c1c,#c63b3b);
+
+    color:#fff;
+
+    font-size:17px;
+
+    font-weight:bold;
+
+    cursor:pointer;
+
+    transition:.3s;
+
+}
+
+.btn-publicar:hover{
+
+    transform:translateY(-2px);
+
+    box-shadow:0 8px 20px rgba(155,28,28,.30);
+
+}
+
+/*=====================================
+ACTIVIDADES
+=====================================*/
+
+#contenedor-actividades{
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:30px;
+
+}
+
+/*=====================================
+CARD
+=====================================*/
+
+.card-actividad{
+
+    background:#fff;
+
+    border-radius:18px;
+
+    overflow:hidden;
+
+    box-shadow:0 8px 25px rgba(0,0,0,.08);
+
+}
+
+/*=====================================
+CABECERA
+=====================================*/
+
+.cabecera-actividad{
+
+    background:#9b1c1c;
+
+    color:#fff;
+
+    padding:18px 25px;
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+}
+
+.cabecera-actividad h2{
+
+    margin:0;
+
+    color:#fff;
+
+    font-size:22px;
+
+}
+
+.cuerpo-actividad{
+
+    padding:25px;
+
+}
+
+.card-actividad h3{
+
+    color:#9b1c1c;
+
+    margin-top:25px;
+
+}
+
+.card-actividad p{
+
+    line-height:1.8;
+
+    color:#555;
+
+}
+
+/*=====================================
+BADGES
+=====================================*/
+
+.badges{
+
+    display:flex;
+
+    gap:10px;
+
+    flex-wrap:wrap;
+
+    margin:15px 0;
+
+}
+
+.badge{
+
+    background:#f3f3f3;
+
+    padding:8px 14px;
+
+    border-radius:30px;
+
+    font-size:13px;
+
+    font-weight:600;
+
+    color:#444;
+
+}
+
+.badge i{
+
+    margin-right:6px;
+
+}
+
+/*=====================================
+ARCHIVO
+=====================================*/
+
+.archivo{
+
+    margin-top:15px;
+
+}
+
+.archivo a{
+
+    text-decoration:none;
+
+    color:#0b63ce;
+
+    font-weight:bold;
+
+}
+
+.archivo a:hover{
+
+    text-decoration:underline;
+
+}
+
+/*=====================================
+GALERIA
+=====================================*/
+
+.galeria{
+
+    display:grid;
+
+    grid-template-columns:repeat(auto-fill,minmax(180px,1fr));
+
+    gap:15px;
+
+    margin-top:15px;
+
+}
+
+.galeria img{
+
+    width:100%;
+
+    height:180px;
+
+    object-fit:cover;
+
+    border-radius:12px;
+
+    transition:.3s;
+
+}
+
+.galeria img:hover{
+
+    transform:scale(1.04);
+
+}
+
+/*=====================================
+BOTON ELIMINAR
+=====================================*/
+
+.btn-eliminar{
+
+    margin-top:25px;
+
+    background:#c62828;
+
+    color:#fff;
+
+    border:none;
+
+    border-radius:10px;
+
+    padding:12px 20px;
+
+    cursor:pointer;
+
+    transition:.3s;
+
+}
+
+.btn-eliminar:hover{
+
+    background:#8d1111;
+
+}
+
+/*=====================================
+MENSAJE
+=====================================*/
+
+.mensaje-vacio{
+
+    background:#fff;
+
+    padding:60px;
+
+    text-align:center;
+
+    border-radius:18px;
+
+    box-shadow:0 8px 20px rgba(0,0,0,.08);
+
+    color:#777;
+
+    font-size:18px;
+
+}
+
+/*=====================================
+RESPONSIVE
+=====================================*/
+
+@media(max-width:900px){
+
+    .grid-formulario{
+
+        grid-template-columns:1fr;
+
+    }
+
+    .cabecera-actividad{
+
+        flex-direction:column;
+
+        align-items:flex-start;
+
+        gap:10px;
+
+    }
+
+}
+/*=========================================================
+NUEVO DISEÑO TARJETAS ACTIVIDADES
+=========================================================*/
+
+.card-actividad{
+
+    background:#fff;
+
+    border-radius:16px;
+
+    overflow:hidden;
+
+    box-shadow:0 8px 20px rgba(0,0,0,.08);
+
+    margin-bottom:35px;
+
+    transition:.25s;
+
+    border:1px solid #ececec;
+
+}
+
+.card-actividad:hover{
+
+    transform:translateY(-4px);
+
+    box-shadow:0 12px 30px rgba(0,0,0,.12);
+
+}
+
+/*=====================================
+CABECERA
+=====================================*/
+
+.cabecera-actividad{
+
+    background:linear-gradient(
+        135deg,
+        #8b1c1c,
+        #b73434
+    );
+
+    color:#fff;
+
+    padding:25px;
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:flex-start;
+
+    gap:25px;
+
+}
+
+.cabecera-info{
+
+    flex:1;
+
+}
+
+.cabecera-actividad h2{
+
+    margin:0;
+
+    font-size:25px;
+
+    color:#fff;
+
+}
+
+.cabecera-actividad h2 i{
+
+    margin-right:10px;
+
+}
+
+.badges{
+
+    display:flex;
+
+    gap:12px;
+
+    flex-wrap:wrap;
+
+    margin-top:18px;
+
+}
+
+.badge{
+
+    background:rgba(255,255,255,.18);
+
+    color:#fff;
+
+    padding:8px 15px;
+
+    border-radius:30px;
+
+    font-size:14px;
+
+    backdrop-filter:blur(5px);
+
+}
+
+.badge i{
+
+    margin-right:6px;
+
+}
+
+/*=====================================
+BOTÓN ELIMINAR
+=====================================*/
+
+.btn-eliminar{
+
+    background:#ffffff;
+
+    color:#9b1c1c;
+
+    border:none;
+
+    padding:12px 20px;
+
+    border-radius:10px;
+
+    cursor:pointer;
+
+    font-weight:bold;
+
+    transition:.3s;
+
+}
+
+.btn-eliminar:hover{
+
+    background:#9b1c1c;
+
+    color:#fff;
+
+}
+
+/*=====================================
+BLOQUES
+=====================================*/
+
+.bloque{
+
+    padding:25px 30px;
+
+    border-bottom:1px solid #efefef;
+
+}
+
+.bloque:last-child{
+
+    border-bottom:none;
+
+}
+
+.bloque h3{
+
+    margin:0 0 18px;
+
+    color:#9b1c1c;
+
+    font-size:20px;
+
+}
+
+.bloque h3 i{
+
+    margin-right:8px;
+
+}
+
+/*=====================================
+DESCRIPCIÓN
+=====================================*/
+
+.descripcion-actividad{
+
+    background:#f8f8f8;
+
+    border-left:5px solid #9b1c1c;
+
+    padding:18px;
+
+    border-radius:10px;
+
+    color:#444;
+
+    line-height:1.8;
+
+}
+
+/*=====================================
+RECURSOS
+=====================================*/
+
+.contenedor-recursos{
+
+    display:flex;
+
+    flex-wrap:wrap;
+
+    gap:18px;
+
+}
+
+.recurso{
+
+    flex:1;
+
+    min-width:260px;
+
+    display:flex;
+
+    align-items:center;
+
+    gap:18px;
+
+    background:#fafafa;
+
+    border:1px solid #ececec;
+
+    border-radius:12px;
+
+    padding:18px;
+
+    transition:.25s;
+
+}
+
+.recurso:hover{
+
+    background:#f3f3f3;
+
+}
+
+.recurso i{
+
+    font-size:34px;
+
+}
+
+.icono-pdf{
+
+    color:#d32f2f;
+
+}
+
+.icono-link{
+
+    color:#1565c0;
+
+}
+
+.recurso strong{
+
+    display:block;
+
+    margin-bottom:6px;
+
+}
+
+.recurso a{
+
+    color:#1565c0;
+
+    text-decoration:none;
+
+    font-weight:600;
+
+}
+
+.recurso a:hover{
+
+    text-decoration:underline;
+
+}
+
+/*=====================================
+GALERÍA
+=====================================*/
+
+.galeria{
+
+    display:flex;
+
+    flex-wrap:wrap;
+
+    gap:20px;
+
+}
+
+.galeria img{
+
+    width:220px;
+
+    height:160px;
+
+    object-fit:cover;
+
+    border-radius:12px;
+
+    border:3px solid #fff;
+
+    box-shadow:0 4px 12px rgba(0,0,0,.12);
+
+    transition:.3s;
+
+    cursor:pointer;
+
+}
+
+.galeria img:hover{
+
+    transform:scale(1.05);
+
+}
+
+/*=====================================
+ESTADO
+=====================================*/
+
+.estado-actividad{
+
+    background:#eef9f1;
+
+    color:#1b5e20;
+
+    padding:18px 30px;
+
+    font-size:15px;
+
+    font-weight:600;
+
+    display:flex;
+
+    align-items:center;
+
+    gap:10px;
+
+}
+
+.estado-actividad i{
+
+    font-size:20px;
+
+}
+
+/*=====================================
+RESPONSIVE
+=====================================*/
+
+@media(max-width:900px){
+
+    .cabecera-actividad{
+
+        flex-direction:column;
+
+    }
+
+    .btn-eliminar{
+
+        width:100%;
+
+    }
+
+    .recurso{
+
+        min-width:100%;
+
+    }
+
+}
+
+@media(max-width:650px){
+
+    .galeria{
+
+        justify-content:center;
+
+    }
+
+    .galeria img{
+
+        width:100%;
+
+        height:auto;
+
+    }
+
+}

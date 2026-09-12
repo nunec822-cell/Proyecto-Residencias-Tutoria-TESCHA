@@ -1,0 +1,374 @@
+body {
+    margin: 0;
+    font-family: 'Segoe UI', Arial, sans-serif;
+    background-color: #f4f4f4;
+}
+
+/* 🔥 SEPARADOR */
+.separador {
+    height: 25px;
+    background: linear-gradient(to bottom, rgba(0,0,0,0.15), transparent);
+}
+
+/* 🔥 BANNER */
+.banner {
+    position: relative;
+    overflow: hidden;
+    height: 475px;
+}
+
+.banner img {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    opacity: 0;
+    animation: cinematic 12s ease-in-out infinite alternate;
+    transition: transform 0.6s ease, opacity 1.5s ease-in-out;
+}
+
+.banner img.active {
+    opacity: 1;
+}
+
+.banner:hover img.active {
+    transform: scale(1.05);
+}
+
+.banner::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 50%;
+    height: 100%;
+    background: linear-gradient(120deg, transparent, rgba(255,255,255,0.3), transparent);
+    animation: brillo 5s infinite;
+}
+
+@keyframes cinematic {
+    0% { transform: scale(1) translateY(0); }
+    50% { transform: scale(1.04) translateY(-5px); }
+    100% { transform: scale(1.06) translateY(5px); }
+}
+
+@keyframes brillo {
+    0% { left: -100%; }
+    100% { left: 120%; }
+}
+
+/* 🔥 BIENVENIDO */
+.bienvenido {
+    position: relative;
+    text-align: center;
+    margin: 50px 20px 20px;
+    padding: 0 140px;
+}
+
+.bienvenido h1 {
+    font-size: 42px;
+    color: #8B1C1C;
+    margin-bottom: 10px;
+}
+
+.bienvenido p {
+    color: #666;
+    font-size: 18px;
+}
+
+/* 🔥 PERSONAJES */
+.personaje {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 120px;
+    z-index: 5;
+    animation: flotar 3s ease-in-out infinite;
+}
+
+.personaje.izq {
+    left: 10px;
+}
+
+.personaje.der {
+    right: 10px;
+}
+
+.personaje img {
+    width: 100%;
+    animation: saludar 1.5s infinite;
+}
+
+@keyframes saludar {
+    0% { transform: rotate(0deg); }
+    25% { transform: rotate(12deg); }
+    50% { transform: rotate(0deg); }
+    75% { transform: rotate(-12deg); }
+    100% { transform: rotate(0deg); }
+}
+
+@keyframes flotar {
+    0% { transform: translateY(-50%) translateY(0px); }
+    50% { transform: translateY(-50%) translateY(-10px); }
+    100% { transform: translateY(-50%) translateY(0px); }
+}
+
+/* 🔥 SECCIONES */
+.seccion {
+    display: flex;
+    align-items: center;
+    gap: 50px;
+    margin: 50px 80px;
+    padding: 40px;
+    background: linear-gradient(135deg, #ffff, #ddab4f);
+    border-radius: 20px;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.15);
+    opacity: 0;
+    transform: translateY(60px);
+    transition: all 0.9s ease;
+}
+
+.seccion.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.seccion img {
+    width: 260px;
+    height: 260px;
+    object-fit: contain;
+    background: #fff;
+    padding: 20px;
+    border-radius: 20px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+    transition: all 0.4s ease;
+}
+
+.seccion img:hover {
+    transform: scale(1.08) rotate(2deg);
+}
+
+.texto {
+    flex: 1;
+}
+
+.texto h3 {
+    color: #8B1C1C;
+    font-size: 26px;
+    margin-bottom: 15px;
+    border-left: 5px solid #c94c4c;
+    padding-left: 10px;
+}
+
+.texto p {
+    text-align: justify;
+    line-height: 1.8;
+    color: #444;
+    font-size: 16px;
+}
+
+.reverse {
+    flex-direction: row-reverse;
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+    .seccion {
+        flex-direction: column;
+        text-align: center;
+        margin: 20px;
+    }
+}
+/* 🔥 ANIMACIÓN INICIAL */
+.seccion .texto h3 {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: all 0.8s ease;
+    cursor: pointer;
+}
+
+/* CUANDO APARECE */
+.seccion.visible .texto h3 {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* ICONO AUDIO */
+.audio {
+    margin-left: 10px;
+    cursor: pointer;
+    font-size: 18px;
+}
+
+/* EFECTO HOVER */
+.seccion .texto h3:hover {
+    color: #d4af37;
+    transform: scale(1.03);
+}
+
+/* 🔊 ANIMACIÓN CUANDO HABLA */
+.hablando {
+    animation: pulso 0.6s infinite alternate;
+}
+
+@keyframes pulso {
+    from {
+        transform: scale(1);
+        text-shadow: 0 0 5px rgba(212, 175, 55, 0.5);
+    }
+    to {
+        transform: scale(1.05);
+        text-shadow: 0 0 15px rgba(212, 175, 55, 1);
+    }
+}
+
+/* 🔊 ICONO */
+.audio.hablando {
+    animation: vibrar 0.3s infinite;
+}
+
+@keyframes vibrar {
+    0% { transform: translateX(0); }
+    25% { transform: translateX(-2px); }
+    50% { transform: translateX(2px); }
+    75% { transform: translateX(-2px); }
+    100% { transform: translateX(0); }
+}
+/* TEXTO OCULTO */
+.completo {
+    display: none;
+    margin-top: 10px;
+}
+/* BOTÓN */
+.btn-vermas {
+    margin-top: 20px;
+    padding: 12px 25px;
+    background: #8B1C1C;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+/* ===================================
+   AVISOS Y NOVEDADES
+=================================== */
+
+.avisos-container{
+    width:90%;
+    max-width:1200px;
+    margin:60px auto;
+}
+
+.avisos-titulo{
+    text-align:center;
+    font-size:36px;
+    color:#1f2937;
+    margin-bottom:40px;
+}
+
+.card-aviso{
+    background: linear-gradient(135deg, #ffff, #ddab4f);
+    border-radius:20px;
+    overflow:hidden;
+    box-shadow:0 10px 25px rgba(0,0,0,.10);
+    margin-bottom:30px;
+    transition:.3s;
+}
+
+.card-aviso:hover{
+    transform:translateY(-5px);
+    box-shadow:0 15px 35px rgba(0,0,0,.15);
+}
+
+.aviso-imagen{
+    text-align:center;
+    background: linear-gradient(135deg, #ffff, #ddab4f);
+    padding:15px;
+}
+
+.aviso-imagen img{
+    max-width:100%;
+    max-height:600px;
+    width:auto;
+    height:auto;
+    object-fit:contain;
+}
+.aviso-contenido{
+    padding:25px;
+}
+
+.aviso-contenido h3{
+    font-size:28px;
+    color:#2563eb;
+    margin-bottom:15px;
+}
+
+.aviso-contenido p{
+    color:#4b5563;
+    line-height:1.8;
+    margin-bottom:20px;
+    text-align:justify;
+}
+
+.aviso-botones{
+    display:flex;
+    gap:15px;
+    flex-wrap:wrap;
+}
+
+.btn-aviso{
+    background:#2563eb;
+    color:white !important;
+    text-decoration:none !important;
+    padding:12px 22px;
+    border-radius:10px;
+    font-weight:bold;
+    transition:.3s;
+}
+
+.btn-aviso:hover{
+    background:#1d4ed8;
+    transform:translateY(-2px);
+}
+/* ===================================
+   SIN AVISOS
+=================================== */
+
+.sin-avisos{
+    background:#f1b1b1;
+    border-radius:15px;
+    padding:40px;
+    text-align:center;
+    box-shadow:0 10px 25px rgba(0,0,0,.08);
+    margin-top:20px;
+}
+
+.sin-avisos h3{
+    color:#2563eb;
+    margin-bottom:10px;
+    font-size:24px;
+}
+
+.sin-avisos p{
+    color:#1a1a1b;
+    font-size:16px;
+    line-height:1.6;
+}
+.aviso-fecha{
+    display:inline-block;
+
+    background:#e8f0fe;
+
+    color:#2563eb;
+
+    padding:8px 15px;
+
+    border-radius:50px;
+
+    font-size:14px;
+
+    font-weight:bold;
+
+    margin-bottom:15px;
+}

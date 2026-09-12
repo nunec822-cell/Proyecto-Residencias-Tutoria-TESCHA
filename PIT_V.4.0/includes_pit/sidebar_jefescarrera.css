@@ -1,0 +1,673 @@
+/* =========================================================
+   SIDEBAR JEFE DE CARRERA
+   SIST V.4.0 - PIT V.4.0
+========================================================= */
+
+:root {
+    --jefe-azul: #2474b9;
+    --jefe-azul-oscuro: #1d5f99;
+    --jefe-azul-claro: #eaf5ff;
+
+    --jefe-texto: #334e68;
+    --jefe-texto-suave: #8295a6;
+
+    --jefe-blanco: #ffffff;
+    --jefe-fondo: #f5f8fc;
+    --jefe-borde: #e5edf4;
+}
+
+
+/* =========================================================
+   BARRA SUPERIOR
+========================================================= */
+
+.topbar-jefe {
+    position: fixed;
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 70px;
+
+    background: #ffffff;
+
+    border-bottom: 1px solid var(--jefe-borde);
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    padding: 0 25px;
+
+    box-sizing: border-box;
+
+    z-index: 9996;
+}
+
+
+/* =========================================================
+   LADO IZQUIERDO
+========================================================= */
+
+.topbar-left-jefe {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+
+/* =========================================================
+   BOTÓN MENÚ
+========================================================= */
+
+.btn-menu-jefe {
+    width: 44px;
+    height: 44px;
+
+    border: none;
+    border-radius: 12px;
+
+    background: #f1f7fc;
+
+    color: var(--jefe-azul);
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    cursor: pointer;
+
+    font-size: 20px;
+
+    transition:
+        background 0.25s ease,
+        transform 0.25s ease;
+}
+
+.btn-menu-jefe:hover {
+    background: #e2f1fb;
+    transform: scale(1.04);
+}
+
+
+/* =========================================================
+   LOGO
+========================================================= */
+
+.topbar-logo-jefe {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.topbar-logo-icon-jefe {
+    width: 42px;
+    height: 42px;
+
+    border-radius: 13px;
+
+    background: linear-gradient(
+        135deg,
+        #2474b9,
+        #58a6d9
+    );
+
+    color: white;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-size: 18px;
+
+    box-shadow:
+        0 6px 16px rgba(36, 116, 185, 0.20);
+}
+
+.topbar-logo-jefe h2 {
+    margin: 0;
+
+    color: #31536a;
+
+    font-size: 16px;
+    font-weight: 700;
+}
+
+.topbar-logo-jefe span {
+    display: block;
+
+    margin-top: 2px;
+
+    color: #8b9da9;
+
+    font-size: 10px;
+}
+
+
+/* =========================================================
+   LADO DERECHO
+========================================================= */
+
+.topbar-right-jefe {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+
+/* =========================================================
+   USUARIO
+========================================================= */
+
+.usuario-info-jefe {
+    display: flex;
+    align-items: center;
+
+    gap: 8px;
+
+    color: #60788b;
+
+    font-size: 13px;
+}
+
+.usuario-info-jefe i {
+    color: var(--jefe-azul);
+}
+
+
+/* =========================================================
+   CERRAR SESIÓN
+========================================================= */
+
+.btn-salir-jefe {
+    display: flex;
+    align-items: center;
+
+    gap: 7px;
+
+    padding: 9px 14px;
+
+    border-radius: 10px;
+
+    text-decoration: none;
+
+    color: #6c7f8e;
+
+    background: #f6f9fb;
+
+    font-size: 12px;
+
+    transition:
+        background 0.25s ease,
+        color 0.25s ease;
+}
+
+.btn-salir-jefe:hover {
+    background: #edf4f8;
+    color: var(--jefe-azul);
+}
+
+
+/* =========================================================
+   OVERLAY
+========================================================= */
+
+.sidebar-overlay-jefe {
+    position: fixed;
+
+    inset: 0;
+
+    background: rgba(20, 43, 60, 0.38);
+
+    backdrop-filter: blur(2px);
+
+    opacity: 0;
+    visibility: hidden;
+
+    pointer-events: none;
+
+    transition:
+        opacity 0.3s ease,
+        visibility 0.3s ease;
+
+    z-index: 9997;
+}
+
+.sidebar-overlay-jefe.visible {
+    opacity: 1;
+
+    visibility: visible;
+
+    pointer-events: auto;
+}
+
+
+/* =========================================================
+   SIDEBAR
+========================================================= */
+
+.sidebar-jefescarrera {
+    position: fixed;
+
+    top: 0;
+    left: 0;
+
+    width: 270px;
+    height: 100vh;
+
+    background: var(--jefe-blanco);
+
+    border-right: 1px solid var(--jefe-borde);
+
+    box-shadow:
+        8px 0 30px rgba(31, 78, 121, 0.12);
+
+    z-index: 9998;
+
+    display: flex;
+    flex-direction: column;
+
+    transform: translateX(-100%);
+
+    transition:
+        transform 0.3s ease;
+}
+
+
+/* =========================================================
+   SIDEBAR ABIERTO
+========================================================= */
+
+.sidebar-jefescarrera.abierto {
+    transform: translateX(0);
+}
+
+
+/* =========================================================
+   CABECERA SIDEBAR
+========================================================= */
+
+.sidebar-header-jefe {
+    min-height: 82px;
+
+    padding: 18px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    border-bottom: 1px solid var(--jefe-borde);
+
+    box-sizing: border-box;
+}
+
+
+/* =========================================================
+   IDENTIDAD
+========================================================= */
+
+.identidad-jefe {
+    display: flex;
+    align-items: center;
+
+    gap: 12px;
+}
+
+.sidebar-avatar-jefe {
+    width: 45px;
+    height: 45px;
+
+    min-width: 45px;
+
+    border-radius: 14px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: linear-gradient(
+        135deg,
+        #2474b9,
+        #58a6d9
+    );
+
+    color: white;
+
+    font-size: 18px;
+
+    box-shadow:
+        0 6px 15px rgba(36, 116, 185, 0.20);
+}
+
+.identidad-jefe h3 {
+    margin: 0;
+
+    color: #31536a;
+
+    font-size: 16px;
+}
+
+.identidad-jefe span {
+    display: block;
+
+    margin-top: 3px;
+
+    color: #8a9ba8;
+
+    font-size: 10px;
+}
+
+
+/* =========================================================
+   BOTÓN CERRAR SIDEBAR
+========================================================= */
+
+.btn-cerrar-sidebar-jefe {
+    width: 36px;
+    height: 36px;
+
+    border: none;
+    border-radius: 10px;
+
+    background: transparent;
+
+    color: #8295a6;
+
+    font-size: 21px;
+
+    cursor: pointer;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    transition:
+        background 0.2s ease,
+        color 0.2s ease;
+}
+
+.btn-cerrar-sidebar-jefe:hover {
+    background: #f1f7fb;
+    color: var(--jefe-azul);
+}
+
+
+/* =========================================================
+   MENÚ
+========================================================= */
+
+.sidebar-menu-jefe {
+    flex: 1;
+
+    padding: 20px 14px;
+
+    overflow-y: auto;
+
+    box-sizing: border-box;
+}
+
+.sidebar-menu-jefe ul {
+    margin: 0;
+    padding: 0;
+
+    list-style: none;
+}
+
+
+/* =========================================================
+   ELEMENTOS
+========================================================= */
+
+.sidebar-menu-jefe li {
+    margin-bottom: 7px;
+}
+
+.sidebar-menu-jefe a {
+    position: relative;
+
+    display: flex;
+    align-items: center;
+
+    gap: 13px;
+
+    width: 100%;
+    min-height: 48px;
+
+    padding: 10px 13px;
+
+    border-radius: 13px;
+
+    text-decoration: none;
+
+    color: #60788b;
+
+    font-size: 13px;
+
+    box-sizing: border-box;
+
+    transition:
+        background 0.25s ease,
+        color 0.25s ease,
+        transform 0.25s ease;
+}
+
+.sidebar-menu-jefe a:hover {
+    background: #f1f8fd;
+
+    color: var(--jefe-azul);
+
+    transform: translateX(3px);
+}
+
+
+/* =========================================================
+   ITEM ACTIVO
+========================================================= */
+
+.sidebar-menu-jefe a.activo {
+    background: linear-gradient(
+        135deg,
+        #e9f5ff,
+        #f2f9ff
+    );
+
+    color: var(--jefe-azul);
+
+    font-weight: 700;
+}
+
+.sidebar-menu-jefe a.activo::before {
+    content: "";
+
+    position: absolute;
+
+    left: 0;
+    top: 9px;
+
+    width: 4px;
+    height: 30px;
+
+    border-radius: 0 5px 5px 0;
+
+    background: var(--jefe-azul);
+}
+
+
+/* =========================================================
+   ICONOS
+========================================================= */
+
+.sidebar-menu-jefe i {
+    width: 22px;
+    min-width: 22px;
+
+    text-align: center;
+
+    font-size: 17px;
+}
+
+
+/* =========================================================
+   FOOTER
+========================================================= */
+
+.sidebar-footer-jefe {
+    padding: 15px 18px 20px;
+
+    box-sizing: border-box;
+}
+
+.footer-linea-jefe {
+    width: 100%;
+    height: 1px;
+
+    background: var(--jefe-borde);
+
+    margin-bottom: 15px;
+}
+
+.rol-jefe {
+    display: flex;
+    align-items: center;
+
+    gap: 11px;
+
+    padding: 10px;
+
+    border-radius: 14px;
+
+    background: #f8fafc;
+}
+
+.rol-icono-jefe {
+    width: 36px;
+    height: 36px;
+
+    min-width: 36px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 11px;
+
+    background: #e8f3fc;
+
+    color: var(--jefe-azul);
+}
+
+.rol-texto-jefe {
+    display: flex;
+    flex-direction: column;
+
+    gap: 2px;
+}
+
+.rol-texto-jefe strong {
+    color: #496579;
+
+    font-size: 11px;
+}
+
+.rol-texto-jefe small {
+    color: #9aaab6;
+
+    font-size: 9px;
+}
+
+
+/* =========================================================
+   SCROLLBAR
+========================================================= */
+
+.sidebar-menu-jefe::-webkit-scrollbar {
+    width: 4px;
+}
+
+.sidebar-menu-jefe::-webkit-scrollbar-thumb {
+    background: #d8e6ef;
+
+    border-radius: 10px;
+}
+
+
+/* =========================================================
+   CONTENIDO DE INICIO
+   IMPORTANTE:
+   NO DEJAMOS ESPACIO PARA EL SIDEBAR
+========================================================= */
+
+.jefes-contenido {
+    width: 100%;
+
+    min-height: 100vh;
+
+    box-sizing: border-box;
+
+    padding-top: 70px;
+
+    margin-left: 0;
+}
+
+
+/* =========================================================
+   RESPONSIVE
+========================================================= */
+
+@media (max-width: 700px) {
+
+    .topbar-jefe {
+        height: 64px;
+
+        padding: 0 15px;
+    }
+
+    .topbar-logo-jefe span {
+        display: none;
+    }
+
+    .topbar-logo-jefe h2 {
+        font-size: 14px;
+    }
+
+    .topbar-right-jefe {
+        gap: 8px;
+    }
+
+    .usuario-info-jefe span {
+        display: none;
+    }
+
+    .btn-salir-jefe {
+        padding: 9px 11px;
+    }
+
+    .btn-salir-jefe span {
+        display: none;
+    }
+
+    .sidebar-jefescarrera {
+        width: 260px;
+    }
+
+    .jefes-contenido {
+        padding-top: 64px;
+    }
+}
+
+
+/* =========================================================
+   CELULARES PEQUEÑOS
+========================================================= */
+
+@media (max-width: 400px) {
+
+    .sidebar-jefescarrera {
+        width: 250px;
+    }
+
+    .topbar-logo-jefe h2 {
+        font-size: 13px;
+    }
+}
+
