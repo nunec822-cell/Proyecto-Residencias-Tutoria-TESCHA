@@ -1,0 +1,2211 @@
+/*=========================================================
+    INICIO JEFE DE CARRERA
+    SIST V.4.0 - PIT V.4.0
+=========================================================*/
+
+
+/*=========================================================
+    VARIABLES
+=========================================================*/
+
+:root {
+
+    --jefe-azul: #2474b9;
+    --jefe-azul-oscuro: #1d5f99;
+    --jefe-azul-claro: #eaf5ff;
+
+    --jefe-texto: #334e68;
+    --jefe-texto-suave: #8295a6;
+
+    --jefe-blanco: #ffffff;
+
+    --jefe-fondo: #f5f8fc;
+
+    --jefe-borde: #e5edf4;
+
+    --jefe-sombra:
+        0 10px 30px rgba(31, 78, 121, 0.08);
+
+}
+
+
+/*=========================================================
+    RESET
+=========================================================*/
+
+* {
+
+    box-sizing: border-box;
+
+}
+
+
+html {
+
+    scroll-behavior: smooth;
+
+}
+
+
+body {
+
+    margin: 0;
+
+    padding: 0;
+
+    background:
+        var(--jefe-fondo);
+
+    color:
+        var(--jefe-texto);
+
+    font-family:
+        Arial,
+        Helvetica,
+        sans-serif;
+
+}
+
+
+/*=========================================================
+    CONTENIDO PRINCIPAL
+
+    IMPORTANTE:
+    NO dejamos espacio permanente para el sidebar.
+
+    El sidebar aparece solamente cuando se abre.
+=========================================================*/
+
+.jefes-contenido {
+
+    width: 100%;
+
+    min-height: 100vh;
+
+    padding:
+        105px
+        40px
+        50px;
+
+    transition:
+        padding 0.3s ease;
+
+}
+
+
+/*=========================================================
+    BIENVENIDA
+=========================================================*/
+
+.bienvenida-jefe {
+
+    position: relative;
+
+    width: 100%;
+
+    min-height: 370px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    gap: 50px;
+
+    padding:
+        50px
+        60px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #ffffff 0%,
+            #f7fbff 100%
+        );
+
+    border:
+        1px solid var(--jefe-borde);
+
+    border-radius:
+        28px;
+
+    overflow: hidden;
+
+    box-shadow:
+        var(--jefe-sombra);
+
+}
+
+
+/*=========================================================
+    DECORACIONES
+=========================================================*/
+
+.decoracion {
+
+    position: absolute;
+
+    border-radius: 50%;
+
+    pointer-events: none;
+
+}
+
+
+.decoracion-1 {
+
+    width: 260px;
+
+    height: 260px;
+
+    right: -100px;
+
+    top: -100px;
+
+    background:
+        rgba(36, 116, 185, 0.06);
+
+}
+
+
+.decoracion-2 {
+
+    width: 180px;
+
+    height: 180px;
+
+    left: -80px;
+
+    bottom: -90px;
+
+    background:
+        rgba(88, 166, 217, 0.07);
+
+}
+
+
+.decoracion-3 {
+
+    width: 80px;
+
+    height: 80px;
+
+    right: 35%;
+
+    bottom: -35px;
+
+    background:
+        rgba(36, 116, 185, 0.05);
+
+}
+
+
+/*=========================================================
+    TEXTO BIENVENIDA
+=========================================================*/
+
+.texto-bienvenida {
+
+    position: relative;
+
+    z-index: 2;
+
+    flex: 1;
+
+    max-width: 700px;
+
+}
+
+
+/*=========================================================
+    ETIQUETA
+=========================================================*/
+
+.etiqueta-bienvenida {
+
+    display: inline-flex;
+
+    align-items: center;
+
+    gap: 8px;
+
+    padding:
+        8px
+        13px;
+
+    border-radius:
+        20px;
+
+    background:
+        #edf7ff;
+
+    color:
+        var(--jefe-azul);
+
+    font-size:
+        11px;
+
+    font-weight:
+        700;
+
+    letter-spacing:
+        0.3px;
+
+}
+
+
+.punto {
+
+    width: 7px;
+
+    height: 7px;
+
+    border-radius: 50%;
+
+    background:
+        var(--jefe-azul);
+
+}
+
+
+/*=========================================================
+    TÍTULO
+=========================================================*/
+
+.texto-bienvenida h1 {
+
+    margin:
+        20px 0 8px;
+
+    color:
+        #294c63;
+
+    font-size:
+        clamp(28px, 4vw, 43px);
+
+    line-height:
+        1.15;
+
+    font-weight:
+        800;
+
+}
+
+
+.texto-bienvenida h1 span {
+
+    color:
+        var(--jefe-azul);
+
+}
+
+
+/*=========================================================
+    SUBTÍTULO
+=========================================================*/
+
+.texto-bienvenida h2 {
+
+    margin:
+        0 0 18px;
+
+    color:
+        #527188;
+
+    font-size:
+        21px;
+
+    font-weight:
+        600;
+
+}
+
+
+/*=========================================================
+    PÁRRAFO
+=========================================================*/
+
+.texto-bienvenida > p {
+
+    max-width:
+        650px;
+
+    margin:
+        0;
+
+    color:
+        #708596;
+
+    font-size:
+        15px;
+
+    line-height:
+        1.8;
+
+}
+
+
+/*=========================================================
+    MENSAJE INSTITUCIONAL
+=========================================================*/
+
+.mensaje-institucional {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 14px;
+
+    max-width:
+        610px;
+
+    margin-top:
+        25px;
+
+    padding:
+        15px 18px;
+
+    background:
+        #f1f8fd;
+
+    border:
+        1px solid #e1eff8;
+
+    border-radius:
+        16px;
+
+}
+
+
+.mensaje-icono {
+
+    width: 43px;
+
+    height: 43px;
+
+    min-width: 43px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    border-radius:
+        13px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #2474b9,
+            #58a6d9
+        );
+
+    color:
+        white;
+
+    font-size:
+        18px;
+
+    box-shadow:
+        0 6px 15px
+        rgba(36,116,185,0.20);
+
+}
+
+
+.mensaje-institucional strong {
+
+    display: block;
+
+    margin-bottom:
+        4px;
+
+    color:
+        #3c5f75;
+
+    font-size:
+        13px;
+
+}
+
+
+.mensaje-institucional span {
+
+    display: block;
+
+    color:
+        #8195a5;
+
+    font-size:
+        11px;
+
+    line-height:
+        1.5;
+
+}
+
+
+/*=========================================================
+    ILUSTRACIÓN
+=========================================================*/
+
+.ilustracion-jefe {
+
+    position: relative;
+
+    width: 330px;
+
+    height: 260px;
+
+    min-width: 330px;
+
+    z-index: 2;
+
+}
+
+
+/*=========================================================
+    EDIFICIO
+=========================================================*/
+
+.icono-edificio {
+
+    position: absolute;
+
+    left: 50%;
+
+    bottom: 38px;
+
+    transform:
+        translateX(-50%);
+
+    width: 185px;
+
+    height: 155px;
+
+    border-radius:
+        12px 12px 5px 5px;
+
+    background:
+        linear-gradient(
+            180deg,
+            #dcecf8,
+            #c4ddec
+        );
+
+    border:
+        3px solid #a9c9dd;
+
+    box-shadow:
+        0 15px 30px
+        rgba(36,116,185,0.10);
+
+}
+
+
+/*=========================================================
+    VENTANAS
+=========================================================*/
+
+.ventana {
+
+    position: absolute;
+
+    width: 28px;
+
+    height: 28px;
+
+    border-radius:
+        6px;
+
+    background:
+        #ffffff;
+
+    border:
+        2px solid #91bad3;
+
+}
+
+
+.ventana-1 {
+
+    left: 25px;
+
+    top: 25px;
+
+}
+
+
+.ventana-2 {
+
+    right: 25px;
+
+    top: 25px;
+
+}
+
+
+.ventana-3 {
+
+    left: 25px;
+
+    top: 70px;
+
+}
+
+
+.ventana-4 {
+
+    right: 25px;
+
+    top: 70px;
+
+}
+
+
+/*=========================================================
+    PUERTA
+=========================================================*/
+
+.puerta {
+
+    position: absolute;
+
+    bottom: 0;
+
+    left: 50%;
+
+    transform:
+        translateX(-50%);
+
+    width: 42px;
+
+    height: 62px;
+
+    border-radius:
+        8px 8px 0 0;
+
+    background:
+        #5d8fb0;
+
+}
+
+
+/*=========================================================
+    BASE EDIFICIO
+=========================================================*/
+
+.base-edificio {
+
+    position: absolute;
+
+    left: 50%;
+
+    bottom: 25px;
+
+    transform:
+        translateX(-50%);
+
+    width: 230px;
+
+    height: 15px;
+
+    border-radius:
+        10px;
+
+    background:
+        #9dbfd3;
+
+}
+
+
+/*=========================================================
+    PERSONAS
+=========================================================*/
+
+.persona {
+
+    position: absolute;
+
+    bottom: 38px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+}
+
+
+.persona-1 {
+
+    left: 35px;
+
+}
+
+
+.persona-2 {
+
+    right: 35px;
+
+}
+
+
+.cabeza {
+
+    width: 27px;
+
+    height: 27px;
+
+    border-radius: 50%;
+
+    background:
+        #f1c7a5;
+
+}
+
+
+.cuerpo {
+
+    width: 38px;
+
+    height: 62px;
+
+    margin-top: 4px;
+
+    border-radius:
+        15px 15px 7px 7px;
+
+    background:
+        #5a9ac5;
+
+}
+
+
+/*=========================================================
+    SECCIÓN DE AVISOS
+=========================================================*/
+
+.seccion-avisos-jefe {
+
+    width: 100%;
+
+    margin-top:
+        35px;
+
+}
+
+
+/*=========================================================
+    ENCABEZADO AVISOS
+=========================================================*/
+
+.encabezado-avisos-jefe {
+
+    display: flex;
+
+    align-items: flex-end;
+
+    justify-content: space-between;
+
+    gap: 30px;
+
+    margin-bottom:
+        22px;
+
+}
+
+
+.titulo-avisos-jefe {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 14px;
+
+}
+
+
+.icono-titulo-avisos {
+
+    width: 48px;
+
+    height: 48px;
+
+    min-width: 48px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    border-radius:
+        15px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #2474b9,
+            #58a6d9
+        );
+
+    color:
+        white;
+
+    font-size:
+        18px;
+
+    box-shadow:
+        0 7px 18px
+        rgba(36,116,185,0.18);
+
+}
+
+
+.titulo-avisos-jefe span {
+
+    display: block;
+
+    margin-bottom:
+        3px;
+
+    color:
+        #8da0ae;
+
+    font-size:
+        10px;
+
+    font-weight:
+        800;
+
+    letter-spacing:
+        1.2px;
+
+}
+
+
+.titulo-avisos-jefe h2 {
+
+    margin:
+        0;
+
+    color:
+        #34566d;
+
+    font-size:
+        25px;
+
+}
+
+
+.encabezado-avisos-jefe > p {
+
+    max-width:
+        480px;
+
+    margin:
+        0;
+
+    color:
+        #8194a3;
+
+    font-size:
+        12px;
+
+    line-height:
+        1.6;
+
+    text-align:
+        right;
+
+}
+
+
+/*=========================================================
+    CONTENEDOR DE AVISOS
+
+    AQUÍ ESTÁ EL CAMBIO PRINCIPAL.
+
+    3 TARJETAS POR FILA EN PANTALLAS GRANDES.
+=========================================================*/
+
+.contenedor-avisos-jefe {
+
+    width: 100%;
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, minmax(0, 1fr));
+
+    gap:
+        25px;
+
+    align-items:
+        stretch;
+
+}
+
+
+/*=========================================================
+    TARJETA DE AVISO
+=========================================================*/
+
+.aviso-card-jefe {
+
+    position: relative;
+
+    display: flex;
+
+    flex-direction: column;
+
+    min-width: 0;
+
+    overflow: hidden;
+
+    background:
+        #ffffff;
+
+    border:
+        1px solid var(--jefe-borde);
+
+    border-radius:
+        20px;
+
+    box-shadow:
+        0 8px 25px
+        rgba(31,78,121,0.07);
+
+    transition:
+        transform 0.25s ease,
+        box-shadow 0.25s ease;
+
+}
+
+
+.aviso-card-jefe:hover {
+
+    transform:
+        translateY(-5px);
+
+    box-shadow:
+        0 15px 35px
+        rgba(31,78,121,0.12);
+
+}
+
+
+/*=========================================================
+    BARRA SUPERIOR DE PRIORIDAD
+=========================================================*/
+
+.aviso-card-jefe::before {
+
+    content: "";
+
+    position: absolute;
+
+    top: 0;
+
+    left: 0;
+
+    right: 0;
+
+    height: 4px;
+
+    background:
+        var(--jefe-azul);
+
+}
+
+
+/*=========================================================
+    PRIORIDAD ALTA
+=========================================================*/
+
+.aviso-card-jefe.prioridad-alta::before {
+
+    background:
+        #d9534f;
+
+}
+
+
+/*=========================================================
+    PRIORIDAD MEDIA
+=========================================================*/
+
+.aviso-card-jefe.prioridad-media::before {
+
+    background:
+        #e0a126;
+
+}
+
+
+/*=========================================================
+    PRIORIDAD BAJA
+=========================================================*/
+
+.aviso-card-jefe.prioridad-baja::before {
+
+    background:
+        #4aa87c;
+
+}
+
+
+/*=========================================================
+    IMAGEN DEL AVISO
+=========================================================*/
+
+.aviso-imagen-jefe {
+
+    width: 100%;
+
+    height: 175px;
+
+    overflow: hidden;
+
+    background:
+        #edf4f8;
+
+}
+
+
+.aviso-imagen-jefe img {
+
+    width: 100%;
+
+    height: 100%;
+
+    display: block;
+
+    object-fit: cover;
+
+    transition:
+        transform 0.4s ease;
+
+}
+
+
+.aviso-card-jefe:hover
+.aviso-imagen-jefe img {
+
+    transform:
+        scale(1.04);
+
+}
+
+
+/*=========================================================
+    CONTENIDO TARJETA
+=========================================================*/
+
+.aviso-contenido-jefe {
+
+    display: flex;
+
+    flex-direction: column;
+
+    flex: 1;
+
+    padding:
+        20px;
+
+}
+
+
+/*=========================================================
+    META
+=========================================================*/
+
+.aviso-meta-jefe {
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    gap: 10px;
+
+    margin-bottom:
+        13px;
+
+}
+
+
+/*=========================================================
+    PRIORIDAD
+=========================================================*/
+
+.aviso-prioridad-jefe {
+
+    display: inline-flex;
+
+    align-items: center;
+
+    gap: 5px;
+
+    padding:
+        5px 9px;
+
+    border-radius:
+        20px;
+
+    background:
+        #edf7ff;
+
+    color:
+        var(--jefe-azul);
+
+    font-size:
+        9px;
+
+    font-weight:
+        800;
+
+}
+
+
+.prioridad-alta
+.aviso-prioridad-jefe {
+
+    background:
+        #fff0ef;
+
+    color:
+        #d9534f;
+
+}
+
+
+.prioridad-media
+.aviso-prioridad-jefe {
+
+    background:
+        #fff7e8;
+
+    color:
+        #bd8215;
+
+}
+
+
+.prioridad-baja
+.aviso-prioridad-jefe {
+
+    background:
+        #edf9f3;
+
+    color:
+        #3d916c;
+
+}
+
+
+/*=========================================================
+    FECHA
+=========================================================*/
+
+.aviso-fecha-jefe {
+
+    color:
+        #9aaab6;
+
+    font-size:
+        10px;
+
+    white-space:
+        nowrap;
+
+}
+
+
+.aviso-fecha-jefe i {
+
+    margin-right:
+        4px;
+
+}
+
+
+/*=========================================================
+    TÍTULO AVISO
+=========================================================*/
+
+.aviso-contenido-jefe h3 {
+
+    margin:
+        0 0 10px;
+
+    color:
+        #34566d;
+
+    font-size:
+        18px;
+
+    line-height:
+        1.35;
+
+    font-weight:
+        750;
+
+}
+
+
+/*=========================================================
+    DESCRIPCIÓN
+=========================================================*/
+
+.aviso-contenido-jefe > p {
+
+    margin:
+        0;
+
+    color:
+        #778d9d;
+
+    font-size:
+        12px;
+
+    line-height:
+        1.7;
+
+    display:
+        -webkit-box;
+
+    -webkit-line-clamp:
+        4;
+
+    -webkit-box-orient:
+        vertical;
+
+    overflow:
+        hidden;
+
+}
+
+
+/*=========================================================
+    ACCIONES
+
+    IMPORTANTE:
+    margin-top:auto hace que los botones
+    queden alineados aunque las descripciones
+    tengan diferente longitud.
+=========================================================*/
+
+.aviso-acciones-jefe {
+
+    display: flex;
+
+    flex-wrap: wrap;
+
+    align-items: center;
+
+    gap: 8px;
+
+    margin-top:
+        auto;
+
+    padding-top:
+        20px;
+
+}
+
+
+/*=========================================================
+    BOTÓN VER AVISO
+=========================================================*/
+
+.btn-ver-aviso-jefe {
+
+    display: inline-flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 7px;
+
+    padding:
+        9px 12px;
+
+    border:
+        none;
+
+    border-radius:
+        10px;
+
+    background:
+        #edf7ff;
+
+    color:
+        var(--jefe-azul);
+
+    font-size:
+        10px;
+
+    font-weight:
+        700;
+
+    cursor:
+        pointer;
+
+    transition:
+        background 0.25s ease,
+        transform 0.25s ease;
+
+}
+
+
+.btn-ver-aviso-jefe:hover {
+
+    background:
+        #dcefff;
+
+    transform:
+        translateY(-1px);
+
+}
+
+
+/*=========================================================
+    LINK
+=========================================================*/
+
+.btn-link-aviso-jefe {
+
+    display: inline-flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 6px;
+
+    padding:
+        9px 12px;
+
+    border-radius:
+        10px;
+
+    text-decoration:
+        none;
+
+    background:
+        #f5f8fa;
+
+    color:
+        #668092;
+
+    font-size:
+        10px;
+
+    font-weight:
+        700;
+
+    transition:
+        background 0.25s ease,
+        color 0.25s ease;
+
+}
+
+
+.btn-link-aviso-jefe:hover {
+
+    background:
+        #eaf2f7;
+
+    color:
+        var(--jefe-azul);
+
+}
+
+
+/*=========================================================
+    PDF
+=========================================================*/
+
+.btn-pdf-aviso-jefe {
+
+    display: inline-flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 6px;
+
+    padding:
+        9px 12px;
+
+    border-radius:
+        10px;
+
+    text-decoration:
+        none;
+
+    background:
+        #fff1f1;
+
+    color:
+        #c54b4b;
+
+    font-size:
+        10px;
+
+    font-weight:
+        700;
+
+    transition:
+        background 0.25s ease,
+        color 0.25s ease;
+
+}
+
+
+.btn-pdf-aviso-jefe:hover {
+
+    background:
+        #ffe3e3;
+
+    color:
+        #a93737;
+
+}
+
+
+/*=========================================================
+    SIN AVISOS
+=========================================================*/
+
+.sin-avisos-jefe {
+
+    grid-column:
+        1 / -1;
+
+    display:
+        flex;
+
+    flex-direction:
+        column;
+
+    align-items:
+        center;
+
+    justify-content:
+        center;
+
+    min-height:
+        230px;
+
+    padding:
+        35px;
+
+    background:
+        #ffffff;
+
+    border:
+        1px solid var(--jefe-borde);
+
+    border-radius:
+        20px;
+
+    text-align:
+        center;
+
+    box-shadow:
+        0 8px 25px
+        rgba(31,78,121,0.06);
+
+}
+
+
+.sin-avisos-icono {
+
+    width:
+        60px;
+
+    height:
+        60px;
+
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    justify-content:
+        center;
+
+    margin-bottom:
+        15px;
+
+    border-radius:
+        18px;
+
+    background:
+        #edf6fc;
+
+    color:
+        #6d9bbb;
+
+    font-size:
+        23px;
+
+}
+
+
+.sin-avisos-jefe h3 {
+
+    margin:
+        0 0 7px;
+
+    color:
+        #4e6c80;
+
+    font-size:
+        16px;
+
+}
+
+
+.sin-avisos-jefe p {
+
+    max-width:
+        450px;
+
+    margin:
+        0;
+
+    color:
+        #91a1ad;
+
+    font-size:
+        12px;
+
+    line-height:
+        1.6;
+
+}
+
+
+/*=========================================================
+    FRASE INSTITUCIONAL
+=========================================================*/
+
+.frase-institucional {
+
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    gap:
+        20px;
+
+    margin:
+        45px 0 10px;
+
+}
+
+
+.frase-institucional .linea {
+
+    flex:
+        1;
+
+    height:
+        1px;
+
+    background:
+        var(--jefe-borde);
+
+}
+
+
+.frase-institucional p {
+
+    max-width:
+        600px;
+
+    margin:
+        0;
+
+    color:
+        #91a1ad;
+
+    font-size:
+        11px;
+
+    line-height:
+        1.6;
+
+    text-align:
+        center;
+
+    font-style:
+        italic;
+
+}
+
+
+/*=========================================================
+    MODAL AVISO
+=========================================================*/
+
+.modal-aviso-jefe {
+
+    position:
+        fixed;
+
+    inset:
+        0;
+
+    z-index:
+        10000;
+
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    justify-content:
+        center;
+
+    padding:
+        20px;
+
+    background:
+        rgba(20,43,60,0.48);
+
+    backdrop-filter:
+        blur(4px);
+
+    opacity:
+        0;
+
+    visibility:
+        hidden;
+
+    pointer-events:
+        none;
+
+    transition:
+        opacity 0.25s ease,
+        visibility 0.25s ease;
+
+}
+
+
+.modal-aviso-jefe.visible {
+
+    opacity:
+        1;
+
+    visibility:
+        visible;
+
+    pointer-events:
+        auto;
+
+}
+
+
+/*=========================================================
+    CONTENIDO MODAL
+=========================================================*/
+
+.modal-contenido-jefe {
+
+    position:
+        relative;
+
+    width:
+        100%;
+
+    max-width:
+        600px;
+
+    max-height:
+        85vh;
+
+    overflow-y:
+        auto;
+
+    padding:
+        35px;
+
+    background:
+        #ffffff;
+
+    border-radius:
+        24px;
+
+    box-shadow:
+        0 25px 70px
+        rgba(20,50,70,0.25);
+
+    transform:
+        translateY(20px)
+        scale(0.97);
+
+    transition:
+        transform 0.25s ease;
+
+}
+
+
+.modal-aviso-jefe.visible
+.modal-contenido-jefe {
+
+    transform:
+        translateY(0)
+        scale(1);
+
+}
+
+
+/*=========================================================
+    BOTÓN CERRAR MODAL
+=========================================================*/
+
+.modal-cerrar-jefe {
+
+    position:
+        absolute;
+
+    top:
+        15px;
+
+    right:
+        15px;
+
+    width:
+        38px;
+
+    height:
+        38px;
+
+    border:
+        none;
+
+    border-radius:
+        10px;
+
+    background:
+        #f3f7fa;
+
+    color:
+        #7b8f9d;
+
+    cursor:
+        pointer;
+
+    font-size:
+        16px;
+
+    transition:
+        background 0.25s ease,
+        color 0.25s ease;
+
+}
+
+
+.modal-cerrar-jefe:hover {
+
+    background:
+        #eaf2f7;
+
+    color:
+        var(--jefe-azul);
+
+}
+
+
+/*=========================================================
+    ICONO MODAL
+=========================================================*/
+
+.modal-icono-jefe {
+
+    width:
+        55px;
+
+    height:
+        55px;
+
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    justify-content:
+        center;
+
+    margin:
+        0 auto 15px;
+
+    border-radius:
+        16px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #2474b9,
+            #58a6d9
+        );
+
+    color:
+        white;
+
+    font-size:
+        21px;
+
+    box-shadow:
+        0 8px 20px
+        rgba(36,116,185,0.20);
+
+}
+
+
+/*=========================================================
+    PRIORIDAD MODAL
+=========================================================*/
+
+.modal-prioridad-jefe {
+
+    display:
+        table;
+
+    margin:
+        0 auto 10px;
+
+    padding:
+        6px 11px;
+
+    border-radius:
+        20px;
+
+    background:
+        #edf7ff;
+
+    color:
+        var(--jefe-azul);
+
+    font-size:
+        9px;
+
+    font-weight:
+        800;
+
+}
+
+
+/*=========================================================
+    TÍTULO MODAL
+=========================================================*/
+
+.modal-contenido-jefe h2 {
+
+    margin:
+        0 0 8px;
+
+    color:
+        #34566d;
+
+    font-size:
+        24px;
+
+    line-height:
+        1.3;
+
+    text-align:
+        center;
+
+}
+
+
+/*=========================================================
+    FECHA MODAL
+=========================================================*/
+
+.modal-fecha-jefe {
+
+    margin-bottom:
+        22px;
+
+    color:
+        #97a7b2;
+
+    font-size:
+        11px;
+
+    text-align:
+        center;
+
+}
+
+
+/*=========================================================
+    DESCRIPCIÓN MODAL
+=========================================================*/
+
+.modal-descripcion-jefe {
+
+    padding:
+        18px;
+
+    border-radius:
+        14px;
+
+    background:
+        #f7fafc;
+
+    color:
+        #637b8b;
+
+    font-size:
+        13px;
+
+    line-height:
+        1.8;
+
+    white-space:
+        normal;
+
+}
+
+
+/*=========================================================
+    RESPONSIVE - TABLETS
+=========================================================*/
+
+@media (max-width: 1100px) {
+
+    .jefes-contenido {
+
+        padding:
+            100px
+            25px
+            40px;
+
+    }
+
+
+    .bienvenida-jefe {
+
+        padding:
+            40px;
+
+        gap:
+            25px;
+
+    }
+
+
+    .ilustracion-jefe {
+
+        width:
+            270px;
+
+        min-width:
+            270px;
+
+        transform:
+            scale(0.9);
+
+    }
+
+
+    .contenedor-avisos-jefe {
+
+        grid-template-columns:
+            repeat(2, minmax(0, 1fr));
+
+    }
+
+}
+
+
+/*=========================================================
+    RESPONSIVE - TABLET PEQUEÑA
+=========================================================*/
+
+@media (max-width: 850px) {
+
+    .bienvenida-jefe {
+
+        flex-direction:
+            column;
+
+        align-items:
+            flex-start;
+
+    }
+
+
+    .ilustracion-jefe {
+
+        align-self:
+            center;
+
+        order:
+            -1;
+
+    }
+
+
+    .encabezado-avisos-jefe {
+
+        flex-direction:
+            column;
+
+        align-items:
+            flex-start;
+
+    }
+
+
+    .encabezado-avisos-jefe > p {
+
+        max-width:
+            100%;
+
+        text-align:
+            left;
+
+    }
+
+}
+
+
+/*=========================================================
+    RESPONSIVE - MÓVIL
+=========================================================*/
+
+@media (max-width: 650px) {
+
+    .jefes-contenido {
+
+        padding:
+            85px
+            15px
+            30px;
+
+    }
+
+
+    .bienvenida-jefe {
+
+        padding:
+            30px 22px;
+
+        border-radius:
+            22px;
+
+    }
+
+
+    .texto-bienvenida h1 {
+
+        font-size:
+            30px;
+
+    }
+
+
+    .texto-bienvenida h2 {
+
+        font-size:
+            19px;
+
+    }
+
+
+    .texto-bienvenida > p {
+
+        font-size:
+            13px;
+
+    }
+
+
+    .ilustracion-jefe {
+
+        transform:
+            scale(0.78);
+
+        margin:
+            -20px auto;
+
+    }
+
+
+    .contenedor-avisos-jefe {
+
+        grid-template-columns:
+            1fr;
+
+        gap:
+            18px;
+
+    }
+
+
+    .aviso-card-jefe {
+
+        width:
+            100%;
+
+    }
+
+
+    .encabezado-avisos-jefe {
+
+        margin-bottom:
+            18px;
+
+    }
+
+
+    .titulo-avisos-jefe h2 {
+
+        font-size:
+            21px;
+
+    }
+
+
+    .mensaje-institucional {
+
+        align-items:
+            flex-start;
+
+    }
+
+
+    .frase-institucional {
+
+        gap:
+            10px;
+
+    }
+
+
+    .frase-institucional p {
+
+        font-size:
+            10px;
+
+    }
+
+
+    .modal-contenido-jefe {
+
+        padding:
+            28px 20px;
+
+    }
+
+
+    .modal-contenido-jefe h2 {
+
+        font-size:
+            20px;
+
+    }
+
+}
+
+
+/*=========================================================
+    CELULARES PEQUEÑOS
+=========================================================*/
+
+@media (max-width: 400px) {
+
+    .jefes-contenido {
+
+        padding:
+            80px
+            10px
+            25px;
+
+    }
+
+
+    .bienvenida-jefe {
+
+        padding:
+            25px 17px;
+
+    }
+
+
+    .ilustracion-jefe {
+
+        transform:
+            scale(0.65);
+
+        margin:
+            -35px auto;
+
+    }
+
+
+    .aviso-contenido-jefe {
+
+        padding:
+            17px;
+
+    }
+
+
+    .aviso-meta-jefe {
+
+        align-items:
+            flex-start;
+
+        flex-direction:
+            column;
+
+    }
+
+
+    .aviso-acciones-jefe {
+
+        flex-direction:
+            column;
+
+        align-items:
+            stretch;
+
+    }
+
+
+    .btn-ver-aviso-jefe,
+    .btn-link-aviso-jefe,
+    .btn-pdf-aviso-jefe {
+
+        width:
+            100%;
+
+    }
+
+}
+
+
+

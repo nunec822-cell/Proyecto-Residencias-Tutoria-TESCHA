@@ -1,0 +1,426 @@
+/*=========================================================
+    MOD_TUTOR/historial_canalizaciones/historial.css
+=========================================================*/
+body {
+    margin: 0;
+    font-family: 'Segoe UI', Arial, sans-serif;
+    background-color: #f4f4f4;
+}
+
+/* 🔥 SEPARADOR */
+.separador {
+    height: 25px;
+    background: linear-gradient(to bottom, rgba(0,0,0,0.15), transparent);
+}
+*{
+    box-sizing:border-box;
+}
+
+.contenedor-historial{
+
+    width:95%;
+    max-width:1400px;
+    margin:20px auto;
+
+}
+
+/*=====================================
+ENCABEZADO
+=====================================*/
+
+.encabezado{
+
+    background:#0b1d3a;
+    color:#fff;
+    padding:25px;
+    border-radius:12px;
+    margin-bottom:20px;
+
+}
+
+.encabezado h1{
+
+    margin:0;
+    font-size:32px;
+
+}
+
+.encabezado p{
+
+    margin-top:10px;
+    line-height:1.6;
+
+}
+
+/*=====================================
+FILTROS
+=====================================*/
+
+.card-filtros{
+
+    background:#fff;
+    padding:20px;
+    border-radius:12px;
+    box-shadow:
+        0 2px 10px
+        rgba(0,0,0,.1);
+
+    margin-bottom:20px;
+
+}
+
+.card-filtros label{
+
+    display:block;
+    font-weight:bold;
+    margin-bottom:10px;
+
+}
+
+.card-filtros select{
+
+    width:100%;
+    padding:12px;
+    border:1px solid #ccc;
+    border-radius:8px;
+    font-size:15px;
+
+}
+
+/*=====================================
+ALUMNOS
+=====================================*/
+
+.contenedor-alumnos{
+
+    display:grid;
+    grid-template-columns:
+        repeat(
+            auto-fit,
+            minmax(
+                320px,
+                1fr
+            )
+        );
+
+    gap:20px;
+    margin-bottom:30px;
+
+}
+
+.card-alumno{
+
+    background:#fff;
+    border-radius:12px;
+    padding:20px;
+
+    box-shadow:
+        0 2px 10px
+        rgba(
+            0,
+            0,
+            0,
+            .10
+        );
+
+}
+
+.card-alumno h3{
+
+    margin-top:0;
+    color:#0b1d3a;
+
+}
+
+.card-alumno p{
+
+    margin:8px 0;
+
+}
+
+.btn-historial{
+
+    margin-top:15px;
+    width:100%;
+    border:none;
+    padding:12px;
+
+    border-radius:8px;
+
+    background:#0b1d3a;
+    color:#fff;
+
+    cursor:pointer;
+
+    transition:.3s;
+
+}
+
+.btn-historial:hover{
+
+    transform:
+        translateY(-2px);
+
+    background:#16396e;
+
+}
+
+/*=====================================
+HISTORIAL
+=====================================*/
+
+#contenedor-historial{
+
+    margin-top:20px;
+
+}
+
+.encabezado-historial{
+
+    background:#ffffff;
+
+    border-left:
+        6px solid
+        #0b1d3a;
+
+    padding:20px;
+
+    border-radius:10px;
+
+    box-shadow:
+        0 2px 10px
+        rgba(
+            0,
+            0,
+            0,
+            .1
+        );
+
+    margin-bottom:20px;
+
+}
+
+.encabezado-historial h2{
+
+    margin-top:0;
+    color:#0b1d3a;
+
+}
+
+.card-historial-canalizacion{
+
+    background:#fff;
+
+    padding:25px;
+
+    border-radius:12px;
+
+    margin-bottom:25px;
+
+    box-shadow:
+        0 2px 12px
+        rgba(
+            0,
+            0,
+            0,
+            .10
+        );
+
+}
+
+.card-historial-canalizacion h3{
+
+    margin-top:0;
+    color:#0b1d3a;
+
+}
+
+.card-historial-canalizacion h4{
+
+    color:#444;
+    margin-top:20px;
+
+}
+
+.card-historial-canalizacion hr{
+
+    margin:
+        20px 0;
+
+    border:none;
+
+    border-top:
+        1px solid
+        #ddd;
+
+}
+
+/*=====================================
+ITEM HISTORIAL
+=====================================*/
+
+.historial-item{
+
+    background:#f8f9fb;
+
+    border-left:
+        5px solid
+        #0b1d3a;
+
+    padding:15px;
+
+    border-radius:8px;
+
+    margin-bottom:15px;
+
+}
+
+.historial-item strong{
+
+    display:block;
+
+    color:#0b1d3a;
+
+    margin-bottom:10px;
+
+}
+
+.historial-item ul{
+
+    margin-top:10px;
+    padding-left:20px;
+
+}
+
+.historial-item li{
+
+    margin-bottom:5px;
+
+}
+
+/*=====================================
+MENSAJES
+=====================================*/
+
+.mensaje-vacio{
+
+    background:#fff;
+
+    padding:25px;
+
+    border-radius:10px;
+
+    text-align:center;
+
+    box-shadow:
+        0 2px 10px
+        rgba(
+            0,
+            0,
+            0,
+            .10
+        );
+
+}
+
+.historial-vacio{
+
+    color:#777;
+    font-style:italic;
+
+}
+
+/*=====================================
+RESPONSIVE
+=====================================*/
+
+@media(
+    max-width:768px
+){
+
+    .encabezado h1{
+
+        font-size:26px;
+
+    }
+
+    .card-historial-canalizacion{
+
+        padding:18px;
+
+    }
+
+}
+/*=====================================
+    MODAL
+======================================*/
+
+.modal-historial{
+
+    display:none;
+
+    position:fixed;
+
+    left:0;
+    top:0;
+
+    width:100%;
+    height:100%;
+
+    background:
+    rgba(
+        0,
+        0,
+        0,
+        0.6
+    );
+
+    z-index:99999;
+
+    justify-content:center;
+    align-items:center;
+
+}
+
+.modal-contenido{
+
+    width:90%;
+    max-width:900px;
+
+    max-height:85vh;
+
+    overflow-y:auto;
+
+    background:#fff;
+
+    border-radius:15px;
+
+    padding:30px;
+
+    position:relative;
+
+    box-shadow:
+    0 0 30px
+    rgba(
+        0,
+        0,
+        0,
+        0.2
+    );
+
+}
+
+.cerrar-modal{
+
+    position:absolute;
+
+    right:20px;
+    top:15px;
+
+    font-size:35px;
+
+    cursor:pointer;
+
+    font-weight:bold;
+
+}

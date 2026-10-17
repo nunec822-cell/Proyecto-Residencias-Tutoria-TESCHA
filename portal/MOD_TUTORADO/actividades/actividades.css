@@ -1,0 +1,561 @@
+/*=========================================================
+MOD_TUTORADO/actividades/actividades.css
+=========================================================*/
+
+body{
+    margin:0;
+    font-family:'Segoe UI',Arial,sans-serif;
+    background:#f4f6f9;
+}
+
+/*=====================================
+SEPARADOR
+=====================================*/
+
+.separador{
+    height:25px;
+    background:linear-gradient(
+        to bottom,
+        rgba(0,0,0,.15),
+        transparent
+    );
+}
+
+/*=====================================
+CONTENEDOR
+=====================================*/
+
+.contenedor-actividades{
+
+    width:95%;
+    max-width:1250px;
+    margin:30px auto;
+
+}
+
+/*=====================================
+ENCABEZADO
+=====================================*/
+
+.encabezado{
+
+    background:#ffffff;
+
+    border-radius:15px;
+
+    padding:30px;
+
+    margin-bottom:25px;
+
+    box-shadow:0 4px 15px rgba(0,0,0,.08);
+
+}
+
+.encabezado h1{
+
+    color:#9b1c1c;
+
+    margin:0 0 12px;
+
+    font-size:30px;
+
+}
+
+.encabezado p{
+
+    color:#555;
+
+    line-height:1.7;
+
+    margin:0;
+
+}
+
+/*=====================================
+INSTRUCCIONES
+=====================================*/
+
+.card-instrucciones{
+
+    background:#ffffff;
+
+    border-left:6px solid #9b1c1c;
+
+    padding:25px;
+
+    border-radius:15px;
+
+    margin-bottom:30px;
+
+    box-shadow:0 4px 15px rgba(0,0,0,.08);
+
+}
+
+.card-instrucciones h2{
+
+    color:#9b1c1c;
+
+    margin-top:0;
+
+}
+
+.card-instrucciones ul{
+
+    margin-top:20px;
+
+    padding-left:25px;
+
+}
+
+.card-instrucciones li{
+
+    margin-bottom:12px;
+
+    color:#444;
+
+    line-height:1.7;
+
+}
+
+.alerta-importante{
+
+    margin-top:25px;
+
+    background:#fff7e7;
+
+    border-left:5px solid #f0ad4e;
+
+    padding:18px;
+
+    border-radius:10px;
+
+    color:#6b4d00;
+
+}
+
+/*=====================================
+LISTADO
+=====================================*/
+
+.card-listado{
+
+    background:#ffffff;
+
+    border-radius:15px;
+
+    padding:30px;
+
+    box-shadow:0 4px 15px rgba(0,0,0,.08);
+
+}
+
+.card-listado h2{
+
+    color:#9b1c1c;
+
+    margin-top:0;
+
+    margin-bottom:25px;
+
+}
+
+/*=====================================
+CONTENEDOR TARJETAS
+=====================================*/
+
+#contenedor-actividades{
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:30px;
+
+}
+
+/*=====================================
+TARJETA
+=====================================*/
+
+.card-actividad{
+
+    background:#fff;
+
+    border-radius:15px;
+
+    border:1px solid #ececec;
+
+    box-shadow:0 4px 15px rgba(0,0,0,.07);
+
+    overflow:hidden;
+
+}
+
+/*=====================================
+CABECERA
+=====================================*/
+
+.cabecera-actividad{
+
+    background:linear-gradient(
+        135deg,
+        #0df137,
+        #2dc02b
+    );
+
+    color:#fff;
+
+    padding:25px;
+
+}
+
+.cabecera-info h2{
+
+    margin:0;
+
+    font-size:24px;
+
+}
+
+.badges{
+
+    display:flex;
+
+    flex-wrap:wrap;
+
+    gap:12px;
+
+    margin-top:18px;
+
+}
+
+.badge{
+
+    background:rgba(255,255,255,.18);
+
+    padding:8px 16px;
+
+    border-radius:50px;
+
+    font-size:14px;
+
+}
+
+/*=====================================
+BLOQUES
+=====================================*/
+
+.bloque{
+
+    padding:25px;
+
+    border-top:1px solid #ececec;
+
+}
+
+.bloque h3{
+
+    margin-top:0;
+
+    margin-bottom:18px;
+
+    color:#9b1c1c;
+
+}
+
+.descripcion-actividad{
+
+    line-height:1.8;
+
+    color:#444;
+
+}
+
+/*=====================================
+RECURSOS
+=====================================*/
+
+.contenedor-recursos{
+
+    display:flex;
+
+    flex-wrap:wrap;
+
+    gap:20px;
+
+}
+
+.recurso{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:15px;
+
+    background:#f7f7f7;
+
+    padding:18px;
+
+    border-radius:12px;
+
+}
+
+.recurso i{
+
+    font-size:38px;
+
+}
+
+.icono-pdf{
+
+    color:#c62828;
+
+}
+
+.icono-link{
+
+    color:#1565c0;
+
+}
+
+.recurso a{
+
+    color:#1565c0;
+
+    text-decoration:none;
+
+    font-weight:600;
+
+}
+
+.recurso a:hover{
+
+    text-decoration:underline;
+
+}
+
+/*=====================================
+GALERÍA
+=====================================*/
+
+.galeria{
+
+    display:flex;
+
+    flex-wrap:wrap;
+
+    gap:18px;
+
+}
+
+.galeria img{
+
+    width:220px;
+
+    height:170px;
+
+    object-fit:cover;
+
+    border-radius:12px;
+
+    border:1px solid #ddd;
+
+    transition:.3s;
+
+}
+
+.galeria img:hover{
+
+    transform:scale(1.05);
+
+}
+
+/*=====================================
+FORMULARIO
+=====================================*/
+
+.form-evidencia{
+
+    margin-top:15px;
+
+}
+
+.form-evidencia input[type=file]{
+
+    width:100%;
+
+    padding:12px;
+
+    border:2px dashed #c8c8c8;
+
+    border-radius:10px;
+
+    background:#fafafa;
+
+    box-sizing:border-box;
+
+}
+
+.form-evidencia small{
+
+    display:block;
+
+    margin-top:10px;
+
+    color:#666;
+
+}
+
+/*=====================================
+BOTÓN
+=====================================*/
+
+.btn-subir{
+
+    margin-top:18px;
+
+    background:#9b1c1c;
+
+    color:#fff;
+
+    border:none;
+
+    padding:14px 25px;
+
+    border-radius:10px;
+
+    cursor:pointer;
+
+    transition:.3s;
+
+    font-size:15px;
+
+}
+
+.btn-subir:hover{
+
+    background:#7d1515;
+
+}
+
+/*=====================================
+MENSAJES
+=====================================*/
+
+.mensaje-ok{
+
+    background:#e8f7eb;
+
+    color:#2e7d32;
+
+    border-left:5px solid #4caf50;
+
+    padding:18px;
+
+    border-radius:10px;
+
+    margin-bottom:20px;
+
+}
+
+.mensaje-ok a{
+
+    color:#1565c0;
+
+    text-decoration:none;
+
+    font-weight:bold;
+
+}
+
+.mensaje-ok a:hover{
+
+    text-decoration:underline;
+
+}
+
+.mensaje-vacio,
+.mensaje-inicial{
+
+    background:#ffffff;
+
+    text-align:center;
+
+    padding:40px;
+
+    border-radius:15px;
+
+    color:#666;
+
+    box-shadow:0 4px 15px rgba(0,0,0,.07);
+
+}
+
+/*=====================================
+RESPONSIVE
+=====================================*/
+
+@media(max-width:900px){
+
+    .badges{
+
+        flex-direction:column;
+
+    }
+
+    .contenedor-recursos{
+
+        flex-direction:column;
+
+    }
+
+    .galeria{
+
+        justify-content:center;
+
+    }
+
+    .galeria img{
+
+        width:100%;
+
+        height:auto;
+
+    }
+
+}
+
+@media(max-width:700px){
+
+    .encabezado{
+
+        padding:20px;
+
+    }
+
+    .card-listado{
+
+        padding:20px;
+
+    }
+
+    .cabecera-actividad{
+
+        padding:20px;
+
+    }
+
+    .bloque{
+
+        padding:20px;
+
+    }
+
+    .btn-subir{
+
+        width:100%;
+
+    }
+
+}

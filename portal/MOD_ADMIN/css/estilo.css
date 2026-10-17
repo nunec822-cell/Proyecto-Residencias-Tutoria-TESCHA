@@ -1,0 +1,889 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+.separador {
+    height: 25px;
+    background: linear-gradient(to bottom, rgba(0,0,0,0.15), transparent);
+}
+/* =========================
+   CONTENEDOR GENERAL
+========================= */
+.admin-container{
+    background: #f5f7fb;
+    min-height: 100vh;
+    padding: 20px;
+}
+
+/* =========================
+   HERO / BANNER
+========================= */
+.hero{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: linear-gradient(135deg, #a93232, #c94c4c);
+    color: #ffffff;
+    padding: 40px;
+    border-radius: 18px;
+    margin-top: 20px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+    animation: fadeIn 1s ease-in-out;
+}
+
+
+
+.hero-text{
+    width: 60%;
+}
+
+.hero-text h2{
+    font-size: 50px;
+    margin-bottom: 10px;
+}
+
+.titulo-sistema{
+    font-size: 50px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.subtitulo{
+    font-size: 20px;
+    opacity: 0.9;
+    line-height: 1.5;
+}
+
+.hero-image{
+    width: 35%;
+    text-align: center;
+}
+
+.hero-image img{
+    max-width: 180px;
+    filter: drop-shadow(0 5px 10px rgba(0,0,0,0.3));
+}
+
+/* FECHA Y HORA */
+.fecha-hora{
+    margin-top: 15px;
+    font-size: 20px;
+    opacity: 0.9;
+    display: flex;
+    gap: 30px;
+    
+
+}
+
+/* =========================
+   SECCIÓN AVISOS
+========================= */
+.avisos-section{
+    margin-top: 40px;
+}
+
+/* HEADER AVISOS */
+.avisos-header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.avisos-header h2{
+    color: #333;
+    font-size: 22px;
+}
+
+/* BOTÓN CREAR */
+.btn-crear{
+    background: #8B1C1C;
+    color: white;
+    padding: 10px 18px;
+    border-radius: 8px;
+    text-decoration: none;
+    transition: 0.3s;
+    font-weight: bold;
+}
+
+.btn-crear:hover{
+    background: #a32222;
+    transform: scale(1.05);
+}
+
+/* =========================
+   GRID DE AVISOS
+========================= */
+.grid-avisos{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+}
+
+/* TARJETA AVISO */
+.aviso-card{
+    background: white;
+    border-radius: 12px;
+    padding: 15px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+    transition: 0.3s;
+}
+
+.aviso-card:hover{
+    transform: translateY(-5px);
+}
+
+/* SIN AVISOS */
+.sin-avisos{
+    grid-column: 1 / -1;
+    text-align: center;
+    padding: 40px;
+    background: rgb(158, 228, 130);
+    border-radius: 12px;
+    color: #777;
+}
+
+.sin-avisos i{
+    font-size: 40px;
+    margin-bottom: 10px;
+    color: #8B1C1C;
+}
+
+/* =========================
+   FRASE INSTITUCIONAL
+========================= */
+.frase{
+    margin-top: 50px;
+    text-align: center;
+    font-style: italic;
+    font-size: 18px;
+    color: #0f0e0e;
+    padding: 20px;
+}
+.aviso-card{
+    background: linear-gradient(135deg, #ffff, #ddab4f);
+    
+    border-radius: 16px;
+    padding: 18px;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.08);
+    transition: all 0.3s ease;
+    border-left: 5px solid #8B1C1C;
+}
+
+.aviso-card:hover{
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.12);
+}
+
+.aviso-header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.aviso-title{
+    font-size: 18px;
+    font-weight: bold;
+    color: #333;
+}
+
+.aviso-date{
+    font-size: 12px;
+    background: #ef6a6a;
+    padding: 4px 10px;
+    border-radius: 20px;
+    color: #666;
+}
+
+.aviso-body{
+    font-size: 14px;
+    color: #555;
+    margin: 10px 0;
+    line-height: 1.5;
+}
+
+.aviso-actions{
+    display: flex;
+    gap: 10px;
+    margin-top: 12px;
+}
+
+.aviso-btn{
+    padding: 6px 10px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: bold;
+}
+
+.aviso-pdf{
+    background: #e74c3c;
+    color: white;
+}
+
+.aviso-link{
+    background: #3498db;
+    color: white;
+}
+
+.aviso-edit{
+    background: #f1c40f;
+    color: #000;
+}
+
+.aviso-delete{
+    background: #e48b81;
+    color: white;
+}
+/* =========================
+   ANIMACIÓN
+========================= */
+@keyframes fadeIn{
+    from{
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to{
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+/* =========================
+   RESPONSIVE
+========================= */
+@media (max-width: 768px){
+
+    .hero{
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .hero-text{
+        width: 100%;
+    }
+
+    .hero-image{
+        width: 100%;
+        margin-top: 20px;
+    }
+
+    .avisos-header{
+        flex-direction: column;
+        gap: 10px;
+    }
+}
+/*==================================================
+=          HERO INSTITUCIONAL (VERSIÓN COMPACTA)
+==================================================*/
+
+body{
+    background:#f3f6fb;
+    font-family:'Segoe UI',Tahoma,Geneva,Verdana,sans-serif;
+    color:#333;
+}
+
+.admin-container{
+    width:95%;
+    max-width:1500px;
+    margin:20px auto;
+}
+
+/*==================================
+HERO
+==================================*/
+
+.hero{
+
+    position:relative;
+
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+
+    padding:28px 35px;
+
+    border-radius:24px;
+
+    background:
+    linear-gradient(135deg,#8B1C1C 0%,#9d2323 45%,#b63737 100%);
+
+    overflow:hidden;
+
+    box-shadow:
+    0 12px 30px rgba(0,0,0,.15);
+
+    margin-bottom:30px;
+}
+
+/* ESFERA SUPERIOR */
+
+.hero::before{
+
+    content:"";
+
+    position:absolute;
+
+    width:280px;
+    height:280px;
+
+    background:rgba(255,255,255,.05);
+
+    border-radius:50%;
+
+    top:-120px;
+    right:-80px;
+}
+
+/* ESFERA INFERIOR */
+
+.hero::after{
+
+    content:"";
+
+    position:absolute;
+
+    width:180px;
+    height:180px;
+
+    background:rgba(255,255,255,.05);
+
+    border-radius:50%;
+
+    bottom:-70px;
+    left:-60px;
+}
+
+/*==================================
+TEXTO
+==================================*/
+
+.hero-text{
+
+    width:68%;
+    z-index:2;
+}
+
+.hero-top{
+
+    display:flex;
+    align-items:center;
+    gap:15px;
+    margin-bottom:12px;
+}
+
+/* ICONO */
+
+.hero-icon{
+
+    width:58px;
+    height:58px;
+
+    border-radius:50%;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    background:rgba(255,255,255,.15);
+
+    font-size:26px;
+
+    box-shadow:0 5px 15px rgba(0,0,0,.15);
+}
+
+/* SALUDO */
+
+#saludo{
+
+    margin:0;
+
+    color:white;
+
+    font-size:38px;
+
+    font-weight:700;
+}
+
+/* BADGE */
+
+.badge-admin{
+
+    display:inline-block;
+
+    margin-top:6px;
+
+    padding:6px 15px;
+
+    border-radius:30px;
+
+    background:rgba(255,255,255,.15);
+
+    color:white;
+
+    font-size:13px;
+
+    font-weight:600;
+
+    backdrop-filter:blur(8px);
+}
+
+/* TITULO */
+
+.titulo-sistema{
+
+    margin:15px 0 10px;
+
+    color:white;
+
+    font-size:40px;
+
+    font-weight:800;
+
+    line-height:1.2;
+}
+
+/* SUBTITULO */
+
+.subtitulo{
+
+    color:white;
+
+    font-size:17px;
+
+    line-height:1.6;
+
+    opacity:.95;
+}
+
+/*==================================
+FECHA
+==================================*/
+
+.fecha-hora{
+
+    display:flex;
+
+    gap:12px;
+
+    margin-top:20px;
+
+    flex-wrap:wrap;
+}
+
+.fecha-hora span{
+
+    padding:10px 18px;
+
+    border-radius:15px;
+
+    background:rgba(255,255,255,.12);
+
+    color:white;
+
+    font-size:14px;
+
+    font-weight:600;
+
+    backdrop-filter:blur(8px);
+
+    box-shadow:0 4px 10px rgba(0,0,0,.10);
+}
+
+/*==================================
+LOGO
+==================================*/
+
+.hero-image{
+
+    width:260px;
+    height:170px;
+
+    background:rgba(255,255,255,.95);
+
+    border-radius:20px;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    z-index:2;
+
+    box-shadow:
+    0 10px 25px rgba(0,0,0,.15);
+
+    transition:.35s;
+}
+
+.hero-image:hover{
+
+    transform:translateY(-4px);
+}
+
+.hero-image img{
+
+    width:72%;
+
+    transition:.4s;
+}
+
+.hero-image img:hover{
+
+    transform:scale(1.05);
+}
+
+/*==================================
+RESPONSIVE
+==================================*/
+
+@media(max-width:1100px){
+
+.hero{
+
+    flex-direction:column;
+
+    text-align:center;
+
+    padding:30px;
+
+}
+
+.hero-text{
+
+    width:100%;
+
+}
+
+.hero-image{
+
+    margin-top:25px;
+
+}
+
+.hero-top{
+
+    justify-content:center;
+
+}
+
+#saludo{
+
+    font-size:30px;
+
+}
+
+.titulo-sistema{
+
+    font-size:32px;
+
+}
+
+.subtitulo{
+
+    font-size:16px;
+
+}
+
+.fecha-hora{
+
+    justify-content:center;
+
+}
+
+}
+/*==================================================
+=           AVISOS INSTITUCIONALES
+==================================================*/
+
+.avisos-section{
+
+    background:#ffffff;
+
+    border-radius:22px;
+
+    padding:30px;
+
+    box-shadow:0 10px 30px rgba(0,0,0,.08);
+
+    margin-bottom:35px;
+
+}
+
+.avisos-header{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    flex-wrap:wrap;
+
+    margin-bottom:30px;
+
+    gap:15px;
+
+}
+
+.avisos-header h2{
+
+    color:#8B1C1C;
+
+    font-size:30px;
+
+    margin:0;
+
+}
+
+.avisos-header p{
+
+    color:#666;
+
+    margin-top:5px;
+
+    font-size:15px;
+
+}
+
+.btn-crear{
+
+    background:#8B1C1C;
+
+    color:white;
+
+    padding:12px 22px;
+
+    border-radius:12px;
+
+    text-decoration:none;
+
+    font-weight:bold;
+
+    transition:.3s;
+
+}
+
+.btn-crear:hover{
+
+    background:#a32020;
+
+    transform:translateY(-2px);
+
+}
+
+/* GRID */
+
+.grid-avisos{
+
+    display:grid;
+
+    grid-template-columns:repeat(auto-fill,minmax(360px,1fr));
+
+    gap:25px;
+
+}
+
+/* TARJETA */
+
+.aviso-card{
+
+    background:white;
+
+    border-radius:20px;
+
+    overflow:hidden;
+
+    box-shadow:0 8px 25px rgba(0,0,0,.08);
+
+    transition:.35s;
+
+    border:1px solid #ececec;
+
+}
+
+.aviso-card:hover{
+
+    transform:translateY(-6px);
+
+    box-shadow:0 15px 35px rgba(0,0,0,.12);
+
+}
+
+/* CABECERA */
+
+.aviso-top{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    padding:18px 20px;
+
+}
+
+.badge-prioridad{
+
+    background:#f4e7b5;
+
+    color:#8a6d00;
+
+    padding:6px 14px;
+
+    border-radius:25px;
+
+    font-size:12px;
+
+    font-weight:bold;
+
+}
+
+.fecha-aviso{
+
+    color:#777;
+
+    font-size:13px;
+
+}
+
+/* IMAGEN */
+
+.aviso-imagen{
+
+    width:100%;
+
+    height:210px;
+
+    object-fit:cover;
+
+}
+
+/* CONTENIDO */
+
+.aviso-contenido{
+
+    padding:22px;
+
+}
+
+.aviso-contenido h3{
+
+    margin:0 0 12px;
+
+    color:#333;
+
+    font-size:22px;
+
+}
+
+.aviso-contenido p{
+
+    color:#666;
+
+    line-height:1.6;
+
+    font-size:15px;
+
+}
+
+/* BOTONES PDF Y LINK */
+
+.aviso-recursos{
+
+    display:flex;
+
+    gap:10px;
+
+    margin-top:18px;
+
+}
+
+.aviso-recursos a{
+
+    flex:1;
+
+    text-align:center;
+
+    padding:10px;
+
+    border-radius:10px;
+
+    text-decoration:none;
+
+    font-weight:bold;
+
+    color:white;
+
+}
+
+.btn-pdf{
+
+    background:#d9534f;
+
+}
+
+.btn-link{
+
+    background:#0d6efd;
+
+}
+
+/* PIE */
+
+.aviso-footer{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    padding:18px 22px;
+
+    border-top:1px solid #eee;
+
+}
+
+.btn-editar{
+
+    background:#ffc107;
+
+    color:#222;
+
+    padding:9px 16px;
+
+    border-radius:10px;
+
+    text-decoration:none;
+
+    font-weight:bold;
+
+}
+
+.btn-eliminar{
+
+    background:#dc3545;
+
+    color:white;
+
+    padding:9px 16px;
+
+    border-radius:10px;
+
+    text-decoration:none;
+
+    font-weight:bold;
+
+}
+
+.btn-editar:hover,
+.btn-eliminar:hover,
+.btn-pdf:hover,
+.btn-link:hover{
+
+    opacity:.9;
+
+}

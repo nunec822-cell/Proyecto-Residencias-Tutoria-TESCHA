@@ -1,0 +1,13 @@
+/* Estilos propios del módulo (nombra las clases con el prefijo del módulo
+   para no chocar con las de otros módulos) */
+.contenedor-modulo{max-width:1100px;margin:30px auto;padding:20px;}
+.contenedor-modulo h1{color:#0b1d3a;margin-bottom:18px;}
+.contenedor-modulo .card{background:#fff;border-radius:12px;padding:20px;margin-bottom:20px;box-shadow:0 4px 14px rgba(0,0,0,.08);}
+.contenedor-modulo .tabla{width:100%;border-collapse:collapse;background:#fff;}
+.contenedor-modulo .tabla th,.contenedor-modulo .tabla td{padding:10px;border-bottom:1px solid #e3e8ef;text-align:left;}
+.contenedor-modulo .mensaje{padding:12px 16px;border-radius:8px;margin-bottom:14px;}
+.contenedor-modulo .mensaje.ok{background:#e6f6ea;color:#1c6b32;}
+.contenedor-modulo .mensaje.error{background:#fdecec;color:#a02727;}
+.contenedor-modulo .paginacion{display:flex;gap:6px;margin-top:16px;flex-wrap:wrap;}
+.contenedor-modulo .paginacion a{padding:6px 12px;border:1px solid #cbd3df;border-radius:6px;text-decoration:none;color:#0b1d3a;}
+.contenedor-modulo .paginacion a.activa{background:#0b1d3a;color:#fff;}

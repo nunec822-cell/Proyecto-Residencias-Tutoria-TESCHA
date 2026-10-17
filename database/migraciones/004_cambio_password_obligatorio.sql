@@ -1,0 +1,21 @@
+-- =====================================================================
+--  MIGRACIÓN 004 · CAMBIO DE CONTRASEÑA OBLIGATORIO EN EL PRIMER INICIO
+--  Base de datos: PIT_V4
+--
+--  Ejecutar UNA vez (phpMyAdmin > pit_v4 > SQL). Es segura de repetir.
+--
+--  usuarios.debe_cambiar_password = 1  -> al iniciar sesión, el usuario es llevado a
+--  "Cambiar contraseña" y no puede usar el portal hasta elegir la suya.
+--  Se activa solo: al registrar un usuario y cuando el administrador le restablece
+--  la contraseña. Los usuarios que ya existen quedan en 0 (no se les obliga).
+--
+--  OPCIONAL (quita el comentario si quieres obligar a TODOS los usuarios actuales,
+--  excepto administradores, a cambiar la contraseña en su próximo inicio de sesión):
+--
+--  UPDATE usuarios u SET u.debe_cambiar_password = 1
+--  WHERE u.id_usuario NOT IN (
+--      SELECT ut.id_usuario FROM usuario_tipo ut JOIN tipos t ON t.id_tipo = ut.id_tipo
+--      WHERE t.nombre = 'ADMIN');
+-- =====================================================================
+
+ALTER TABLE usuarios ADD COLUMN IF NOT EXISTS debe_cambiar_password TINYINT(1) NOT NULL DEFAULT 0;

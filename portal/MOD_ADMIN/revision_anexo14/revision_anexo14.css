@@ -1,0 +1,503 @@
+/*==================================================
+    REVISION ANEXO 14
+==================================================*/
+body {
+    margin: 0;
+    font-family: 'Segoe UI', Arial, sans-serif;
+    background-color: #f4f4f4;
+}
+*{
+    box-sizing: border-box;
+}
+
+.contenedor-anexo{
+
+    width:95%;
+    max-width:1600px;
+
+    margin:30px auto;
+
+}
+.separador {
+    height: 25px;
+    background: linear-gradient(to bottom, rgba(0,0,0,0.15), transparent);
+}
+/*==================================================
+ENCABEZADO
+==================================================*/
+
+.encabezado{
+
+    background:linear-gradient(
+        135deg,
+        #0b1d3a,
+        #173c73
+    );
+
+    color:white;
+
+    padding:30px;
+
+    border-radius:15px;
+
+    margin-bottom:25px;
+
+    box-shadow:
+        0 5px 15px rgba(0,0,0,.15);
+
+}
+
+.encabezado h1{
+
+    margin:0;
+    font-size:32px;
+
+}
+
+.encabezado p{
+
+    margin-top:10px;
+    opacity:.9;
+
+}
+
+/*==================================================
+FILTROS
+==================================================*/
+
+.card-filtros{
+
+    background:white;
+
+    padding:25px;
+
+    border-radius:15px;
+
+    display:flex;
+    flex-wrap:wrap;
+
+    gap:20px;
+
+    align-items:end;
+
+    box-shadow:
+        0 5px 15px rgba(0,0,0,.10);
+
+}
+
+.campo{
+
+    flex:1;
+    min-width:280px;
+
+}
+
+.campo label{
+
+    display:block;
+
+    margin-bottom:10px;
+
+    font-weight:600;
+
+    color:#0b1d3a;
+
+}
+
+.campo select{
+
+    width:100%;
+
+    padding:12px;
+
+    border:1px solid #ccc;
+
+    border-radius:10px;
+
+    font-size:15px;
+
+}
+
+.botones{
+
+    display:flex;
+    gap:15px;
+
+    flex-wrap:wrap;
+
+}
+
+.btn-consultar,
+.btn-csv{
+
+    border:none;
+
+    padding:12px 25px;
+
+    border-radius:10px;
+
+    cursor:pointer;
+
+    font-size:15px;
+
+    transition:.3s;
+
+    color:white;
+
+}
+
+.btn-consultar{
+
+    background:#0b1d3a;
+
+}
+
+.btn-consultar:hover{
+
+    transform:translateY(-2px);
+
+}
+
+.btn-csv{
+
+    background:#27ae60;
+
+}
+
+.btn-csv:hover{
+
+    transform:translateY(-2px);
+
+}
+
+/*==================================================
+RESUMEN
+==================================================*/
+
+.contenedor-resumen{
+
+    margin:25px 0;
+
+    display:grid;
+
+    grid-template-columns:
+    repeat(
+        auto-fit,
+        minmax(220px,1fr)
+    );
+
+    gap:20px;
+
+}
+
+.card-resumen{
+
+    background:white;
+
+    padding:25px;
+
+    border-radius:15px;
+
+    text-align:center;
+
+    box-shadow:
+        0 5px 15px rgba(0,0,0,.08);
+
+}
+
+.card-resumen h2{
+
+    margin:0;
+
+    font-size:40px;
+
+}
+
+.card-resumen span{
+
+    display:block;
+
+    margin:15px 0;
+
+    font-size:28px;
+
+    font-weight:bold;
+
+    color:#0b1d3a;
+
+}
+
+.card-resumen p{
+
+    margin:0;
+
+    color:#666;
+
+}
+
+/*==================================================
+TABLA
+==================================================*/
+
+.card-tabla{
+
+    background:white;
+
+    padding:25px;
+
+    border-radius:15px;
+
+    overflow-x:auto;
+
+    box-shadow:
+        0 5px 15px rgba(0,0,0,.10);
+
+}
+
+.tabla-anexo{
+
+    width:100%;
+
+    border-collapse:collapse;
+
+    min-width:1200px;
+
+}
+
+.tabla-anexo thead{
+
+    background:#0b1d3a;
+
+    color:white;
+
+}
+
+.tabla-anexo th{
+
+    padding:15px;
+
+    text-align:center;
+
+    white-space:nowrap;
+
+}
+
+.tabla-anexo td{
+
+    padding:14px;
+
+    border-bottom:
+    1px solid #e5e5e5;
+
+    text-align:center;
+
+}
+
+.tabla-anexo tbody tr:hover{
+
+    background:#f5f8fc;
+
+}
+
+/*==================================================
+SEMÁFOROS
+==================================================*/
+
+.badge-verde,
+.badge-amarillo,
+.badge-naranja,
+.badge-rojo{
+
+    display:inline-block;
+
+    padding:8px 12px;
+
+    border-radius:20px;
+
+    font-size:14px;
+
+    font-weight:600;
+
+}
+
+.badge-verde{
+
+    background:#d4edda;
+    color:#155724;
+
+}
+
+.badge-amarillo{
+
+    background:#fff3cd;
+    color:#856404;
+
+}
+
+.badge-naranja{
+
+    background:#ffe4c4;
+    color:#c96b00;
+
+}
+
+.badge-rojo{
+
+    background:#f8d7da;
+    color:#721c24;
+
+}
+
+/*==================================================
+MENSAJES
+==================================================*/
+
+.mensaje-inicial,
+.mensaje-vacio,
+.mensaje-error,
+.cargando{
+
+    text-align:center;
+
+    padding:40px;
+
+    color:#666;
+
+    font-size:18px;
+
+}
+
+.cargando i{
+
+    margin-right:10px;
+
+    color:#0b1d3a;
+
+}
+
+/*==================================================
+TITULOS
+==================================================*/
+
+h2{
+
+    color:#0b1d3a;
+
+    margin-bottom:20px;
+
+}
+
+/*==================================================
+RESPONSIVE
+==================================================*/
+
+@media(max-width:768px){
+
+    .encabezado h1{
+
+        font-size:26px;
+
+    }
+
+    .card-filtros{
+
+        flex-direction:column;
+
+        align-items:stretch;
+
+    }
+
+    .botones{
+
+        width:100%;
+
+    }
+
+    .btn-consultar,
+    .btn-csv{
+
+        width:100%;
+
+    }
+
+}
+.contenedor-semaforo{
+
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    gap:10px;
+}
+
+.icono-semaforo{
+
+    font-size:30px;
+}
+
+.texto-monitoreo{
+
+    font-weight:bold;
+    color:#856404;
+}
+
+.btn-canalizar{
+
+    background:#8B1C1C;
+    color:white;
+    padding:8px 14px;
+    border-radius:8px;
+    text-decoration:none;
+    font-weight:bold;
+}
+
+.btn-canalizar:hover{
+
+    background:#6f1313;
+}
+.acciones-tutor-admin{
+
+    margin-top:15px;
+
+    padding:12px;
+
+    background:#f4f6f8;
+
+    border-left:4px solid #8B1C1C;
+
+    border-radius:6px;
+
+    text-align:left;
+
+}
+
+.acciones-tutor-admin strong{
+
+    display:block;
+
+    margin-bottom:6px;
+
+    font-size:13px;
+
+    color:#333;
+
+}
+
+.acciones-tutor-admin p{
+
+    margin:0;
+
+    font-size:12px;
+
+    line-height:1.5;
+
+    color:#555;
+
+}
+
+.nuevos-reportes{
+
+    color:red;
+
+    font-weight:bold;
+
+}

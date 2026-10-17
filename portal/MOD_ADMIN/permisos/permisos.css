@@ -1,0 +1,24 @@
+/* Administración de permisos */
+body{font-family:'Segoe UI',Tahoma,Geneva,Verdana,sans-serif;background:#f4f6f9;}
+.separador{height:25px;background:linear-gradient(to bottom,rgba(0,0,0,.15),transparent);}
+.contenedor-permisos{max-width:1100px;margin:30px auto;padding:20px;}
+.contenedor-permisos .encabezado{text-align:center;margin-bottom:25px;}
+.contenedor-permisos .encabezado h1{color:#0b1d3a;font-size:30px;}
+.contenedor-permisos .encabezado p{color:#555;margin-top:6px;}
+.contenedor-permisos .card{background:#fff;border-radius:14px;padding:25px;margin-bottom:25px;box-shadow:0 4px 14px rgba(0,0,0,.08);}
+.contenedor-permisos h2{color:#0b1d3a;margin-bottom:14px;}
+.contenedor-permisos h3{color:#1b3a6b;margin:18px 0 8px;font-size:16px;border-bottom:1px solid #e3e8ef;padding-bottom:4px;}
+.contenedor-permisos .fila{display:flex;gap:12px;align-items:center;flex-wrap:wrap;margin-bottom:12px;}
+.contenedor-permisos select,.contenedor-permisos input[type=text]{padding:10px 12px;border:1px solid #cbd3df;border-radius:8px;min-width:220px;}
+.contenedor-permisos .lista{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:8px;}
+.contenedor-permisos .permiso{display:flex;gap:10px;align-items:flex-start;padding:10px;border:1px solid #e3e8ef;border-radius:8px;cursor:pointer;}
+.contenedor-permisos .permiso:hover{background:#f6f9ff;}
+.contenedor-permisos .permiso small{display:block;color:#666;margin-top:2px;}
+.contenedor-permisos .btn-guardar,.contenedor-permisos .btn-buscar{background:#0b1d3a;color:#fff;border:0;padding:11px 20px;border-radius:8px;cursor:pointer;margin-top:18px;}
+.contenedor-permisos .btn-buscar{margin-top:0;}
+.contenedor-permisos .btn-guardar:hover,.contenedor-permisos .btn-buscar:hover{background:#1b3a6b;}
+.contenedor-permisos .nota{color:#555;margin-bottom:10px;}
+.contenedor-permisos .mensaje{padding:12px 16px;border-radius:8px;margin-bottom:18px;}
+.contenedor-permisos .mensaje.ok{background:#e6f6ea;color:#1c6b32;}
+.contenedor-permisos .mensaje.error{background:#fdecec;color:#a02727;}
+@media(max-width:600px){.contenedor-permisos{padding:10px;}.contenedor-permisos .card{padding:16px;}}

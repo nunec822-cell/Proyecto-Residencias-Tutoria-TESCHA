@@ -1,0 +1,26 @@
+# Credenciales locales (nunca al repositorio)
+config/local.php
+.env
+*.env
+
+# Archivos generados / contraseñas exportadas
+*credenciales*.csv
+portal/archivos/
+
+# Archivos subidos por los usuarios (datos reales, no código)
+portal/uploads/*
+!portal/uploads/.htaccess
+portal/MOD_*/actividades/uploads/*
+!portal/MOD_*/actividades/uploads/.htaccess
+portal/MOD_*/uploads/*
+!portal/MOD_*/uploads/.htaccess
+
+# Sistema / editores
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+*.log
+
+# Correo: credenciales SMTP locales (nunca al repositorio)
+config/correo.local.php

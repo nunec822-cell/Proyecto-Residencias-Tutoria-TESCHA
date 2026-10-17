@@ -1,0 +1,671 @@
+/*=========================================
+GENERAL
+=========================================*/
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+body{
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background:#f4f6f9;
+}
+.contenedor-editar{
+    width:95%;
+    max-width:1400px;
+    margin:30px auto;
+}
+.separador {
+    height: 25px;
+    background: linear-gradient(to bottom, rgba(0,0,0,0.15), transparent);
+}
+/*=========================================
+CABECERA
+=========================================*/
+
+.titulo-principal{
+    background:#fff;
+    padding:30px;
+    border-radius:20px;
+    box-shadow:0 10px 30px rgba(0,0,0,.08);
+    margin-bottom:25px;
+}
+
+.titulo-principal h1{
+    color:#1f3c88;
+    font-size:34px;
+    margin-bottom:10px;
+}
+
+.titulo-principal p{
+    color:#666;
+}
+
+/*=========================================
+BUSCADOR
+=========================================*/
+
+.card-busqueda{
+    background:#fff;
+    padding:25px;
+    border-radius:20px;
+    box-shadow:0 10px 30px rgba(0,0,0,.08);
+    margin-bottom:30px;
+}
+
+.card-busqueda form{
+    display:flex;
+    gap:15px;
+}
+
+.card-busqueda input{
+    flex:1;
+    padding:15px;
+    border:2px solid #e5e5e5;
+    border-radius:12px;
+    font-size:15px;
+}
+
+.card-busqueda input:focus{
+    outline:none;
+    border-color:#1f3c88;
+}
+
+.card-busqueda button{
+    background:#1f3c88;
+    color:white;
+    border:none;
+    padding:15px 25px;
+    border-radius:12px;
+    cursor:pointer;
+    font-weight:bold;
+}
+
+/*=========================================
+CARDS
+=========================================*/
+
+.contenedor-cards{
+    display:grid;
+    grid-template-columns:
+    repeat(auto-fill,minmax(340px,1fr));
+    gap:25px;
+}
+
+.card-usuario{
+    background:white;
+    border-radius:20px;
+    padding:25px;
+    box-shadow:0 10px 30px rgba(0,0,0,.08);
+    transition:.3s;
+}
+
+.card-usuario:hover{
+    transform:translateY(-5px);
+}
+
+.icono-usuario{
+    font-size:45px;
+    text-align:center;
+    margin-bottom:15px;
+}
+
+.nombre-usuario{
+    text-align:center;
+    font-size:18px;
+    font-weight:bold;
+    color:#1f3c88;
+    margin-bottom:15px;
+}
+
+.roles-usuario{
+    text-align:center;
+    color:#555;
+    margin-bottom:20px;
+    min-height:40px;
+}
+
+/*=========================================
+ESTADOS
+=========================================*/
+
+.estado-activo{
+    width:fit-content;
+    margin:auto;
+    margin-bottom:20px;
+
+    background:#d4edda;
+    color:#155724;
+
+    padding:8px 20px;
+    border-radius:30px;
+    font-weight:bold;
+}
+
+.estado-inactivo{
+    width:fit-content;
+    margin:auto;
+    margin-bottom:20px;
+
+    background:#f8d7da;
+    color:#721c24;
+
+    padding:8px 20px;
+    border-radius:30px;
+    font-weight:bold;
+}
+
+/*=========================================
+BOTON
+=========================================*/
+
+.btn-editar{
+    display:block;
+    text-align:center;
+    text-decoration:none;
+
+    background:#ffc107;
+    color:#000;
+
+    padding:12px;
+    border-radius:12px;
+
+    font-weight:bold;
+
+    transition:.3s;
+}
+
+.btn-editar:hover{
+    transform:scale(1.03);
+}
+
+/*=========================================
+SIN RESULTADOS
+=========================================*/
+
+.sin-resultados{
+    background:white;
+    padding:40px;
+    border-radius:20px;
+    text-align:center;
+    box-shadow:0 10px 30px rgba(0,0,0,.08);
+}
+
+/*=========================================
+ANIMACION
+=========================================*/
+
+.fadeIn{
+    animation:fadeIn .4s ease;
+}
+
+@keyframes fadeIn{
+
+    from{
+        opacity:0;
+        transform:translateY(15px);
+    }
+
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+
+}
+
+/*=========================================
+RESPONSIVE
+=========================================*/
+
+@media(max-width:768px){
+
+    .card-busqueda form{
+        flex-direction:column;
+    }
+
+}
+
+@media(max-width:900px){
+
+.card-edicion form{
+    grid-template-columns:1fr;
+}
+
+.card-edicion hr,
+.card-edicion h3,
+.card-edicion h4,
+.roles,
+.btn-guardar{
+    grid-column:auto;
+}
+
+}
+/*=========================================
+FORMULARIO EDITAR USUARIO
+=========================================*/
+
+.card-edicion{
+    background:#ffffff;
+    padding:35px;
+    border-radius:20px;
+    box-shadow:0 10px 30px rgba(0,0,0,.08);
+    animation:fadeIn .4s ease;
+}
+
+.card-edicion form{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:20px;
+}
+
+.grupo{
+    display:flex;
+    flex-direction:column;
+}
+
+.grupo label{
+    font-weight:600;
+    margin-bottom:8px;
+    color:#1f3c88;
+}
+
+.grupo input,
+.grupo select{
+    padding:14px;
+    border:2px solid #e5e5e5;
+    border-radius:12px;
+    font-size:15px;
+    transition:.3s;
+}
+
+.grupo input:focus,
+.grupo select:focus{
+    outline:none;
+    border-color:#1f3c88;
+}
+
+.card-edicion hr{
+    grid-column:1/3;
+    border:none;
+    border-top:2px solid #ececec;
+    margin:10px 0;
+}
+
+.card-edicion h3,
+.card-edicion h4{
+    grid-column:1/3;
+    color:#1f3c88;
+}
+
+.roles{
+    grid-column:1/3;
+
+    display:flex;
+    flex-wrap:wrap;
+    gap:20px;
+
+    padding:20px;
+    background:#f8f9fc;
+    border-radius:15px;
+}
+
+.roles label{
+    font-weight:600;
+}
+
+.btn-guardar{
+    grid-column:1/3;
+
+    border:none;
+    background:#1f3c88;
+    color:white;
+
+    padding:15px;
+    border-radius:12px;
+
+    font-size:16px;
+    font-weight:bold;
+
+    cursor:pointer;
+    transition:.3s;
+}
+
+.btn-guardar:hover{
+    background:#16306f;
+    transform:translateY(-2px);
+}
+
+/*=========================================
+CONTRASEÑA
+=========================================*/
+
+#mensajeCoincide{
+    margin-top:8px;
+    font-weight:bold;
+}
+
+.correcto{
+    color:#28a745;
+}
+
+.incorrecto{
+    color:#dc3545;
+}
+
+#fortaleza{
+    margin-top:10px;
+    font-weight:bold;
+}
+/*=========================================
+PANEL CONTRASEÑA
+=========================================*/
+
+.panel-password{
+
+    margin-top:12px;
+
+    background:#f8f9fc;
+
+    border-left:5px solid #1f3c88;
+
+    padding:15px;
+
+    border-radius:12px;
+
+    animation:fadePassword .5s ease;
+}
+
+.panel-password h4{
+
+    color:#1f3c88;
+
+    margin-bottom:10px;
+}
+
+.panel-password ul{
+
+    margin-left:20px;
+}
+
+.panel-password li{
+
+    margin-bottom:6px;
+}
+
+#fortaleza{
+
+    margin-top:15px;
+
+    padding:10px;
+
+    border-radius:10px;
+
+    font-weight:bold;
+
+    transition:.3s;
+}
+
+#fortaleza.debil{
+
+    background:#fdeaea;
+    color:#c62828;
+}
+
+#fortaleza.media{
+
+    background:#fff3cd;
+    color:#856404;
+}
+
+#fortaleza.fuerte{
+
+    background:#d4edda;
+    color:#155724;
+}
+
+/*=========================================
+ANIMACION PANEL
+=========================================*/
+
+@keyframes fadePassword{
+
+    from{
+
+        opacity:0;
+        transform:translateY(10px);
+
+    }
+
+    to{
+
+        opacity:1;
+        transform:translateY(0);
+
+    }
+
+}
+/*=========================================
+PANELES PASSWORD + IMPORTANTE
+=========================================*/
+
+.panel-password,
+
+.panel-importante{
+
+    background:#fff8e1;
+
+    border-left:5px solid #ff9800;
+
+    padding:15px;
+
+    border-radius:12px;
+
+    animation:fadePassword .5s ease;
+}
+
+.panel-importante h4{
+
+    color:#e65100;
+
+    margin-bottom:12px;
+}
+
+.panel-importante p{
+
+    margin-bottom:10px;
+
+    line-height:1.6;
+}
+
+.ejemplo-formato{
+
+    background:white;
+
+    border:1px dashed #ff9800;
+
+    padding:12px;
+
+    border-radius:10px;
+
+    margin-bottom:12px;
+
+    font-weight:bold;
+
+    color:#444;
+}
+/*=========================================
+PANELES LATERALES
+=========================================*/
+
+.paneles-inferiores{
+
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:20px;
+
+    margin-top:20px;
+}
+
+.panel-password,
+.panel-importante{
+
+    height:100%;
+}
+@media(max-width:900px){
+
+    .paneles-inferiores{
+
+        grid-template-columns:1fr;
+    }
+
+}
+.paneles-inferiores{
+
+    grid-column:1 / 3;
+
+    display:grid;
+    grid-template-columns:1fr 1fr;
+
+    gap:20px;
+
+    margin-top:20px;
+}
+/*=========================================
+CONTRASEÑA + IMPORTANTE
+=========================================*/
+
+.paneles-inferiores{
+
+    grid-column:1 / -1 !important;
+
+    display:grid !important;
+
+    grid-template-columns:1fr 1fr !important;
+
+    gap:20px;
+
+    width:100%;
+}
+
+.panel-password{
+
+    background:#eef3ff;
+
+    border-left:5px solid #1f3c88;
+
+    padding:20px;
+
+    border-radius:15px;
+}
+
+.panel-importante{
+
+    background:#fff8e1;
+
+    border-left:5px solid #ff9800;
+
+    padding:20px;
+
+    border-radius:15px;
+}
+
+.paneles-inferiores{
+
+    grid-column:1 / -1;
+
+    display:grid;
+
+    grid-template-columns:1fr 1fr;
+
+    gap:20px;
+
+    margin-top:10px;
+}
+/*=========================================
+MENSAJE ÉXITO
+=========================================*/
+
+.alerta-exito{
+    
+    background: #d4edda;
+    
+    color: #155724;
+    
+    border: 1px solid #c3e6cb;
+    
+    padding: 15px 20px;
+    
+    border-radius: 10px;
+    
+    margin-bottom: 20px;
+    
+    font-size: 15px;
+    
+    font-weight: 600;
+    
+    box-shadow: 0 3px 10px rgba(0,0,0,.08);
+
+    animation: aparecer 0.5s ease;
+}
+
+/*=========================================
+MENSAJE ERROR
+=========================================*/
+
+.mensaje-error{
+    
+    background: #f8d7da;
+    
+    color: #721c24;
+    
+    border: 1px solid #f5c6cb;
+    
+    padding: 15px 20px;
+    
+    border-radius: 10px;
+    
+    margin-bottom: 20px;
+    
+    font-size: 15px;
+    
+    font-weight: 600;
+    
+    box-shadow: 0 3px 10px rgba(0,0,0,.08);
+
+    animation: aparecer 0.5s ease;
+}
+
+/*=========================================
+ANIMACIÓN
+=========================================*/
+
+@keyframes aparecer{
+
+    from{
+
+        opacity: 0;
+
+        transform: translateY(-15px);
+
+    }
+
+    to{
+
+        opacity: 1;
+
+        transform: translateY(0);
+
+    }
+
+}
+.alerta-error{
+    background:#f8d7da;
+    color:#721c24;
+    border:1px solid #f5c6cb;
+    padding:12px;
+    border-radius:8px;
+    margin-bottom:15px;
+    font-weight:bold;
+    text-align:center;
+}

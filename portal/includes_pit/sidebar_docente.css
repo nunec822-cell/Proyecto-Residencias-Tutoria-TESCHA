@@ -1,0 +1,478 @@
+/*=========================================================
+    SIDEBAR DOCENTE
+    SIST V.4.0 - PIT V.4.0
+=========================================================*/
+
+:root{
+
+    --verde-principal:#2E7D32;
+    --verde-hover:#388E3C;
+    --verde-claro:#4CAF50;
+
+    --blanco:#FFFFFF;
+    --gris:#F5F7FA;
+
+    --texto:#37474F;
+
+    --sombra:0 10px 30px rgba(0,0,0,.15);
+
+    --transicion:.30s ease;
+
+    --sidebar-width:290px;
+
+    --topbar-height:70px;
+
+}
+
+/*=========================================================
+    TOPBAR
+=========================================================*/
+
+.topbar-docente{
+
+    position:fixed;
+
+    top:0;
+
+    left:0;
+
+    width:100%;
+
+    height:var(--topbar-height);
+
+    background:#ffffff;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:space-between;
+
+    padding:0 25px;
+
+    box-shadow:0 3px 12px rgba(0,0,0,.08);
+
+    z-index:3000;
+
+}
+
+/*=========================================================
+    LADO IZQUIERDO
+=========================================================*/
+
+.topbar-left{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:20px;
+
+}
+
+/*=========================================================
+    BOTÓN MENÚ
+=========================================================*/
+
+.btn-menu{
+
+    width:48px;
+
+    height:48px;
+
+    border:none;
+
+    border-radius:12px;
+
+    background:var(--verde-principal);
+
+    color:white;
+
+    cursor:pointer;
+
+    font-size:22px;
+
+    transition:var(--transicion);
+
+}
+
+.btn-menu:hover{
+
+    background:var(--verde-hover);
+
+    transform:scale(1.05);
+
+}
+
+/*=========================================================
+    LOGO
+=========================================================*/
+
+.topbar-logo{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:15px;
+
+}
+
+.topbar-logo i{
+
+    font-size:34px;
+
+    color:var(--verde-principal);
+
+}
+
+.topbar-logo h2{
+
+    margin:0;
+
+    color:var(--verde-principal);
+
+    font-size:24px;
+
+}
+
+.topbar-logo span{
+
+    color:#666;
+
+    font-size:13px;
+
+}
+
+/*=========================================================
+    LADO DERECHO
+=========================================================*/
+
+.topbar-right{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:20px;
+
+}
+
+.usuario-info{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:10px;
+
+    color:#555;
+
+    font-weight:600;
+
+}
+
+.usuario-info i{
+
+    font-size:30px;
+
+    color:var(--verde-principal);
+
+}
+
+/*=========================================================
+    BOTÓN SALIR
+=========================================================*/
+
+.btn-salir{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:10px;
+
+    padding:10px 18px;
+
+    border-radius:10px;
+
+    background:#D32F2F;
+
+    color:white;
+
+    text-decoration:none;
+
+    transition:.30s;
+
+    font-weight:600;
+
+}
+
+.btn-salir:hover{
+
+    background:#B71C1C;
+
+    transform:translateY(-2px);
+
+}
+
+/*=========================================================
+    SIDEBAR
+=========================================================*/
+
+.sidebar-docente{
+
+    position:fixed;
+
+    top:0;
+
+    left:-300px;
+
+    width:var(--sidebar-width);
+
+    height:100vh;
+
+    background:linear-gradient(
+        180deg,
+        #2E7D32,
+        #388E3C
+    );
+
+    color:white;
+
+    display:flex;
+
+    flex-direction:column;
+
+    justify-content:space-between;
+
+    transition:.35s;
+
+    z-index:3500;
+
+    box-shadow:var(--sombra);
+
+}
+
+/*=========================================================
+    ACTIVO
+=========================================================*/
+
+.sidebar-docente.activo{
+
+    left:0;
+
+}
+
+/*=========================================================
+    HEADER SIDEBAR
+=========================================================*/
+
+.sidebar-header{
+
+    padding:30px 25px;
+
+    display:flex;
+
+    align-items:center;
+
+    gap:18px;
+
+    border-bottom:1px solid rgba(255,255,255,.15);
+
+}
+
+.sidebar-avatar{
+
+    width:60px;
+
+    height:60px;
+
+    border-radius:50%;
+
+    background:rgba(255,255,255,.15);
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    font-size:28px;
+
+}
+
+.sidebar-header h3{
+
+    margin:0;
+
+    font-size:21px;
+
+}
+
+.sidebar-header span{
+
+    color:#d7f7dc;
+
+    font-size:13px;
+
+}
+
+/*=========================================================
+    MENÚ
+=========================================================*/
+
+.sidebar-menu{
+
+    flex:1;
+
+    padding:25px 0;
+
+}
+
+.sidebar-menu ul{
+
+    margin:0;
+
+    padding:0;
+
+    list-style:none;
+
+}
+
+.sidebar-menu li{
+
+    margin:8px 15px;
+
+}
+
+.sidebar-menu a{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:18px;
+
+    padding:15px 18px;
+
+    color:white;
+
+    text-decoration:none;
+
+    border-radius:14px;
+
+    transition:.25s;
+
+}
+
+.sidebar-menu a:hover{
+
+    background:rgba(255,255,255,.15);
+
+    transform:translateX(5px);
+
+}
+
+.sidebar-menu a.activo{
+
+    background:var(--verde-claro);
+
+}
+
+/*=========================================================
+    FOOTER
+=========================================================*/
+
+.sidebar-footer{
+
+    border-top:1px solid rgba(255,255,255,.15);
+
+    padding:22px;
+
+    display:flex;
+
+    gap:15px;
+
+    align-items:center;
+
+}
+
+.sidebar-footer i{
+
+    font-size:30px;
+
+}
+
+/*=========================================================
+    OVERLAY
+=========================================================*/
+
+.sidebar-overlay{
+
+    position:fixed;
+
+    inset:0;
+
+    background:rgba(0,0,0,.35);
+
+    opacity:0;
+
+    visibility:hidden;
+
+    transition:.30s;
+
+    z-index:3400;
+
+}
+
+.sidebar-overlay.activo{
+
+    opacity:1;
+
+    visibility:visible;
+
+}
+
+/*=========================================================
+    RESPONSIVE
+=========================================================*/
+
+@media(max-width:768px){
+
+    .topbar-logo span{
+
+        display:none;
+
+    }
+
+    .usuario-info span{
+
+        display:none;
+
+    }
+
+}
+.titulo-menu{
+    margin-top: 25px;
+    margin-bottom: 10px;
+    padding: 10px 20px;
+    border-top: 1px solid rgba(255,255,255,.15);
+}
+
+.titulo-menu span{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 1px;
+
+    color: #9ca3af;
+    text-transform: uppercase;
+}
+
+.titulo-menu i{
+    color: #facc15;
+}

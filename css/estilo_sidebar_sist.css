@@ -1,0 +1,384 @@
+/* RESET */
+.sidebar-container * {
+    box-sizing: border-box;
+}
+
+/* CONTENEDOR PRINCIPAL */
+.sidebar-container {
+    width: 100%;
+    padding: 12.5px 0;
+
+    background: linear-gradient(135deg, #c94c4c, #a93232);
+
+    overflow-x: auto;
+    position: relative;
+}
+
+/* CONTENEDOR INTERNO PARA CENTRAR */
+.menu-grid {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    flex-wrap: nowrap;
+    padding: 0 20px;
+    position: relative;
+    z-index: 2;
+}
+
+/* TARJETAS */
+.card {
+    width: 170px;
+    height: 120px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+
+    background: linear-gradient(135deg, #c94c4c, #d15959);
+
+    border-radius: 12px;
+
+    text-decoration: none;
+    color: white;
+    text-align: center;
+
+    padding: 6px;
+
+    transition: all 0.25s ease;
+
+    box-shadow: 0 5px 12px rgba(0,0,0,0.2);
+
+    position: relative;
+
+    flex: 0 0 auto;
+}
+
+/* TEXTO */
+.card .titulo {
+    font-weight: bold;
+    font-size: 11px;
+}
+
+/* IMAGEN */
+.card img {
+    width: 45px;
+    height: 45px;
+    margin: auto;
+    transition: transform 0.25s ease;
+}
+
+/* HOVER */
+.card:hover {
+    transform: translateY(-4px) scale(1.05);
+    background: linear-gradient(135deg, #e06666, #c94c4c);
+}
+
+.card:hover img {
+    transform: scale(1.1);
+}
+
+/* ACTIVO */
+.card.active {
+    background: linear-gradient(135deg, #8B1C1C, #6e1414);
+    animation: activoPulse 1.2s infinite;
+}
+
+/* PULSO */
+@keyframes activoPulse {
+    0% {
+        transform: scale(1);
+        box-shadow: 0 0 6px rgba(169,50,50,0.5);
+    }
+    50% {
+        transform: scale(1.05);
+        box-shadow: 0 0 18px rgba(255,80,80,0.9);
+    }
+    100% {
+        transform: scale(1);
+        box-shadow: 0 0 6px rgba(169,50,50,0.5);
+    }
+}
+
+/* BORDE ANIMADO */
+.card.active::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: 12px;
+    padding: 2px;
+
+    background: linear-gradient(
+        45deg,
+        #ff4d4d,
+        #ffffff,
+        #ff4d4d
+    );
+
+    -webkit-mask:
+        linear-gradient(#fff 0 0) content-box,
+        linear-gradient(#fff 0 0);
+
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+
+    animation: bordeAnimado 1.2s linear infinite;
+}
+
+/* ANIMACIÓN */
+@keyframes bordeAnimado {
+    0% {
+        filter: hue-rotate(0deg);
+    }
+
+    100% {
+        filter: hue-rotate(360deg);
+    }
+}
+
+/* SCROLL BONITO */
+.sidebar-container::-webkit-scrollbar {
+    height: 6px;
+}
+
+.sidebar-container::-webkit-scrollbar-thumb {
+    background: rgba(255,255,255,0.2);
+    border-radius: 10px;
+}
+
+/* ==========================================
+   TEMA NORMAL
+========================================== */
+
+.sidebar-container.normal{
+    background:linear-gradient(
+        135deg,
+        #c94c4c,
+        #a93232
+    );
+}
+
+/* ==========================================
+   NAVIDAD
+========================================== */
+
+.sidebar-container.navidad{
+    background:linear-gradient(
+        135deg,
+        #03630f,
+        #07c032
+    );
+}
+
+.sidebar-container.navidad::before{
+    content:"🎄 🔴 🎁 🟡 🎄 🔵 🎄 🔴 🎁 🟡 🎄 🎄 🔴 🎁 🟡 🎄 🔵 🎄 🔴 🎁 🟡 🎄 🎄 🔴 🎁 🟡 🎄 🔵 🎄 🔴 🎁 🟡 🎄 🎄 🔴 🎁 🟡 🎄 🔵 🎄 🔴 🎁 🟡 🎄🎄 🔴 🎁 🟡 🎄🎁";
+    position:absolute;
+    top:2px;
+    left:0;
+    width:100%;
+    
+    font-size:36px;
+    opacity:1;
+    pointer-events:none;
+}
+
+
+
+/* ==========================================
+   DÍA DE MUERTOS
+========================================== */
+
+.sidebar-container.muertos{
+    background:linear-gradient(
+        135deg,
+        #e57133,
+        #80217d
+    );
+}
+
+.sidebar-container.muertos::before{
+    content:"💀 🎃 🕯 🌼 💀 🎃 🕯 🌼 💀 🎃 🕯 🌼 💀 💀 🎃 🕯 🌼 💀 🎃 🕯 🌼 💀 🎃 🕯 🌼 💀 💀 🎃 🕯 🌼 💀 🎃 🕯 🌼 💀 🎃 🕯 🌼 💀 💀 🎃 🕯 🌼 💀 🎃 🕯 🌼 💀 🎃 🕯 🌼 💀 🕯 🌼 💀 🎃 🕯 🌼 ";
+    position:absolute;
+    top:2px;
+    left:0;
+    width:100%;
+    font-size:36px;
+    opacity:1;
+    pointer-events:none;
+}
+
+
+
+/* ==========================================
+   INDEPENDENCIA DE MÉXICO
+========================================== */
+
+.sidebar-container.patria{
+    background:linear-gradient(
+        90deg,
+        #006847 0%,
+        #006847 33%,
+        #ffffff 33%,
+        #ffffff 66%,
+        #ce1126 66%,
+        #ce1126 100%
+    );
+}
+
+.sidebar-container.patria::before{
+    content:"  VIVA  ";
+    position:absolute;
+    top:2px;
+    left:0;
+    width:100%;
+    text-align:center;
+    font-size:15px;
+    opacity:1;
+    pointer-events:none;
+}
+
+.sidebar-container.patria::after{
+    content:" MEXICO ";
+    position:absolute;
+    bottom:2px;
+    left:0;
+    width:100%;
+    text-align:center;
+    font-size:15px;
+    opacity:1;
+    pointer-events:none;
+}
+
+/* ==========================================
+   AMOR Y AMISTAD
+========================================== */
+
+.sidebar-container.amor{
+    background:linear-gradient(
+        135deg,
+        #c94c4c,
+        #a93232,
+        #ff1493
+    );
+}
+
+.sidebar-container.amor::before{
+    content:"❤️ 💕 💖 ❤️ 💕 💖 ❤️ 💕 ❤️ 💕 💖 ❤️ 💕 💖 ❤️ 💕 ❤️ 💕 💖 ❤️ 💕 💖 ❤️ 💕 ❤️ 💕 💖 ❤️ 💕 💖 ❤️ 💕 ❤️ 💕 💖 ❤️ 💕 💖 ❤️ 💕 💖 ❤️ 💕 ❤️ 💕 💖 💖 ❤️ 💕 ❤️  ";
+    position:absolute;
+    top:2px;
+    left:0;
+    width:100%;
+    
+    font-size:36px;
+    opacity:1;
+    pointer-events:none;
+}
+
+
+
+/* TARJETAS SIEMPRE ENCIMA */
+
+.menu-grid{
+    min-width:max-content;
+}
+/* ==========================================
+   TABLETS
+========================================== */
+@media (max-width: 992px) {
+
+    .menu-grid{
+        justify-content:flex-start;
+        gap:15px;
+        padding:0 15px;
+    }
+
+    .card{
+        width:150px;
+        height:105px;
+    }
+
+    .card img{
+        width:40px;
+        height:40px;
+    }
+
+    .card .titulo{
+        font-size:10px;
+    }
+
+}
+
+/* ==========================================
+   CELULARES
+========================================== */
+@media (max-width:768px){
+
+    .sidebar-container{
+        padding:10px 0;
+    }
+
+    .menu-grid{
+        justify-content:flex-start;
+        gap:12px;
+        padding:0 12px;
+    }
+
+    .card{
+        width:125px;
+        height:95px;
+        border-radius:10px;
+    }
+
+    .card img{
+        width:36px;
+        height:36px;
+    }
+
+    .card .titulo{
+        font-size:9px;
+        line-height:1.2;
+    }
+
+    .sidebar-container::before,
+    .sidebar-container::after{
+        font-size:24px !important;
+    }
+
+}
+
+/* ==========================================
+   CELULARES PEQUEÑOS
+========================================== */
+@media (max-width:480px){
+
+    .sidebar-container{
+        padding:8px 0;
+    }
+
+    .menu-grid{
+        gap:10px;
+        padding:0 10px;
+    }
+
+    .card{
+        width:105px;
+        height:85px;
+        padding:5px;
+    }
+
+    .card img{
+        width:30px;
+        height:30px;
+    }
+
+    .card .titulo{
+        font-size:8px;
+    }
+
+    .sidebar-container::before,
+    .sidebar-container::after{
+        font-size:18px !important;
+    }
+
+}

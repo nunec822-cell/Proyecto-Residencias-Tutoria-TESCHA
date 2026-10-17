@@ -1,0 +1,2061 @@
+/*=========================================================
+    CITAS DEL PSICÓLOGO
+    SIST V.4.0 - PIT V4.0
+=========================================================*/
+
+
+/*=========================================================
+    VARIABLES
+=========================================================*/
+
+:root {
+
+    --azul-principal: #2563eb;
+    --azul-oscuro: #1e3a8a;
+    --azul-claro: #eff6ff;
+
+    --verde: #16a34a;
+    --verde-claro: #f0fdf4;
+
+    --amarillo: #d97706;
+    --amarillo-claro: #fffbeb;
+
+    --rojo: #dc2626;
+    --rojo-claro: #fef2f2;
+
+    --morado: #7c3aed;
+    --morado-claro: #f5f3ff;
+
+    --gris-texto: #334155;
+    --gris-secundario: #64748b;
+    --gris-borde: #e2e8f0;
+    --gris-fondo: #f8fafc;
+
+    --blanco: #ffffff;
+
+    --sombra:
+
+        0 10px 30px
+        rgba(15, 23, 42, .08);
+
+    --sombra-hover:
+
+        0 18px 40px
+        rgba(15, 23, 42, .13);
+
+}
+
+
+/*=========================================================
+    RESET
+=========================================================*/
+
+* {
+
+    box-sizing: border-box;
+
+    margin: 0;
+
+    padding: 0;
+
+}
+
+
+body {
+
+    font-family:
+
+        "Segoe UI",
+        Arial,
+        sans-serif;
+
+    background:
+
+        linear-gradient(
+            135deg,
+            #f8fafc 0%,
+            #eef4ff 100%
+        );
+
+    color:
+        var(--gris-texto);
+
+    min-height: 100vh;
+
+}
+
+
+/*=========================================================
+    CONTENEDOR PRINCIPAL
+=========================================================*/
+
+.contenedor-citas {
+
+    width: calc(100% - 280px);
+
+    margin-left: 280px;
+
+    padding: 40px 45px 70px;
+
+    min-height: 100vh;
+
+}
+
+
+/*=========================================================
+    ENCABEZADO
+=========================================================*/
+
+.encabezado-citas {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 22px;
+
+    margin-bottom: 30px;
+
+}
+
+
+.encabezado-icono {
+
+    width: 72px;
+
+    height: 72px;
+
+    min-width: 72px;
+
+    border-radius: 22px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    background:
+
+        linear-gradient(
+            135deg,
+            var(--azul-principal),
+            var(--azul-oscuro)
+        );
+
+    color: white;
+
+    font-size: 30px;
+
+    box-shadow:
+
+        0 12px 25px
+        rgba(37, 99, 235, .25);
+
+}
+
+
+.encabezado-citas span {
+
+    display: block;
+
+    font-size: 13px;
+
+    font-weight: 700;
+
+    letter-spacing: 1.4px;
+
+    text-transform: uppercase;
+
+    color:
+        var(--azul-principal);
+
+    margin-bottom: 5px;
+
+}
+
+
+.encabezado-citas h1 {
+
+    font-size: 34px;
+
+    color: #0f172a;
+
+    line-height: 1.2;
+
+    margin-bottom: 7px;
+
+}
+
+
+.encabezado-citas p {
+
+    color:
+        var(--gris-secundario);
+
+    font-size: 15px;
+
+}
+
+
+/*=========================================================
+    BIENVENIDA
+=========================================================*/
+
+.bienvenida-psicologo {
+
+    position: relative;
+
+    overflow: hidden;
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    padding: 30px 35px;
+
+    margin-bottom: 30px;
+
+    border-radius: 25px;
+
+    background:
+
+        linear-gradient(
+            135deg,
+            #1e3a8a,
+            #2563eb
+        );
+
+    color: white;
+
+    box-shadow:
+
+        0 18px 40px
+        rgba(37, 99, 235, .20);
+
+}
+
+
+.bienvenida-psicologo::before {
+
+    content: "";
+
+    position: absolute;
+
+    width: 220px;
+
+    height: 220px;
+
+    border-radius: 50%;
+
+    background:
+
+        rgba(255,255,255,.08);
+
+    right: 80px;
+
+    top: -120px;
+
+}
+
+
+.bienvenida-psicologo::after {
+
+    content: "";
+
+    position: absolute;
+
+    width: 160px;
+
+    height: 160px;
+
+    border-radius: 50%;
+
+    background:
+
+        rgba(255,255,255,.06);
+
+    right: -50px;
+
+    bottom: -80px;
+
+}
+
+
+.bienvenida-psicologo > div:first-child {
+
+    position: relative;
+
+    z-index: 2;
+
+}
+
+
+.bienvenida-psicologo span {
+
+    display: inline-block;
+
+    padding: 6px 12px;
+
+    border-radius: 20px;
+
+    background:
+
+        rgba(255,255,255,.15);
+
+    font-size: 11px;
+
+    font-weight: 800;
+
+    letter-spacing: 1.5px;
+
+    margin-bottom: 10px;
+
+}
+
+
+.bienvenida-psicologo h2 {
+
+    font-size: 27px;
+
+    margin-bottom: 7px;
+
+}
+
+
+.bienvenida-psicologo p {
+
+    font-size: 14px;
+
+    color:
+
+        rgba(255,255,255,.85);
+
+}
+
+
+.bienvenida-icono {
+
+    position: relative;
+
+    z-index: 2;
+
+    width: 85px;
+
+    height: 85px;
+
+    min-width: 85px;
+
+    border-radius: 50%;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    background:
+
+        rgba(255,255,255,.14);
+
+    border:
+
+        1px solid
+        rgba(255,255,255,.2);
+
+    font-size: 35px;
+
+}
+
+
+/*=========================================================
+    RESUMEN
+=========================================================*/
+
+.resumen-citas {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(4, 1fr);
+
+    gap: 18px;
+
+    margin-bottom: 40px;
+
+}
+
+
+.resumen-card {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 16px;
+
+    padding: 21px;
+
+    background: white;
+
+    border:
+
+        1px solid
+        var(--gris-borde);
+
+    border-radius: 20px;
+
+    box-shadow:
+        var(--sombra);
+
+    transition:
+
+        transform .25s ease,
+        box-shadow .25s ease;
+
+}
+
+
+.resumen-card:hover {
+
+    transform:
+        translateY(-4px);
+
+    box-shadow:
+        var(--sombra-hover);
+
+}
+
+
+.resumen-icono {
+
+    width: 50px;
+
+    height: 50px;
+
+    min-width: 50px;
+
+    border-radius: 15px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    font-size: 20px;
+
+}
+
+
+.resumen-card span {
+
+    display: block;
+
+    color:
+        var(--gris-secundario);
+
+    font-size: 13px;
+
+    margin-bottom: 3px;
+
+}
+
+
+.resumen-card strong {
+
+    display: block;
+
+    font-size: 28px;
+
+    line-height: 1;
+
+    color:
+        #0f172a;
+
+}
+
+
+/*=========================================================
+    COLORES RESUMEN
+=========================================================*/
+
+.resumen-card.pendiente
+.resumen-icono {
+
+    background:
+        var(--amarillo-claro);
+
+    color:
+        var(--amarillo);
+
+}
+
+
+.resumen-card.confirmada
+.resumen-icono {
+
+    background:
+        var(--verde-claro);
+
+    color:
+        var(--verde);
+
+}
+
+
+.resumen-card.atendiendo
+.resumen-icono {
+
+    background:
+        var(--morado-claro);
+
+    color:
+        var(--morado);
+
+}
+
+
+.resumen-card.hoy
+.resumen-icono {
+
+    background:
+        var(--azul-claro);
+
+    color:
+        var(--azul-principal);
+
+}
+
+
+/*=========================================================
+    ENCABEZADO LISTA
+=========================================================*/
+
+.lista-encabezado {
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: flex-end;
+
+    gap: 20px;
+
+    margin-bottom: 22px;
+
+}
+
+
+.lista-encabezado span {
+
+    display: block;
+
+    color:
+        var(--azul-principal);
+
+    font-size: 11px;
+
+    font-weight: 800;
+
+    letter-spacing: 1.5px;
+
+    margin-bottom: 5px;
+
+}
+
+
+.lista-encabezado h2 {
+
+    font-size: 24px;
+
+    color:
+        #0f172a;
+
+}
+
+
+.total-citas {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 8px;
+
+    padding: 10px 16px;
+
+    border-radius: 15px;
+
+    background: white;
+
+    border:
+        1px solid
+        var(--gris-borde);
+
+    color:
+        var(--gris-secundario);
+
+    font-size: 13px;
+
+    font-weight: 700;
+
+}
+
+
+/*=========================================================
+    LISTA DE CITAS
+=========================================================*/
+
+.lista-citas {
+
+    display: grid;
+
+    gap: 22px;
+
+}
+
+
+/*=========================================================
+    TARJETA
+=========================================================*/
+
+.cita-psicologo-card {
+
+    background: white;
+
+    border:
+        1px solid
+        var(--gris-borde);
+
+    border-radius: 24px;
+
+    padding: 25px;
+
+    box-shadow:
+        var(--sombra);
+
+    transition:
+
+        transform .25s ease,
+        box-shadow .25s ease;
+
+    position: relative;
+
+    overflow: hidden;
+
+}
+
+
+.cita-psicologo-card:hover {
+
+    transform:
+        translateY(-3px);
+
+    box-shadow:
+        var(--sombra-hover);
+
+}
+
+
+/*=========================================================
+    LÍNEA SUPERIOR DE ESTADO
+=========================================================*/
+
+.cita-psicologo-card::before {
+
+    content: "";
+
+    position: absolute;
+
+    left: 0;
+
+    top: 0;
+
+    width: 5px;
+
+    height: 100%;
+
+    background:
+        var(--azul-principal);
+
+}
+
+
+/*=========================================================
+    COLORES POR ESTADO
+=========================================================*/
+
+.estado-card-pendiente::before {
+
+    background:
+        var(--amarillo);
+
+}
+
+
+.estado-card-confirmada::before {
+
+    background:
+        var(--verde);
+
+}
+
+
+.estado-card-atendiendo::before {
+
+    background:
+        var(--morado);
+
+}
+
+
+.estado-card-atendida::before {
+
+    background:
+        #059669;
+
+}
+
+
+.estado-card-cancelada::before {
+
+    background:
+        var(--rojo);
+
+}
+
+
+.estado-card-no_asistio::before {
+
+    background:
+        #64748b;
+
+}
+
+
+/*=========================================================
+    PARTE SUPERIOR
+=========================================================*/
+
+.cita-card-superior {
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: flex-start;
+
+    gap: 20px;
+
+    margin-bottom: 22px;
+
+}
+
+
+.numero-cita {
+
+    display: block;
+
+    font-size: 11px;
+
+    font-weight: 800;
+
+    letter-spacing: 1.3px;
+
+    color:
+        var(--gris-secundario);
+
+    margin-bottom: 6px;
+
+}
+
+
+.cita-card-superior h3 {
+
+    font-size: 21px;
+
+    color:
+        #0f172a;
+
+}
+
+
+/*=========================================================
+    ESTADO
+=========================================================*/
+
+.estado-cita {
+
+    display: inline-flex;
+
+    align-items: center;
+
+    gap: 7px;
+
+    padding: 8px 13px;
+
+    border-radius: 30px;
+
+    font-size: 12px;
+
+    font-weight: 800;
+
+    white-space: nowrap;
+
+}
+
+
+.estado-pendiente {
+
+    color:
+        var(--amarillo);
+
+    background:
+        var(--amarillo-claro);
+
+}
+
+
+.estado-confirmada {
+
+    color:
+        var(--verde);
+
+    background:
+        var(--verde-claro);
+
+}
+
+
+.estado-atendiendo {
+
+    color:
+        var(--morado);
+
+    background:
+        var(--morado-claro);
+
+}
+
+
+.estado-atendida {
+
+    color:
+        #047857;
+
+    background:
+        #ecfdf5;
+
+}
+
+
+.estado-cancelada {
+
+    color:
+        var(--rojo);
+
+    background:
+        var(--rojo-claro);
+
+}
+
+
+.estado-no_asistio {
+
+    color:
+        #475569;
+
+    background:
+        #f1f5f9;
+
+}
+
+
+/*=========================================================
+    DATOS TUTORADO
+=========================================================*/
+
+.datos-tutorado {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, 1fr);
+
+    gap: 15px;
+
+    padding: 18px;
+
+    border-radius: 18px;
+
+    background:
+        var(--gris-fondo);
+
+    margin-bottom: 17px;
+
+}
+
+
+.dato {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 12px;
+
+}
+
+
+.dato > i {
+
+    width: 38px;
+
+    height: 38px;
+
+    min-width: 38px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    border-radius: 11px;
+
+    background:
+        var(--azul-claro);
+
+    color:
+        var(--azul-principal);
+
+    font-size: 15px;
+
+}
+
+
+.dato span {
+
+    display: block;
+
+    font-size: 11px;
+
+    color:
+        var(--gris-secundario);
+
+    margin-bottom: 3px;
+
+}
+
+
+.dato strong {
+
+    display: block;
+
+    font-size: 13px;
+
+    color:
+        #1e293b;
+
+}
+
+
+/*=========================================================
+    HORARIO
+=========================================================*/
+
+.horario-cita {
+
+    display: grid;
+
+    grid-template-columns:
+        1fr 1fr;
+
+    gap: 15px;
+
+    margin-bottom: 17px;
+
+}
+
+
+.horario-cita > div {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 13px;
+
+    padding: 15px;
+
+    border:
+        1px solid
+        var(--gris-borde);
+
+    border-radius: 16px;
+
+}
+
+
+.horario-cita > div > i {
+
+    width: 40px;
+
+    height: 40px;
+
+    min-width: 40px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    border-radius: 12px;
+
+    background:
+        var(--azul-claro);
+
+    color:
+        var(--azul-principal);
+
+}
+
+
+.horario-cita span {
+
+    display: block;
+
+    font-size: 11px;
+
+    color:
+        var(--gris-secundario);
+
+    margin-bottom: 3px;
+
+}
+
+
+.horario-cita strong {
+
+    font-size: 13px;
+
+    color:
+        #1e293b;
+
+}
+
+
+/*=========================================================
+    MOTIVO
+=========================================================*/
+
+.motivo-cita {
+
+    padding: 17px 18px;
+
+    margin-bottom: 18px;
+
+    border-radius: 16px;
+
+    background:
+        #f8fafc;
+
+    border:
+        1px solid
+        var(--gris-borde);
+
+}
+
+
+.motivo-cita > span {
+
+    display: block;
+
+    font-size: 11px;
+
+    font-weight: 800;
+
+    color:
+        var(--gris-secundario);
+
+    text-transform: uppercase;
+
+    letter-spacing: .8px;
+
+    margin-bottom: 7px;
+
+}
+
+
+.motivo-cita p {
+
+    color:
+        #334155;
+
+    font-size: 14px;
+
+    line-height: 1.6;
+
+}
+
+
+/*=========================================================
+    ACCIONES
+=========================================================*/
+
+.acciones-cita {
+
+    display: flex;
+
+    flex-wrap: wrap;
+
+    gap: 10px;
+
+    padding-top: 5px;
+
+}
+
+
+.btn-accion {
+
+    border: none;
+
+    border-radius: 13px;
+
+    padding: 11px 17px;
+
+    display: inline-flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 8px;
+
+    font-family: inherit;
+
+    font-size: 13px;
+
+    font-weight: 750;
+
+    cursor: pointer;
+
+    transition:
+
+        transform .2s ease,
+        box-shadow .2s ease,
+        opacity .2s ease;
+
+}
+
+
+.btn-accion:hover {
+
+    transform:
+        translateY(-2px);
+
+}
+
+
+.btn-confirmar {
+
+    background:
+        #dcfce7;
+
+    color:
+        #15803d;
+
+}
+
+
+.btn-confirmar:hover {
+
+    box-shadow:
+        0 8px 18px
+        rgba(22,163,74,.15);
+
+}
+
+
+.btn-cancelar {
+
+    background:
+        #fee2e2;
+
+    color:
+        #b91c1c;
+
+}
+
+
+.btn-cancelar:hover {
+
+    box-shadow:
+        0 8px 18px
+        rgba(220,38,38,.15);
+
+}
+
+
+.btn-atendiendo {
+
+    background:
+        #ede9fe;
+
+    color:
+        #6d28d9;
+
+}
+
+
+.btn-no-asistio {
+
+    background:
+        #f1f5f9;
+
+    color:
+        #475569;
+
+}
+
+
+.btn-finalizar {
+
+    background:
+        #d1fae5;
+
+    color:
+        #047857;
+
+}
+
+
+/*=========================================================
+    ESTADOS CERRADOS
+=========================================================*/
+
+.cita-finalizada,
+.cita-cerrada {
+
+    display: inline-flex;
+
+    align-items: center;
+
+    gap: 9px;
+
+    padding: 12px 17px;
+
+    border-radius: 14px;
+
+    font-size: 13px;
+
+    font-weight: 750;
+
+    background:
+        #ecfdf5;
+
+    color:
+        #047857;
+
+}
+
+
+.cita-cerrada {
+
+    background:
+        #fef2f2;
+
+    color:
+        #b91c1c;
+
+}
+
+
+.cita-cerrada.no-asistio {
+
+    background:
+        #f1f5f9;
+
+    color:
+        #475569;
+
+}
+
+
+/*=========================================================
+    SIN CITAS
+=========================================================*/
+
+.sin-citas {
+
+    text-align: center;
+
+    padding: 70px 30px;
+
+    background:
+        white;
+
+    border:
+        1px solid
+        var(--gris-borde);
+
+    border-radius: 25px;
+
+    box-shadow:
+        var(--sombra);
+
+}
+
+
+.sin-citas-icono {
+
+    width: 80px;
+
+    height: 80px;
+
+    margin: 0 auto 20px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    border-radius: 50%;
+
+    background:
+        var(--azul-claro);
+
+    color:
+        var(--azul-principal);
+
+    font-size: 30px;
+
+}
+
+
+.sin-citas h2 {
+
+    font-size: 21px;
+
+    color:
+        #0f172a;
+
+    margin-bottom: 8px;
+
+}
+
+
+.sin-citas p {
+
+    max-width: 550px;
+
+    margin: auto;
+
+    color:
+        var(--gris-secundario);
+
+    line-height: 1.6;
+
+    font-size: 14px;
+
+}
+
+
+/*=========================================================
+    MODAL DE CONFIRMACIÓN
+=========================================================*/
+
+.modal-cita-overlay {
+
+    position: fixed;
+
+    inset: 0;
+
+    z-index: 99999;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    padding: 20px;
+
+    background:
+        rgba(15, 23, 42, .62);
+
+    backdrop-filter:
+        blur(7px);
+
+    opacity: 0;
+
+    visibility: hidden;
+
+    transition:
+
+        opacity .25s ease,
+        visibility .25s ease;
+
+}
+
+
+.modal-cita-overlay.mostrar {
+
+    opacity: 1;
+
+    visibility: visible;
+
+}
+
+
+/*=========================================================
+    MODAL
+=========================================================*/
+
+.modal-cita {
+
+    width: 100%;
+
+    max-width: 480px;
+
+    background:
+        white;
+
+    border-radius: 28px;
+
+    padding: 35px;
+
+    position: relative;
+
+    text-align: center;
+
+    box-shadow:
+
+        0 30px 80px
+        rgba(0,0,0,.25);
+
+    transform:
+        translateY(20px)
+        scale(.96);
+
+    transition:
+        transform .3s ease;
+
+}
+
+
+.modal-cita-overlay.mostrar
+.modal-cita {
+
+    transform:
+        translateY(0)
+        scale(1);
+
+}
+
+
+/*=========================================================
+    CERRAR
+=========================================================*/
+
+.modal-cita-cerrar {
+
+    position: absolute;
+
+    top: 15px;
+
+    right: 17px;
+
+    width: 35px;
+
+    height: 35px;
+
+    border: none;
+
+    border-radius: 50%;
+
+    background:
+        #f1f5f9;
+
+    color:
+        #64748b;
+
+    font-size: 25px;
+
+    line-height: 1;
+
+    cursor: pointer;
+
+    transition:
+        background .2s ease,
+        color .2s ease;
+
+}
+
+
+.modal-cita-cerrar:hover {
+
+    background:
+        #e2e8f0;
+
+    color:
+        #0f172a;
+
+}
+
+
+/*=========================================================
+    ICONO MODAL
+=========================================================*/
+
+.modal-cita-icono {
+
+    width: 76px;
+
+    height: 76px;
+
+    margin: 0 auto 20px;
+
+    border-radius: 22px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    background:
+        #eff6ff;
+
+    color:
+        #2563eb;
+
+    font-size: 31px;
+
+}
+
+
+/*=========================================================
+    CONTENIDO MODAL
+=========================================================*/
+
+.modal-cita-etiqueta {
+
+    display: block;
+
+    color:
+        #64748b;
+
+    font-size: 10px;
+
+    font-weight: 850;
+
+    letter-spacing: 1.6px;
+
+    margin-bottom: 8px;
+
+}
+
+
+.modal-cita-contenido h2 {
+
+    color:
+        #0f172a;
+
+    font-size: 23px;
+
+    margin-bottom: 10px;
+
+}
+
+
+.modal-cita-contenido p {
+
+    color:
+        #64748b;
+
+    font-size: 14px;
+
+    line-height: 1.6;
+
+    max-width: 390px;
+
+    margin: auto;
+
+}
+
+
+/*=========================================================
+    ACCIONES MODAL
+=========================================================*/
+
+.modal-cita-acciones {
+
+    display: grid;
+
+    grid-template-columns:
+        1fr 1fr;
+
+    gap: 11px;
+
+    margin-top: 27px;
+
+}
+
+
+.modal-btn {
+
+    min-height: 46px;
+
+    border: none;
+
+    border-radius: 13px;
+
+    font-family: inherit;
+
+    font-size: 13px;
+
+    font-weight: 750;
+
+    cursor: pointer;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 8px;
+
+    transition:
+
+        transform .2s ease,
+        opacity .2s ease;
+
+}
+
+
+.modal-btn:hover {
+
+    transform:
+        translateY(-2px);
+
+}
+
+
+.modal-btn:disabled {
+
+    opacity: .65;
+
+    cursor:
+        not-allowed;
+
+    transform: none;
+
+}
+
+
+.modal-btn-regresar {
+
+    background:
+        #f1f5f9;
+
+    color:
+        #475569;
+
+}
+
+
+.modal-btn-confirmar {
+
+    background:
+        #2563eb;
+
+    color:
+        white;
+
+}
+
+
+/*=========================================================
+    COLORES DEL MODAL SEGÚN ACCIÓN
+=========================================================*/
+
+.modal-confirmar
+.modal-cita-icono {
+
+    background:
+        #dcfce7;
+
+    color:
+        #16a34a;
+
+}
+
+
+.modal-confirmar
+.modal-btn-confirmar {
+
+    background:
+        #16a34a;
+
+}
+
+
+.modal-cancelar
+.modal-cita-icono {
+
+    background:
+        #fee2e2;
+
+    color:
+        #dc2626;
+
+}
+
+
+.modal-cancelar
+.modal-btn-confirmar {
+
+    background:
+        #dc2626;
+
+}
+
+
+.modal-atendiendo
+.modal-cita-icono {
+
+    background:
+        #ede9fe;
+
+    color:
+        #7c3aed;
+
+}
+
+
+.modal-atendiendo
+.modal-btn-confirmar {
+
+    background:
+        #7c3aed;
+
+}
+
+
+.modal-no-asistio
+.modal-cita-icono {
+
+    background:
+        #f1f5f9;
+
+    color:
+        #475569;
+
+}
+
+
+.modal-no-asistio
+.modal-btn-confirmar {
+
+    background:
+        #475569;
+
+}
+
+
+.modal-atendida
+.modal-cita-icono {
+
+    background:
+        #d1fae5;
+
+    color:
+        #047857;
+
+}
+
+
+.modal-atendida
+.modal-btn-confirmar {
+
+    background:
+        #047857;
+
+}
+
+
+/*=========================================================
+    BLOQUEAR SCROLL CON MODAL
+=========================================================*/
+
+body.modal-cita-abierto {
+
+    overflow: hidden;
+
+}
+
+
+/*=========================================================
+    RESPONSIVE
+=========================================================*/
+
+@media (max-width: 1200px) {
+
+    .contenedor-citas {
+
+        width:
+            calc(100% - 240px);
+
+        margin-left:
+            240px;
+
+        padding:
+            35px 30px;
+
+    }
+
+
+    .resumen-citas {
+
+        grid-template-columns:
+            repeat(2, 1fr);
+
+    }
+
+}
+
+
+@media (max-width: 900px) {
+
+    .contenedor-citas {
+
+        width: 100%;
+
+        margin-left: 0;
+
+        padding:
+            25px 20px 50px;
+
+    }
+
+
+    .resumen-citas {
+
+        grid-template-columns:
+            repeat(2, 1fr);
+
+    }
+
+
+    .datos-tutorado {
+
+        grid-template-columns:
+            1fr;
+
+    }
+
+}
+
+
+@media (max-width: 650px) {
+
+    .encabezado-citas {
+
+        align-items:
+            flex-start;
+
+    }
+
+
+    .encabezado-icono {
+
+        width: 55px;
+
+        height: 55px;
+
+        min-width: 55px;
+
+        border-radius: 16px;
+
+        font-size: 23px;
+
+    }
+
+
+    .encabezado-citas h1 {
+
+        font-size: 25px;
+
+    }
+
+
+    .bienvenida-psicologo {
+
+        padding: 25px;
+
+    }
+
+
+    .bienvenida-icono {
+
+        display: none;
+
+    }
+
+
+    .resumen-citas {
+
+        grid-template-columns:
+            1fr;
+
+    }
+
+
+    .lista-encabezado {
+
+        align-items:
+            flex-start;
+
+        flex-direction:
+            column;
+
+    }
+
+
+    .cita-card-superior {
+
+        flex-direction:
+            column;
+
+    }
+
+
+    .estado-cita {
+
+        align-self:
+            flex-start;
+
+    }
+
+
+    .horario-cita {
+
+        grid-template-columns:
+            1fr;
+
+    }
+
+
+    .acciones-cita {
+
+        flex-direction:
+            column;
+
+    }
+
+
+    .btn-accion {
+
+        width: 100%;
+
+    }
+
+
+    .modal-cita {
+
+        padding:
+            30px 22px;
+
+        border-radius:
+            23px;
+
+    }
+
+
+    .modal-cita-acciones {
+
+        grid-template-columns:
+            1fr;
+
+    }
+
+}
+
+
+/*=========================================================
+    ANIMACIONES
+=========================================================*/
+
+@keyframes aparecerCita {
+
+    from {
+
+        opacity: 0;
+
+        transform:
+            translateY(15px);
+
+    }
+
+    to {
+
+        opacity: 1;
+
+        transform:
+            translateY(0);
+
+    }
+
+}
+
+
+.cita-psicologo-card {
+
+    animation:
+        aparecerCita
+        .4s ease both;
+
+}
+
+
+.lista-citas
+.cita-psicologo-card:nth-child(2) {
+
+    animation-delay:
+        .05s;
+
+}
+
+
+.lista-citas
+.cita-psicologo-card:nth-child(3) {
+
+    animation-delay:
+        .10s;
+
+}
+
+
+.lista-citas
+.cita-psicologo-card:nth-child(4) {
+
+    animation-delay:
+        .15s;
+
+}
+
+
+.lista-citas
+.cita-psicologo-card:nth-child(5) {
+
+    animation-delay:
+        .20s;
+
+}

@@ -1,0 +1,14 @@
+# SIST - configuración de Apache (requiere AllowOverride All, activo por defecto en XAMPP)
+Options -Indexes
+
+# Archivos ocultos y de configuración local
+<FilesMatch "^(\.git|\.env|local\.php|.*\.sql|.*\.md|composer\.(json|lock))">
+    Require all denied
+</FilesMatch>
+
+# Cabeceras de seguridad básicas
+<IfModule mod_headers.c>
+    Header always set X-Content-Type-Options "nosniff"
+    Header always set X-Frame-Options "SAMEORIGIN"
+    Header always set Referrer-Policy "strict-origin-when-cross-origin"
+</IfModule>
