@@ -156,6 +156,30 @@ href="css/estilo.css">
 rel="stylesheet"
 href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
+<!-- INICIO BLOQUE DE FUERZA VINO -->
+<style>
+    /* Forzando el degradado vino en la tarjeta principal */
+    .hero {
+        background: linear-gradient(135deg, #5E1914, #8A2E2E, #9B2C2C, #6E1E1E) !important;
+        box-shadow: 0 30px 70px rgba(94, 25, 20, .25) !important;
+    }
+    
+    /* Forzando los botones azules a vino */
+    .btn-nuevo-aviso, .btn-publicar {
+        background: linear-gradient(135deg, #8A2E2E, #5E1914) !important;
+        box-shadow: 0 15px 30px rgba(94, 25, 20, .25) !important;
+    }
+
+    /* Ajustes de colores de textos para que combinen */
+    .card-aviso h2, 
+    .gestion-header h2, 
+    .sin-avisos h3,
+    .grupo label {
+        color: #5E1914 !important;
+    }
+</style>
+<!-- FIN BLOQUE DE FUERZA VINO -->
+
 </head>
 
 <body>
