@@ -82,10 +82,7 @@ include __DIR__ . '/../../includes_pit/sidebar_psicologos.php';
         <div class="as-item <?= $idFiltro === $idc ? 'destacada' : '' ?>">
             <?php ps_titulo($c); ?>
             <?php ps_datos_publicos($c); ?>
-            <div class="as-motivo"><b>Motivo del tutor:</b> <?= e($c['motivo']) ?></div>
-            <?php if (!empty($c['motivo_aviso'])): ?>
-                <div class="as-motivo"><b>Lo que observó el profesor:</b> <?= e($c['motivo_aviso']) ?></div>
-            <?php endif; ?>
+            <?php ps_motivo_psicologo($c); ?>
 
             <h3 style="margin:14px 0 6px">Sesiones (<?= count($historial) ?>)</h3>
             <?php if (!$historial): ?><div class="as-vacio">Aún no programas ninguna sesión.</div><?php endif; ?>

@@ -218,7 +218,7 @@ if ($result && $result->num_rows > 0) {
         </a>
 
         <a class="btn-eliminar"
-        href="eliminar_aviso.php?id=<?php echo $row['id_aviso']; ?>"
+        href="<?= e(sist_csrf_url('eliminar_aviso.php?id=' . (int) $row['id_aviso'])) ?>"
         onclick="return confirm('¿Eliminar este aviso?');">
 
             <i class="fa-solid fa-trash"></i>

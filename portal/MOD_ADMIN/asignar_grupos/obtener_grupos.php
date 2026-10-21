@@ -1,25 +1,24 @@
 <?php
 require_once __DIR__ . '/../../../core/bootstrap.php';
+
 requerir_permiso('grupos.asignar');
 
 include("../../base_pit/conect_pit.php");
 
-$carrera = sist_esc($_GET['carrera'] ?? '');
+$carrera = trim((string) ($_GET['carrera'] ?? ''));
 
-if(empty($carrera)){
+if ($carrera === '') {
     exit();
 }
 
-$sql = mysqli_query($conn,"
-    SELECT DISTINCT grupo
-    FROM tutorados
-    WHERE carrera = '$carrera'
-    AND activo = 1
-    ORDER BY grupo
-");
+$grupos = sist_db_filas(
+    $conn,
+    "SELECT DISTINCT grupo FROM tutorados WHERE carrera = ? AND activo = 1 ORDER BY grupo",
+    's',
+    [$carrera]
+);
 
-while($fila = mysqli_fetch_assoc($sql)){
-
+foreach ($grupos as $fila) {
 ?>
 
 <label class="grupo-item">
@@ -27,15 +26,14 @@ while($fila = mysqli_fetch_assoc($sql)){
     <input
         type="checkbox"
         name="grupos[]"
-        value="<?= $fila['grupo']; ?>"
+        value="<?= e($fila['grupo']) ?>"
     >
 
     <span>
-        <?= $fila['grupo']; ?>
+        <?= e($fila['grupo']) ?>
     </span>
 
 </label>
 
 <?php
-
 }

@@ -125,7 +125,11 @@ include __DIR__ . '/../../includes_pit/sidebar_docente.php';
         <div class="as-item <?= $idFiltro === (int) $c['id_psico'] ? 'destacada' : '' ?>">
             <?php ps_titulo($c); ?>
             <?php if ($c['estado'] !== 'DESCARTADA'): ps_datos_publicos($c); ?>
-                <div class="as-motivo"><b>Tu motivo:</b> <?= e($c['motivo']) ?></div>
+                <?php if (($c['origen'] ?? 'TUTOR') === 'PSICOLOGO'): ?>
+                    <div class="as-motivo"><b>Registrado por el psicólogo · motivo:</b> <?= e($c['categoria_motivo'] ?? '—') ?></div>
+                <?php else: ?>
+                    <div class="as-motivo"><b>Tu motivo:</b> <?= e($c['motivo']) ?></div>
+                <?php endif; ?>
                 <?php ps_historial($conn, (int) $c['id_psico']); ?>
             <?php else: ?>
                 <div class="as-datos"><div><b>Alumno:</b> <?= e($c['alumno']) ?> (<?= e($c['matricula']) ?>)</div></div>

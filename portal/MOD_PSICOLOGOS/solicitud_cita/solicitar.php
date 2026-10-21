@@ -153,29 +153,39 @@ if (mb_strlen($motivo) > 1000) {
 
 
 /*=========================================================
-    BUSCAR USUARIO
+    LÍMITE DE INTENTOS (el mismo del login: 5 por usuario
+    o 25 por IP en 15 minutos)
 =========================================================*/
 
-$sqlUsuario = "
+if (sist_login_bloqueado($conn, $usuario)) {
+
+    respuesta(
+        false,
+        'Demasiados intentos fallidos. Espera 15 minutos e inténtalo de nuevo.'
+    );
+
+}
+
+
+/*=========================================================
+    BUSCAR USUARIO Y VERIFICAR CONTRASEÑA
+    Se verifica la contraseña SIEMPRE (con un hash de relleno
+    si el usuario no existe) y antes de revisar si la cuenta
+    está activa: así no se revela qué usuarios existen.
+=========================================================*/
+
+$stmtUsuario = $conn->prepare("
     SELECT
-        u.id_usuario,
-        u.usuario,
         u.password,
         u.activo,
         t.id_tutorado,
-        t.nombre,
-        t.apellido_p,
-        t.apellido_m,
-        t.matricula,
         t.activo AS tutorado_activo
     FROM usuarios u
     INNER JOIN tutorados t
         ON t.id_usuario = u.id_usuario
     WHERE u.usuario = ?
     LIMIT 1
-";
-
-$stmtUsuario = $conn->prepare($sqlUsuario);
+");
 
 if (!$stmtUsuario) {
 
@@ -186,74 +196,19 @@ if (!$stmtUsuario) {
 
 }
 
-$stmtUsuario->bind_param(
-    "s",
-    $usuario
-);
-
+$stmtUsuario->bind_param("s", $usuario);
 $stmtUsuario->execute();
-
-$resultadoUsuario =
-    $stmtUsuario->get_result();
-
-$datosUsuario =
-    $resultadoUsuario->fetch_assoc();
-
+$datosUsuario = $stmtUsuario->get_result()->fetch_assoc();
 $stmtUsuario->close();
 
+$correcta = password_verify(
+    $password,
+    $datosUsuario['password'] ?? SIST_HASH_RELLENO
+);
 
-/*=========================================================
-    USUARIO NO ENCONTRADO
-=========================================================*/
+if (!$datosUsuario || !$correcta) {
 
-if (!$datosUsuario) {
-
-    respuesta(
-        false,
-        'El usuario o la contraseña son incorrectos.'
-    );
-
-}
-
-
-/*=========================================================
-    USUARIO ACTIVO
-=========================================================*/
-
-if ((int)$datosUsuario['activo'] !== 1) {
-
-    respuesta(
-        false,
-        'Tu cuenta del PIT se encuentra inactiva.'
-    );
-
-}
-
-
-/*=========================================================
-    TUTORADO ACTIVO
-=========================================================*/
-
-if ((int)$datosUsuario['tutorado_activo'] !== 1) {
-
-    respuesta(
-        false,
-        'Tu registro como tutorado se encuentra inactivo.'
-    );
-
-}
-
-
-/*=========================================================
-    VERIFICAR CONTRASEÑA
-=========================================================*/
-
-if (
-    !password_verify(
-        $password,
-        $datosUsuario['password']
-    )
-) {
+    sist_login_registrar_fallo($conn, $usuario);
 
     respuesta(
         false,
@@ -261,6 +216,17 @@ if (
     );
 
 }
+
+if ((int)$datosUsuario['activo'] !== 1 || (int)$datosUsuario['tutorado_activo'] !== 1) {
+
+    respuesta(
+        false,
+        'Tu cuenta del PIT o tu registro como tutorado se encuentra inactivo.'
+    );
+
+}
+
+sist_login_limpiar($conn, $usuario);
 
 
 /*=========================================================

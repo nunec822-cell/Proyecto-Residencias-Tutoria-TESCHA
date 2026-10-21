@@ -21,6 +21,11 @@ if(
     exit();
 }
 
+/* Solo grupos que imparte este docente */
+if (!sist_docente_imparte_grupo($conn, (int) $_SESSION['id_usuario'], (string) ($_GET['grupo'] ?? ''))) {
+    exit();
+}
+
 /*=========================================
 ALUMNOS
 =========================================*/

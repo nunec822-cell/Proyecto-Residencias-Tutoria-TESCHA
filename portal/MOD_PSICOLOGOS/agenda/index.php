@@ -824,7 +824,7 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
                             ==========================================-->
 
                             <a
-                                href="cambiar_estado.php?id=<?php echo $id; ?>"
+                                href="<?= e(sist_csrf_url('cambiar_estado.php?id=' . (int) $id)) ?>"
                                 class="btn-estado"
                             >
 
@@ -845,7 +845,7 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
                             ==========================================-->
 
                             <a
-                                href="eliminar.php?id=<?php echo $id; ?>"
+                                href="<?= e(sist_csrf_url('eliminar.php?id=' . (int) $id)) ?>"
                                 class="btn-eliminar"
                             >
 

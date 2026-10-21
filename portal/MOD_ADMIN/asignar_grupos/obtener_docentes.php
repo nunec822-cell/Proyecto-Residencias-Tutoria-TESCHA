@@ -1,38 +1,28 @@
 <?php
 require_once __DIR__ . '/../../../core/bootstrap.php';
+
 requerir_permiso('grupos.asignar');
 
 include("../../base_pit/conect_pit.php");
 
-$carrera = sist_esc($_GET['carrera'] ?? '');
-
-if(empty($carrera)){
-
-    echo '<option value="">Seleccione un docente</option>';
-    exit();
-
-}
-
-$sql = mysqli_query($conn,"
-    SELECT
-        id_personal,
-        CONCAT(
-            apellido_p,' ',
-            apellido_m,' ',
-            nombre
-        ) AS docente
-    FROM personal_academico
-    WHERE activo = 1
-    AND carrera = '$carrera'
-    ORDER BY apellido_p
-");
+$carrera = trim((string) ($_GET['carrera'] ?? ''));
 
 echo '<option value="">Seleccione un docente</option>';
 
-while($fila = mysqli_fetch_assoc($sql)){
+if ($carrera === '') {
+    exit();
+}
 
-    echo '<option value="'.$fila['id_personal'].'">';
-    echo strtoupper($fila['docente']);
-    echo '</option>';
+$docentes = sist_db_filas(
+    $conn,
+    "SELECT id_personal, CONCAT(apellido_p, ' ', apellido_m, ' ', nombre) AS docente
+     FROM personal_academico
+     WHERE activo = 1 AND carrera = ?
+     ORDER BY apellido_p",
+    's',
+    [$carrera]
+);
 
+foreach ($docentes as $fila) {
+    echo '<option value="' . (int) $fila['id_personal'] . '">' . e(mb_strtoupper($fila['docente'])) . '</option>';
 }

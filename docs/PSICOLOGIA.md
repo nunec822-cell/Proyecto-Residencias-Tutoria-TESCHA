@@ -25,7 +25,13 @@ Ni los avisos ni los correos llevan motivos ni observaciones. La nota privada es
 
 ## Instalación
 1. Tener aplicadas 001 y 002. Ejecutar `database/migraciones/003_canalizacion_psicologica.sql` en `pit_v4` (se puede repetir).
+   Después ejecutar `005_canalizacion_datos_psicologo.sql` (datos extra que captura el psicólogo: motivo, generación, semestre, género, edad y apoyos).
 2. Copiar los archivos del paquete encima del proyecto.
+
+## Registro directo desde el psicólogo
+`portal/MOD_PSICOLOGOS/nueva_canalizacion.php`: el psicólogo registra a un alumno por matrícula y el caso queda `EN_ATENCION` a su nombre, con `origen = 'PSICOLOGO'` (se avisa al alumno y a su tutor, sin datos sensibles). Sus casos aparecen en esa misma pantalla, en `inicio.php` (tarjetas, 7 gráficas Chart.js y casos abiertos; `sist_psico_resumen_psicologo()` usa 2 consultas) y en `seguimiento/`.
+
+Privacidad: las observaciones del psicólogo van en `observaciones_psicologo` y `sist_psico_listar()` solo las lee con el perfil `psicologo`. El tutor ve únicamente el motivo general (`categoria_motivo`); alumno, jefe y administrador no ven ninguno de los dos.
 3. Los psicólogos y demás necesitan correo capturado para recibir email (sin correo, solo campanita).
 
 ## Tablas y permisos

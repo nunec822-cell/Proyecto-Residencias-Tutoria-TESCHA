@@ -1,6 +1,7 @@
 <?php
 require_once __DIR__ . '/../../core/bootstrap.php';
 requerir_permiso('avisos.gestionar');
+sist_requerir_csrf_enlace();   /* el enlace debe traer el token de la sesión */
 sist_iniciar_sesion();
 require_once '../base_pit/conect_pit.php';
 

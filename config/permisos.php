@@ -10,7 +10,8 @@
     - Una vez aplicada database/migraciones/001_permisos.sql, la
       base de datos manda y se administra desde:
       portal/MOD_ADMIN/permisos/
-    - ADMIN siempre tiene todos los permisos.
+    - ADMIN tiene todos los permisos, salvo los de trabajo personal y
+      confidencial de psicología (SIST_PERMISOS_SIN_ADMIN en core/permisos.php).
 
     Para un módulo nuevo: agrega su permiso aquí, en el SQL de
     migración, y llama requerir_permiso('modulo.accion').

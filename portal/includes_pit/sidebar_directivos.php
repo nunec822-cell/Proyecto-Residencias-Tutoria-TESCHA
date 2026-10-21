@@ -24,6 +24,7 @@ $pagina_actual = $_SERVER['PHP_SELF'];
 $base_url = PORTAL_URL;
 
 ?>
+<?php include __DIR__ . '/csrf.php'; /* token CSRF para formularios y AJAX */ ?>
 
 <!--=========================================================
     BARRA SUPERIOR

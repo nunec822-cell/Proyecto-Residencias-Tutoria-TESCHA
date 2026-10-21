@@ -3,9 +3,8 @@ require_once __DIR__ . '/../../core/bootstrap.php';
 
 require_once("../sesion.php");
 
-requerir_rol('DOCENTE');
-
-requerir_rol('TUTOR');
+/* Cualquiera de los roles que usan el panel docente (sube solo SU fotografía: el id sale de la sesión) */
+requerir_rol('DOCENTE', 'TUTOR', 'COORDINADOR');
 
 require_once("../base_pit/conect_pit.php");
 

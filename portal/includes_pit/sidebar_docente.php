@@ -38,6 +38,7 @@ $es_tutor = in_array("TUTOR", $roles_usuario);
 $es_coordinador = in_array("COORDINADOR", $roles_usuario);
 
 ?>
+<?php include __DIR__ . '/csrf.php'; /* token CSRF para formularios y AJAX */ ?>
 
 <!--=========================================
     BARRA SUPERIOR

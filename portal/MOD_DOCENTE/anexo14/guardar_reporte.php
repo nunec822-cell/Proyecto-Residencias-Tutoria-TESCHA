@@ -4,6 +4,7 @@ require_once __DIR__ . '/../../../core/bootstrap.php';
 require_once("../../sesion.php");
 
 requerir_rol('DOCENTE');
+sist_requerir_csrf_post();   /* el formulario debe traer el token de la sesión */
 
 include("../../base_pit/conect_pit.php");
 header('Content-Type: application/json');
@@ -27,10 +28,17 @@ $id_docente = $datos['id_personal'];
 DATOS
 =========================================*/
 
-$id_tutorado = (int)($_POST['id_tutorado']);
-$id_materia  = (int)($_POST['id_materia']);
-$grupo       = sist_esc($_POST['grupo']);
-$unidad      = sist_esc($_POST['unidad']);
+$id_tutorado = (int)($_POST['id_tutorado'] ?? 0);
+$id_materia  = (int)($_POST['id_materia'] ?? 0);
+$grupo       = sist_esc($_POST['grupo'] ?? '');
+$unidad      = sist_esc($_POST['unidad'] ?? '');
+
+/* Solo alumnos de un grupo que imparte este docente */
+if (!sist_docente_tiene_alumno($conn, (int) $id_usuario, $id_tutorado, (string) ($_POST['grupo'] ?? ''))) {
+    http_response_code(403);
+    echo json_encode(['success' => false, 'mensaje' => 'No tienes acceso a ese alumno o grupo.']);
+    exit();
+}
 
 $competencia_no_alcanzada =
 isset($_POST['competencia_no_alcanzada']) ? 1 : 0;

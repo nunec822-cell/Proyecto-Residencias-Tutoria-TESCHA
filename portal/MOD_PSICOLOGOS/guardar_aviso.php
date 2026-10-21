@@ -1,6 +1,7 @@
 <?php
 require_once __DIR__ . '/../../core/bootstrap.php';
 requerir_permiso('psicologia.avisos');
+sist_requerir_csrf_post();   /* el formulario debe traer el token de la sesión */
 /*=========================================================
     GUARDAR AVISO - DEPARTAMENTO DE PSICOLOGÍA
 =========================================================*/

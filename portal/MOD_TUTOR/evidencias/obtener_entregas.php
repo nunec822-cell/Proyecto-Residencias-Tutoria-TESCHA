@@ -35,23 +35,18 @@ if($id_actividad<=0){
 OBTENER ACTIVIDAD
 =========================================*/
 
-$sqlActividad = mysqli_query(
-
-    $conn,
-
-    "
-
-    SELECT *
-
-    FROM actividades_tutor
-
-    WHERE id_actividad='$id_actividad'
-
-    LIMIT 1
-
-    "
-
+/* Solo actividades del tutor que inició sesión (actividades_tutor.id_tutor = personal_academico.id_personal) */
+$stmtActividad = $conn->prepare(
+    "SELECT a.*
+     FROM actividades_tutor a
+     JOIN personal_academico pa ON pa.id_personal = a.id_tutor
+     WHERE a.id_actividad = ? AND pa.id_usuario = ?
+     LIMIT 1"
 );
+$idUsuarioSesion = (int) $_SESSION['id_usuario'];
+$stmtActividad->bind_param('ii', $id_actividad, $idUsuarioSesion);
+$stmtActividad->execute();
+$sqlActividad = $stmtActividad->get_result();
 
 if(
     mysqli_num_rows($sqlActividad)==0

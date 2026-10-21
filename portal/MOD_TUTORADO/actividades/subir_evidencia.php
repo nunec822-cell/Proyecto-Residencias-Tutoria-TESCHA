@@ -4,6 +4,7 @@ require_once __DIR__ . '/../../../core/bootstrap.php';
 require_once("../../sesion.php");
 
 requerir_rol('TUTORADO');
+sist_requerir_csrf_post();   /* el formulario debe traer el token de la sesión */
 
 include("../../base_pit/conect_pit.php");
 
@@ -50,6 +51,23 @@ $id_actividad = intval(
 );
 
 if($id_actividad<=0){
+
+    die("Actividad inválida.");
+
+}
+
+/* La actividad debe ser de SU grupo y estar activa (igual que la lista que ve en pantalla) */
+$actividadDeSuGrupo = (int) sist_db_valor(
+    $conn,
+    "SELECT COUNT(*)
+     FROM actividades_tutor a
+     JOIN tutorados t ON t.grupo = a.grupo
+     WHERE a.id_actividad = ? AND a.estado = 'ACTIVA' AND t.id_tutorado = ?",
+    'ii',
+    [$id_actividad, (int) $id_tutorado]
+);
+
+if($actividadDeSuGrupo === 0){
 
     die("Actividad inválida.");
 

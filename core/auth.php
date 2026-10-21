@@ -170,6 +170,10 @@ function sist_cerrar_sesion(): void
     Límite de intentos de login (requiere la tabla
     login_intentos de la migración 001; si no existe, se omite)
 ---------------------------------------------------------*/
+/* Hash de relleno: se verifica contra él cuando el usuario no existe, para que la
+   respuesta tarde lo mismo y no revele qué usuarios existen */
+const SIST_HASH_RELLENO = '$2y$10$VNpbtN.Nzzhhy6iNF2bu7uUyfYH0ngyHlFOrTyBAOB9BszXaSzs2.';
+
 function sist_ip_cliente(): string
 {
     return substr((string) ($_SERVER['REMOTE_ADDR'] ?? ''), 0, 45);

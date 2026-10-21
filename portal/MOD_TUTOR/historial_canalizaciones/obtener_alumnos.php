@@ -73,6 +73,7 @@ mysqli_query(
     WHERE
         t.grupo =
         '$grupo'
+        AND t.id_tutor = " . (int) $_SESSION['id_usuario'] . "
 
     GROUP BY
         t.id_tutorado

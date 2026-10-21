@@ -8,8 +8,14 @@ requerir_rol('DOCENTE');
 include("../../base_pit/conect_pit.php");
 
 $id_tutorado = (int)($_GET['id_tutorado'] ?? 0);
-$id_materia  = $_GET['id_materia'] ?? 0;
-$grupo       = $_GET['grupo'] ?? '';
+$id_materia  = (int)($_GET['id_materia'] ?? 0);
+$grupo       = e($_GET['grupo'] ?? '');   /* escapado: se imprime en el formulario */
+
+/* Solo alumnos de un grupo que imparte este docente */
+if (!sist_docente_tiene_alumno($conn, (int) $_SESSION['id_usuario'], $id_tutorado, (string) ($_GET['grupo'] ?? ''))) {
+    http_response_code(403);
+    exit('<div class="modal-contenido">No tienes acceso a este alumno.</div>');
+}
 
 $consulta = mysqli_query($conn,"
     SELECT *

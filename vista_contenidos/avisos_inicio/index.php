@@ -99,7 +99,7 @@ include("../../portal/includes_pit/sidebar_admin.php");
                     </a>
 
                     <a
-                        href="eliminar.php?id=<?php echo $fila['id']; ?>"
+                        href="<?= e(sist_csrf_url('eliminar.php?id=' . (int) $fila['id'])) ?>"
                         class="btn-eliminar-inst"
                         onclick="return confirm('¿Eliminar aviso?')"
                     >

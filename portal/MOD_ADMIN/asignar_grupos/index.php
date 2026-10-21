@@ -193,13 +193,18 @@ $asignaciones = mysqli_query($conn, "
 
                     <td>
 
-                        <a
-                            href="eliminar_asignacion.php?id=<?= $fila['id_asignacion']; ?>"
-                            class="btn-eliminar"
-                            onclick="return confirm('¿Desea eliminar esta asignación?')"
+                        <form
+                            method="POST"
+                            action="eliminar_asignacion.php"
+                            style="display:inline;margin:0"
+                            onsubmit="return confirm('¿Desea eliminar esta asignación?')"
                         >
-                            Eliminar
-                        </a>
+                            <?= sist_csrf_campo() ?>
+                            <input type="hidden" name="id" value="<?= (int) $fila['id_asignacion'] ?>">
+                            <button type="submit" class="btn-eliminar" style="border:none;cursor:pointer;font:inherit">
+                                Eliminar
+                            </button>
+                        </form>
 
                     </td>
 

@@ -92,9 +92,22 @@ function sist_permisos_sesion(): array
     return $_SESSION['permisos'];
 }
 
+/*
+ * Permisos de trabajo personal y confidencial de psicología: el ADMIN NO los hereda
+ * automáticamente (no debe ver motivos ni atender casos). Supervisa desde
+ * MOD_ADMIN/psicologia, que no muestra datos sensibles. Solo los tiene si se le
+ * asignan de forma explícita en la base de datos.
+ */
+const SIST_PERMISOS_SIN_ADMIN = [
+    'psicologia.avisar',
+    'psicologia.canalizar',
+    'psicologia.atender',
+    'psicologia.mi_seguimiento',
+];
+
 function tiene_permiso(string $clave): bool
 {
-    if (tiene_rol('ADMIN')) {
+    if (tiene_rol('ADMIN') && !in_array($clave, SIST_PERMISOS_SIN_ADMIN, true)) {
         return true;
     }
 
@@ -109,4 +122,38 @@ function requerir_permiso(string $clave): void
         sist_log('Acceso denegado a "' . $clave . '" (usuario ' . ($_SESSION['id_usuario'] ?? '?') . ')');
         sist_denegar(403);
     }
+}
+
+/*---------------------------------------------------------
+    PERTENENCIA: además del permiso, el dato debe ser suyo
+---------------------------------------------------------*/
+
+/** ¿El docente (usuarios.id_usuario) imparte ese grupo? (docente_grupos) */
+function sist_docente_imparte_grupo(mysqli $conn, int $idUsuario, string $grupo): bool
+{
+    if ($grupo === '') {
+        return false;
+    }
+
+    return (int) sist_db_valor(
+        $conn,
+        "SELECT COUNT(*)
+         FROM docente_grupos dg
+         JOIN personal_academico pa ON pa.id_personal = dg.id_personal
+         WHERE pa.id_usuario = ? AND dg.grupo = ?",
+        'is',
+        [$idUsuario, $grupo]
+    ) > 0;
+}
+
+/** ¿El alumno está activo y en ese grupo, y el docente lo imparte? */
+function sist_docente_tiene_alumno(mysqli $conn, int $idUsuario, int $idTutorado, string $grupo): bool
+{
+    return sist_docente_imparte_grupo($conn, $idUsuario, $grupo)
+        && (int) sist_db_valor(
+            $conn,
+            "SELECT COUNT(*) FROM tutorados WHERE id_tutorado = ? AND grupo = ? AND activo = 1",
+            'is',
+            [$idTutorado, $grupo]
+        ) > 0;
 }

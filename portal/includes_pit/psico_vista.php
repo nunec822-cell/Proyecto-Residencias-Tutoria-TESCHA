@@ -63,6 +63,25 @@ function ps_titulo(array $c): void
     <?php
 }
 
+/**
+ * Motivo del caso para el PSICÓLOGO. Distingue los casos que canalizó un tutor
+ * de los que registró un psicólogo (con sus observaciones privadas).
+ */
+function ps_motivo_psicologo(array $c): void
+{
+    if (($c['origen'] ?? 'TUTOR') === 'PSICOLOGO') { ?>
+        <div class="as-motivo"><b>Registrado por psicólogo · motivo:</b> <?= e($c['categoria_motivo'] ?? '—') ?></div>
+        <?php if (!empty($c['observaciones_psicologo'])): ?>
+            <div class="as-motivo"><b>🔒 Observaciones del psicólogo:</b> <?= nl2br(e($c['observaciones_psicologo'])) ?></div>
+        <?php endif;
+        return;
+    } ?>
+    <div class="as-motivo"><b>Motivo del tutor:</b> <?= e($c['motivo'] ?? '') ?></div>
+    <?php if (!empty($c['motivo_aviso'])): ?>
+        <div class="as-motivo"><b>Lo que observó el profesor:</b> <?= e($c['motivo_aviso']) ?></div>
+    <?php endif;
+}
+
 function ps_no_instalado(): void
 {
     ?>

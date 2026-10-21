@@ -13,11 +13,20 @@ include(
 ID TUTORADO
 =========================================*/
 
-$id_tutorado =
-mysqli_real_escape_string(
-    $conn,
-    $_GET['id_tutorado'] ?? 0
-);
+$id_tutorado = (int) ($_GET['id_tutorado'] ?? 0);
+
+/* Solo tutorados del tutor que inició sesión (tutorados.id_tutor = usuarios.id_usuario) */
+if ($id_tutorado > 0) {
+    $esMio = (int) sist_db_valor(
+        $conn,
+        "SELECT COUNT(*) FROM tutorados WHERE id_tutorado = ? AND id_tutor = ?",
+        'ii',
+        [$id_tutorado, (int) $_SESSION['id_usuario']]
+    );
+    if ($esMio === 0) {
+        $id_tutorado = 0;
+    }
+}
 
 if(
     empty(

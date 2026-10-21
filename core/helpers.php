@@ -112,6 +112,30 @@ function sist_requerir_csrf(): void
     }
 }
 
+/** Agrega el token a un enlace que modifica datos (eliminar, cambiar estado...) */
+function sist_csrf_url(string $url): string
+{
+    return $url . (str_contains($url, '?') ? '&' : '?') . 'csrf_token=' . urlencode(sist_csrf_token());
+}
+
+/** Para acciones que se disparan con un enlace (GET): exige el token en la URL, el formulario o la cabecera */
+function sist_requerir_csrf_enlace(): void
+{
+    $token = $_POST['csrf_token'] ?? $_GET['csrf_token'] ?? ($_SERVER['HTTP_X_CSRF_TOKEN'] ?? '');
+
+    if (!sist_csrf_validar(is_string($token) ? $token : '')) {
+        sist_denegar(419, 'El enlace expiró o no es válido. Recarga la página e inténtalo de nuevo.');
+    }
+}
+
+/** Para páginas que muestran (GET) y además guardan (POST): exige el token solo en POST */
+function sist_requerir_csrf_post(): void
+{
+    if (($_SERVER['REQUEST_METHOD'] ?? 'GET') === 'POST') {
+        sist_requerir_csrf();
+    }
+}
+
 /*---------------------------------------------------------
     SUBIDA DE ARCHIVOS SEGURA
     Misma firma que move_uploaded_file($tmp, $destino), pero:

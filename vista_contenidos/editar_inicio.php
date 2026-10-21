@@ -392,7 +392,7 @@ $fila = mysqli_fetch_assoc($resultado);
                         >
 
                         <a 
-                            href="eliminar_imagen.php?id=<?php echo $img['id']; ?>"
+                            href="<?= e(sist_csrf_url('eliminar_imagen.php?id=' . (int) $img['id'])) ?>"
                             class="btn-eliminar"
                         >
                             Eliminar

@@ -10,6 +10,7 @@ require_once("../../sesion.php");
 =========================================*/
 
 requerir_rol('TUTOR');
+sist_requerir_csrf_post();   /* el formulario debe traer el token de la sesión */
 
 
 include("../../base_pit/conect_pit.php");

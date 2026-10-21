@@ -3,6 +3,7 @@ require_once __DIR__ . '/../../core/bootstrap.php';
 // 🔥 RUTA BASE DINÁMICA
 $base_url = "http://" . $_SERVER['HTTP_HOST'] . (PORTAL_URL . "/");
 ?>
+<?php include __DIR__ . '/csrf.php'; /* token CSRF para formularios y AJAX */ ?>
 
 <style>
 

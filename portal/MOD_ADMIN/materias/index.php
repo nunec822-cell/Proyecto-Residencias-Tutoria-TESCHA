@@ -3,6 +3,7 @@ require_once __DIR__ . '/../../../core/bootstrap.php';
 require_once("../../sesion.php");
 
 requerir_rol('ADMIN');
+sist_requerir_csrf_post();   /* el formulario debe traer el token de la sesión */
 
 include("../../base_pit/conect_pit.php");
 ?>
@@ -32,6 +33,8 @@ if(isset($_POST["registrar"])){
     ELIMINAR
 =========================================*/
 if(isset($_GET["eliminar"])){
+
+    sist_requerir_csrf_enlace();   /* el enlace debe traer el token de la sesión */
 
     $id = intval($_GET["eliminar"]);
 
@@ -193,7 +196,7 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
                     <td>
 
                         <a
-                        href="?eliminar=<?= $fila["id_materia"] ?>"
+                        href="<?= e(sist_csrf_url('?eliminar=' . (int) $fila['id_materia'])) ?>"
                         class="btn-eliminar"
                         onclick="return confirm('¿Eliminar materia?')">
 

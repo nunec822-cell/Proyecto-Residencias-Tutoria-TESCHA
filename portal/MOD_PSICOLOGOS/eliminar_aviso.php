@@ -4,6 +4,7 @@ require_once __DIR__ . '/../../core/bootstrap.php';
 require_once("../sesion.php");
 
 requerir_rol('PSICOLOGO');
+sist_requerir_csrf_enlace();   /* el enlace debe traer el token de la sesión */
 
 require_once("../base_pit/conect_pit.php");
 

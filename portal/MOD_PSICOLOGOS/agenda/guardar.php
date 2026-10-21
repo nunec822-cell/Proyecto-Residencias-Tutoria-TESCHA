@@ -13,6 +13,7 @@ require_once("../../sesion.php");
 =========================================================*/
 
 requerir_rol('PSICOLOGO');
+sist_requerir_csrf_post();   /* el formulario debe traer el token de la sesión */
 
 
 /*=========================================================

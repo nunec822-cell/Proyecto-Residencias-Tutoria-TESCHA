@@ -128,6 +128,25 @@ $stmtAvisosInstitucionales->execute();
 $avisosInstitucionales =
     $stmtAvisosInstitucionales->get_result();
 
+/*=========================================================
+    CANALIZACIONES (resumen, gráficas y casos recientes)
+=========================================================*/
+
+$psicoListo   = sist_psico_listo($conn);
+$resumenPsico = null;
+$recientes    = [];
+
+if ($psicoListo) {
+    $resumenPsico = sist_psico_resumen_psicologo($conn, (int) $id_usuario);
+    $recientes    = sist_psico_listar(
+        $conn,
+        'psicologo',
+        ['id_psicologo' => (int) $id_usuario, 'abiertas' => 1],
+        5,
+        0
+    )['filas'];
+}
+
 ?>
 
 <!DOCTYPE html>
@@ -176,6 +195,49 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
     .sin-avisos h3,
     .grupo label {
         color: #5E1914 !important;
+    }
+
+    /* ---------- Sección de canalizaciones ---------- */
+    .canalizaciones-panel {
+        margin-top: 60px;
+        background: #fff;
+        border-radius: 30px;
+        padding: 45px;
+        box-shadow: 0 20px 45px rgba(0, 0, 0, .08);
+    }
+    .cp-header { display: flex; justify-content: space-between; align-items: center; gap: 30px; flex-wrap: wrap; margin-bottom: 30px; }
+    .cp-header h2 { font-size: 38px; color: #5E1914; margin-bottom: 10px; }
+    .cp-header p { color: #666; }
+    .cp-acciones { display: flex; gap: 12px; flex-wrap: wrap; }
+    .cp-acciones .btn-nuevo-aviso { text-decoration: none; display: inline-flex; align-items: center; gap: 8px; }
+    .cp-btn-sec {
+        display: inline-flex; align-items: center; gap: 8px; padding: 18px 28px; border-radius: 50px;
+        border: 2px solid #8A2E2E; color: #8A2E2E; font-weight: 700; text-decoration: none;
+    }
+    .cp-btn-sec:hover { background: #fdf2f2; }
+    .cp-stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(170px, 1fr)); gap: 16px; margin-bottom: 30px; }
+    .cp-stat {
+        background: #fdf2f2; border-radius: 20px; padding: 22px; display: flex; flex-direction: column; gap: 6px;
+        color: #5E1914; text-decoration: none; font-weight: 600;
+    }
+    .cp-num { font-size: 36px; font-weight: 800; }
+    .cp-graficas { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; margin-bottom: 30px; }
+    .cp-grafica, .cp-recientes { border: 1px solid #f1e3e3; border-radius: 20px; padding: 22px; }
+    .cp-grafica h3, .cp-recientes h3 { color: #5E1914; margin-bottom: 16px; font-size: 18px; }
+    .cp-ancha { grid-column: 1 / -1; }
+    .cp-lienzo { position: relative; height: 260px; }
+    .cp-ancha .cp-lienzo { height: 280px; }
+    .cp-vacio { color: #888; font-size: 14px; }
+    .cp-vacio a, .cp-tabla a { color: #8A2E2E; font-weight: 600; }
+    .cp-tabla-wrap { overflow-x: auto; }
+    .cp-tabla { width: 100%; border-collapse: collapse; font-size: 14px; }
+    .cp-tabla th { text-align: left; color: #5E1914; border-bottom: 2px solid #f1e3e3; padding: 10px 8px; }
+    .cp-tabla td { border-bottom: 1px solid #f6eded; padding: 10px 8px; vertical-align: top; }
+    .cp-tabla small { color: #888; }
+    @media (max-width: 700px) {
+        .canalizaciones-panel { padding: 24px 16px; border-radius: 20px; }
+        .cp-header h2 { font-size: 28px; }
+        .cp-graficas { grid-template-columns: 1fr; }
     }
 </style>
 <!-- FIN BLOQUE DE FUERZA VINO -->
@@ -244,6 +306,200 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
     </div>
 
 </section>
+
+
+<!--==================================================
+                CANALIZACIONES
+===================================================-->
+
+<?php if ($psicoListo && $resumenPsico !== null) { ?>
+
+<section class="canalizaciones-panel">
+
+    <div class="cp-header">
+
+        <div>
+
+            <span class="gestion-etiqueta">🧠 Atención psicológica</span>
+
+            <h2>Canalizaciones</h2>
+
+            <p>Resumen de los casos canalizados y de los que tienes en atención.</p>
+
+        </div>
+
+        <div class="cp-acciones">
+
+            <a href="nueva_canalizacion.php" class="btn-nuevo-aviso">
+                <i class="fa-solid fa-plus"></i> Nueva canalización
+            </a>
+
+            <a href="seguimiento/index.php" class="cp-btn-sec">
+                <i class="fa-solid fa-clipboard-list"></i> Ver todas
+            </a>
+
+        </div>
+
+    </div>
+
+    <div class="cp-stats">
+
+        <a href="seguimiento/index.php" class="cp-stat">
+            <span class="cp-num"><?php echo $resumenPsico['por_tomar']; ?></span>
+            <span>Por tomar</span>
+        </a>
+
+        <a href="seguimiento/index.php" class="cp-stat">
+            <span class="cp-num"><?php echo $resumenPsico['mis_activos']; ?></span>
+            <span>Mis casos en atención</span>
+        </a>
+
+        <div class="cp-stat">
+            <span class="cp-num"><?php echo $resumenPsico['mis_concluidos']; ?></span>
+            <span>Mis casos concluidos</span>
+        </div>
+
+        <div class="cp-stat">
+            <span class="cp-num"><?php echo $resumenPsico['total']; ?></span>
+            <span>Canalizaciones totales</span>
+        </div>
+
+    </div>
+
+    <?php
+    /* id => [título, tipo de gráfica, datos] */
+    $graficas = [
+        'g-motivo'   => ['Por motivo',            'doughnut', $resumenPsico['por_motivo']],
+        'g-estado'   => ['Estado de los casos',   'doughnut', $resumenPsico['por_estado']],
+        'g-carrera'  => ['Por carrera',           'barh',     $resumenPsico['por_carrera']],
+        'g-genero'   => ['Por género',            'pie',      $resumenPsico['por_genero']],
+        'g-semestre' => ['Por semestre',          'bar',      $resumenPsico['por_semestre']],
+        'g-edad'     => ['Por edad',              'bar',      $resumenPsico['por_edad']],
+        'g-apoyos'   => ['Apoyo que requieren',   'bar',      $resumenPsico['apoyos']],
+    ];
+    ?>
+
+    <div class="cp-graficas">
+
+        <?php foreach ($graficas as $idGrafica => [$tituloGrafica, $tipoGrafica, $datosGrafica]) { ?>
+
+        <div class="cp-grafica <?php echo $tipoGrafica === 'barh' ? 'cp-ancha' : ''; ?>">
+
+            <h3><?php echo e($tituloGrafica); ?></h3>
+
+            <?php if (!$datosGrafica) { ?>
+
+                <p class="cp-vacio">Sin datos todavía.</p>
+
+            <?php } else { ?>
+
+                <div class="cp-lienzo">
+                    <canvas id="<?php echo $idGrafica; ?>"></canvas>
+                </div>
+
+            <?php } ?>
+
+        </div>
+
+        <?php } ?>
+
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
+    <script>
+    (function () {
+        if (typeof Chart === 'undefined') return;
+
+        const graficas = <?php echo json_encode(
+            array_map(fn($g) => ['tipo' => $g[1], 'etiquetas' => array_keys($g[2]), 'valores' => array_values($g[2])], $graficas),
+            JSON_HEX_TAG | JSON_HEX_AMP | JSON_UNESCAPED_UNICODE
+        ); ?>;
+
+        const paleta = ['#5E1914', '#8A2E2E', '#B84A4A', '#D97B6C', '#E8A99B', '#C9A227', '#7A6A5A', '#3F3F46'];
+
+        Chart.defaults.font.family = getComputedStyle(document.body).fontFamily;
+        Chart.defaults.color = '#555';
+
+        Object.entries(graficas).forEach(([id, g]) => {
+            const lienzo = document.getElementById(id);
+            if (!lienzo || !g.valores.length) return;
+
+            const circular = g.tipo === 'doughnut' || g.tipo === 'pie';
+            const horizontal = g.tipo === 'barh';
+
+            new Chart(lienzo, {
+                type: horizontal ? 'bar' : g.tipo,
+                data: {
+                    labels: g.etiquetas,
+                    datasets: [{
+                        label: 'Canalizaciones',
+                        data: g.valores,
+                        backgroundColor: circular ? paleta : '#8A2E2E',
+                        hoverBackgroundColor: circular ? paleta : '#5E1914',
+                        borderColor: '#fff',
+                        borderWidth: circular ? 2 : 0,
+                        borderRadius: circular ? 0 : 8,
+                        maxBarThickness: 38
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    indexAxis: horizontal ? 'y' : 'x',
+                    plugins: {
+                        legend: { display: circular, position: 'bottom', labels: { boxWidth: 12, padding: 14 } }
+                    },
+                    scales: circular ? {} : {
+                        x: { beginAtZero: true, ticks: { precision: 0 }, grid: { display: horizontal } },
+                        y: { beginAtZero: true, ticks: { precision: 0 }, grid: { display: !horizontal } }
+                    }
+                }
+            });
+        });
+    })();
+    </script>
+
+    <div class="cp-recientes">
+
+        <h3>Mis casos abiertos</h3>
+
+        <?php if (!$recientes) { ?>
+
+            <p class="cp-vacio">
+                No tienes casos abiertos. Registra uno en
+                <a href="nueva_canalizacion.php">Nueva canalización</a>
+                o toma uno en <a href="seguimiento/index.php">Canalizaciones</a>.
+            </p>
+
+        <?php } else { ?>
+
+            <div class="cp-tabla-wrap">
+            <table class="cp-tabla">
+                <thead>
+                    <tr><th>Folio</th><th>Alumno</th><th>Carrera</th><th>Estado</th><th>Desde</th><th></th></tr>
+                </thead>
+                <tbody>
+                <?php foreach ($recientes as $c) { ?>
+                    <tr>
+                        <td><?php echo (int) $c['id_psico']; ?></td>
+                        <td><?php echo e($c['alumno']); ?><br><small><?php echo e($c['matricula']); ?></small></td>
+                        <td><?php echo e($c['carrera']); ?></td>
+                        <td><?php echo e(sist_psico_estado_texto($c['estado'])); ?></td>
+                        <td><?php echo e(sist_fecha_corta($c['fecha_toma'] ?: $c['fecha_creacion'])); ?></td>
+                        <td><a href="seguimiento/index.php?id=<?php echo (int) $c['id_psico']; ?>">Abrir →</a></td>
+                    </tr>
+                <?php } ?>
+                </tbody>
+            </table>
+            </div>
+
+        <?php } ?>
+
+    </div>
+
+</section>
+
+<?php } ?>
 
 
 <!--==================================================
@@ -464,7 +720,7 @@ if($avisos->num_rows > 0){
                 </a>
 
                 <a
-                href="eliminar_aviso.php?id=<?php echo $aviso["id_aviso"]; ?>"
+                href="<?= e(sist_csrf_url('eliminar_aviso.php?id=' . (int) $aviso['id_aviso'])) ?>"
                 class="btn-icon eliminar"
                 title="Eliminar"
                 onclick="return confirm('¿Deseas eliminar este aviso?');">

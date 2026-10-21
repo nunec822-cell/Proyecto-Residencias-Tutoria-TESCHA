@@ -15,8 +15,7 @@ sist_iniciar_sesion();
 
 require_once __DIR__ . '/base_pit/conect_pit.php';
 
-/* Hash de relleno: iguala el tiempo de respuesta cuando el usuario no existe */
-const SIST_HASH_RELLENO = '$2y$10$VNpbtN.Nzzhhy6iNF2bu7uUyfYH0ngyHlFOrTyBAOB9BszXaSzs2.';
+/* SIST_HASH_RELLENO (core/auth.php) iguala el tiempo de respuesta cuando el usuario no existe */
 
 function login_error(string $mensaje): void
 {

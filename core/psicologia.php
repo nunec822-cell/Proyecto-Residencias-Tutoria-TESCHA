@@ -778,6 +778,250 @@ function sist_psico_concluir(mysqli $conn, int $idPsicologo, int $idPsico): arra
 }
 
 /* =========================================================
+   REGISTRO DIRECTO DESDE EL PSICÓLOGO (migración 005)
+   El psicólogo registra al alumno y el caso queda EN_ATENCION
+   a su nombre; se avisa al alumno y a su tutor (sin datos sensibles).
+   Sus observaciones van en observaciones_psicologo: solo él las lee.
+========================================================= */
+
+const SIST_PSICO_CATEGORIAS = ['Bajo rendimiento', 'Ansiedad', 'Depresión', 'Problemas familiares', 'Conducta', 'Otro'];
+
+/** Estados que cuentan como canalización (sin avisos pendientes ni descartadas) */
+const SIST_PSICO_SQL_CANALIZADAS = "c.estado IN ('CANALIZADA','EN_ATENCION','CONCLUIDA')";
+
+/** ¿Está aplicada la migración 005 completa? */
+function sist_psico_datos_extra_listos(mysqli $conn): bool
+{
+    static $listo = null;
+
+    if ($listo === null) {
+        try {
+            $q = $conn->query("SHOW COLUMNS FROM psico_canalizaciones LIKE 'observaciones_psicologo'");
+            $listo = $q && $q->num_rows > 0;
+        } catch (Throwable $e) {
+            $listo = false;
+        }
+    }
+
+    return $listo;
+}
+
+/** Alumnos activos (para buscar por matrícula en el formulario del psicólogo) */
+function sist_psico_alumnos_activos(mysqli $conn): array
+{
+    return sist_db_filas(
+        $conn,
+        "SELECT t.matricula, " . sist_sql_nombre('t') . " AS alumno, t.carrera, t.grupo
+         FROM tutorados t WHERE t.activo = 1 ORDER BY t.matricula"
+    );
+}
+
+/** Entero opcional de un formulario: null si viene vacío, false si no es un número */
+function sist_psico_entero_opcional($valor)
+{
+    $valor = trim((string) $valor);
+    if ($valor === '') {
+        return null;
+    }
+
+    return ctype_digit($valor) ? (int) $valor : false;
+}
+
+/**
+ * $d: matricula, categoria_motivo, observaciones, generacion, semestre, genero, edad,
+ *     requiere_familiar, requiere_depresion, requiere_psiquiatrico
+ */
+function sist_psico_registrar_por_psicologo(mysqli $conn, int $idPsicologo, array $d): array
+{
+    $matricula     = trim((string) ($d['matricula'] ?? ''));
+    $categoria     = trim((string) ($d['categoria_motivo'] ?? ''));
+    $observaciones = trim((string) ($d['observaciones'] ?? ''));
+    $generacion    = trim((string) ($d['generacion'] ?? ''));
+    $genero        = (string) ($d['genero'] ?? '');
+    $semestre      = sist_psico_entero_opcional($d['semestre'] ?? '');
+    $edad          = sist_psico_entero_opcional($d['edad'] ?? '');
+    $fam           = empty($d['requiere_familiar']) ? 0 : 1;
+    $dep           = empty($d['requiere_depresion']) ? 0 : 1;
+    $psi           = empty($d['requiere_psiquiatrico']) ? 0 : 1;
+
+    if ($matricula === '' || mb_strlen($matricula) > 20) {
+        return ['ok' => false, 'error' => 'Escribe la matrícula del alumno.'];
+    }
+    if (!in_array($categoria, SIST_PSICO_CATEGORIAS, true)) {
+        return ['ok' => false, 'error' => 'Selecciona un motivo de la lista.'];
+    }
+    if (mb_strlen($observaciones) > 1500) {
+        return ['ok' => false, 'error' => 'Las observaciones no pueden pasar de 1500 caracteres.'];
+    }
+    if (mb_strlen($generacion) > 20) {
+        return ['ok' => false, 'error' => 'La generación no es válida (ej. 2024-2028).'];
+    }
+    if ($semestre === false || ($semestre !== null && ($semestre < 1 || $semestre > 14))) {
+        return ['ok' => false, 'error' => 'El semestre debe estar entre 1 y 14.'];
+    }
+    if (!in_array($genero, ['', 'M', 'F', 'Otro'], true)) {
+        return ['ok' => false, 'error' => 'El género no es válido.'];
+    }
+    if ($edad === false || ($edad !== null && ($edad < 14 || $edad > 99))) {
+        return ['ok' => false, 'error' => 'La edad debe estar entre 14 y 99.'];
+    }
+
+    try {
+        $conn->begin_transaction();
+
+        if (!in_array($idPsicologo, sist_usuarios_por_rol($conn, 'PSICOLOGO'), true)) {
+            $conn->rollback();
+            return ['ok' => false, 'error' => 'Tu usuario no es un psicólogo activo.'];
+        }
+
+        /* FOR UPDATE: dos registros simultáneos del mismo alumno no pueden pasar ambos el chequeo de duplicado */
+        $al = sist_db_filas(
+            $conn,
+            "SELECT t.id_tutorado, t.id_usuario, t.id_tutor, " . sist_sql_nombre('t') . " AS alumno
+             FROM tutorados t WHERE t.matricula = ? AND t.activo = 1 FOR UPDATE",
+            's',
+            [$matricula]
+        );
+        if (!$al) {
+            $conn->rollback();
+            return ['ok' => false, 'error' => 'No hay un alumno activo con la matrícula ' . $matricula . '.'];
+        }
+        $al = $al[0];
+
+        $idTutorado = (int) $al['id_tutorado'];
+        $idTutor    = (int) ($al['id_tutor'] ?? 0);   /* 0 = sin tutor asignado: no se le avisa a nadie */
+
+        $dup = sist_psico_abierto_de($conn, $idTutorado);
+        if ($dup) {
+            $conn->rollback();
+            return ['ok' => false, 'error' => 'Ese alumno ya tiene un proceso abierto (folio ' . $dup . ').'];
+        }
+
+        $observacionesDb = $observaciones !== '' ? $observaciones : null;
+        $generacionDb    = $generacion !== '' ? $generacion : null;
+        $generoDb        = $genero !== '' ? $genero : null;
+
+        $ins = sist_db_preparar(
+            $conn,
+            "INSERT INTO psico_canalizaciones
+                (id_tutorado, id_tutor, id_psicologo, categoria_motivo, observaciones_psicologo, generacion, semestre,
+                 genero, edad, requiere_familiar, requiere_depresion, requiere_psiquiatrico,
+                 estado, origen, fecha_canalizacion, fecha_toma)
+             VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, 'EN_ATENCION', 'PSICOLOGO', NOW(), NOW())"
+        );
+        $ins->bind_param(
+            'iiisssisiiii',
+            $idTutorado, $idTutor, $idPsicologo, $categoria, $observacionesDb, $generacionDb,
+            $semestre, $generoDb, $edad, $fam, $dep, $psi
+        );
+        sist_db_ejecutar($ins, 'registrar canalización (psicólogo)');
+        $id = (int) $conn->insert_id;
+        $ins->close();
+
+        if ($id <= 0) {
+            throw new RuntimeException('No se obtuvo el folio.');
+        }
+
+        $psicologo = sist_nombre_psicologo($conn, $idPsicologo);
+        $folio     = 'Folio ' . $id;
+
+        sist_notificar(
+            $conn, [(int) $al['id_usuario']], 'PSICO_TOMADA', 'Inició tu proceso de atención psicológica',
+            $folio . '. El psicólogo ' . $psicologo . ' abrió tu proceso de atención. Te avisará por aquí la fecha, '
+                . 'el horario y el lugar de tus sesiones.',
+            'MOD_TUTORADO/psicologia/index.php'
+        );
+        sist_notificar(
+            $conn, [$idTutor], 'PSICO_TOMADA', 'Un psicólogo abrió un proceso para tu tutorado',
+            $folio . '. El psicólogo ' . $psicologo . ' abrió un proceso de atención para ' . $al['alumno'] . '.',
+            'MOD_TUTOR/psicologia/index.php?id=' . $id
+        );
+
+        $conn->commit();
+
+        return ['ok' => true, 'error' => '', 'id' => $id, 'alumno' => $al['alumno']];
+    } catch (Throwable $e) {
+        try { $conn->rollback(); } catch (Throwable $e2) {}
+        sist_log('sist_psico_registrar_por_psicologo: ' . $e->getMessage());
+
+        return ['ok' => false, 'error' => 'No se pudo registrar la canalización. Intenta de nuevo.'];
+    }
+}
+
+/**
+ * Resumen para el inicio del psicólogo (2 consultas en total).
+ * Tarjetas: por_tomar, mis_activos, mis_concluidos, total.
+ * Gráficas ([etiqueta => n]): por_estado, por_motivo, por_carrera, por_genero, por_semestre, por_edad, apoyos.
+ */
+function sist_psico_resumen_psicologo(mysqli $conn, int $idPsicologo): array
+{
+    $extra = sist_psico_datos_extra_listos($conn);
+    $donde = ' WHERE ' . SIST_PSICO_SQL_CANALIZADAS;
+
+    /* 1) Conteos en una sola pasada */
+    $t = sist_db_filas(
+        $conn,
+        "SELECT COUNT(*) AS total,
+                COALESCE(SUM(c.estado = 'CANALIZADA' AND c.id_psicologo IS NULL), 0) AS por_tomar,
+                COALESCE(SUM(c.estado = 'EN_ATENCION'), 0) AS en_atencion,
+                COALESCE(SUM(c.estado = 'CONCLUIDA'), 0) AS concluidas,
+                COALESCE(SUM(c.estado = 'EN_ATENCION' AND c.id_psicologo = ?), 0) AS mis_activos,
+                COALESCE(SUM(c.estado = 'CONCLUIDA' AND c.id_psicologo = ?), 0) AS mis_concluidos"
+         . ($extra ? ",
+                COALESCE(SUM(c.requiere_familiar), 0) AS fam,
+                COALESCE(SUM(c.requiere_depresion), 0) AS dep,
+                COALESCE(SUM(c.requiere_psiquiatrico), 0) AS psi" : '')
+         . " FROM psico_canalizaciones c" . $donde,
+        'ii',
+        [$idPsicologo, $idPsicologo]
+    )[0];
+
+    $r = [
+        'por_tomar'      => (int) $t['por_tomar'],
+        'mis_activos'    => (int) $t['mis_activos'],
+        'mis_concluidos' => (int) $t['mis_concluidos'],
+        'total'          => (int) $t['total'],
+        'por_estado'     => array_filter([
+            'Por tomar'   => (int) $t['por_tomar'],
+            'En atención' => (int) $t['en_atencion'],
+            'Concluidas'  => (int) $t['concluidas'],
+        ]),
+        'apoyos'         => $extra ? array_filter([
+            'Familiar'     => (int) $t['fam'],
+            'Depresión'    => (int) $t['dep'],
+            'Psiquiátrico' => (int) $t['psi'],
+        ]) : [],
+        'por_motivo' => [], 'por_carrera' => [], 'por_genero' => [], 'por_semestre' => [], 'por_edad' => [],
+    ];
+
+    /* 2) Todas las agrupaciones en una sola consulta: (dim, etiqueta, n, orden) */
+    $partes = [
+        "SELECT 'por_carrera' AS dim, t.carrera AS etiqueta, COUNT(*) AS n, 0 AS orden
+         FROM psico_canalizaciones c JOIN tutorados t ON t.id_tutorado = c.id_tutorado $donde GROUP BY t.carrera",
+    ];
+    if ($extra) {
+        $partes[] = "SELECT 'por_motivo', COALESCE(c.categoria_motivo, 'Canalizado por tutor'), COUNT(*), 0
+                     FROM psico_canalizaciones c $donde GROUP BY 2";
+        $partes[] = "SELECT 'por_genero', CASE c.genero WHEN 'M' THEN 'Masculino' WHEN 'F' THEN 'Femenino' ELSE c.genero END,
+                            COUNT(*), 0
+                     FROM psico_canalizaciones c $donde AND c.genero IS NOT NULL GROUP BY c.genero";
+        $partes[] = "SELECT 'por_semestre', CONCAT(c.semestre, '°'), COUNT(*), c.semestre
+                     FROM psico_canalizaciones c $donde AND c.semestre IS NOT NULL GROUP BY c.semestre";
+        $partes[] = "SELECT 'por_edad', CASE WHEN c.edad < 18 THEN 'Menos de 18' WHEN c.edad <= 20 THEN '18 a 20'
+                                             WHEN c.edad <= 23 THEN '21 a 23' WHEN c.edad <= 26 THEN '24 a 26'
+                                             ELSE '27 o más' END,
+                            COUNT(*), MIN(c.edad)
+                     FROM psico_canalizaciones c $donde AND c.edad IS NOT NULL GROUP BY 2";
+    }
+
+    foreach (sist_db_filas($conn, implode(' UNION ALL ', $partes) . ' ORDER BY dim, orden, n DESC') as $f) {
+        $r[$f['dim']][$f['etiqueta']] = (int) $f['n'];
+    }
+
+    return $r;
+}
+
+/* =========================================================
    CONSULTAS (columnas según el perfil de quien mira)
 ========================================================= */
 
@@ -796,6 +1040,15 @@ function sist_psico_listar(mysqli $conn, string $perfil, array $f, int $limite, 
         'profesor'  => ', c.motivo_aviso',
         'publico'   => '',
     ][$perfil] ?? '';
+
+    /* Migración 005: origen del caso para todos; motivo general para psicólogo y tutor;
+       las observaciones del psicólogo SOLO con el perfil 'psicologo' */
+    if (sist_psico_datos_extra_listos($conn)) {
+        $sensibles .= ', c.origen' . ([
+            'psicologo' => ', c.categoria_motivo, c.observaciones_psicologo',
+            'tutor'     => ', c.categoria_motivo',
+        ][$perfil] ?? '');
+    }
 
     $donde  = [];
     $tipos  = '';

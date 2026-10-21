@@ -569,7 +569,11 @@ document.addEventListener(
 
                     encodeURIComponent(
                         accionSeleccionada
-                    );
+                    ) +
+
+                    "&csrf_token=" +
+
+                    encodeURIComponent(window.__sistCsrf || "");
 
 
                 window.location.href =

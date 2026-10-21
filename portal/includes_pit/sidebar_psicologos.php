@@ -13,6 +13,7 @@ $pagina_actual = $_SERVER['PHP_SELF'];
 
 $base_url = PORTAL_URL;
 ?>
+<?php include __DIR__ . '/csrf.php'; /* token CSRF para formularios y AJAX */ ?>
 
 <!--=========================================
     BARRA SUPERIOR
@@ -251,6 +252,21 @@ $base_url = PORTAL_URL;
         <i class="fas fa-clipboard-list"></i>
 
         <span>Canalizaciones</span>
+
+    </a>
+
+</li>
+
+<li>
+
+    <a
+        href="<?= $base_url ?>/MOD_PSICOLOGOS/nueva_canalizacion.php"
+        class="<?= (basename($pagina_actual) === 'nueva_canalizacion.php') ? 'activo' : ''; ?>"
+    >
+
+        <i class="fas fa-user-plus"></i>
+
+        <span>Nueva canalización</span>
 
     </a>
 

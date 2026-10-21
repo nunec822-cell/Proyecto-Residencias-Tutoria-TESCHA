@@ -699,7 +699,7 @@ if(
 
                 <a
 
-                    href="../canalizar_anexo14/cerrar.php?id=<?= $id_tutorado; ?>"
+                    href="<?= e(sist_csrf_url('../canalizar_anexo14/cerrar.php?id=' . (int) $id_tutorado)) ?>"
 
                     class="btn-canalizar"
 
